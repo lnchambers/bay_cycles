@@ -28,5 +28,11 @@ describe "As a Visitor" do
 
       expect(page).to have_content("Installation Date: #{@station.installation_date}")
     end
+
+    it "I can't see admin buttons" do
+      visit stations_path
+
+      expect(page).to_not have_content("Edit")
+    end
   end
 end
