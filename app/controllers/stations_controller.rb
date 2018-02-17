@@ -1,5 +1,6 @@
 class StationsController < ApplicationController
   before_action :find_station, only: [:edit, :show, :update, :destroy]
+  before_action :require_admin, only: [:edit, :update, :destroy, :new]
 
   def index
     @stations = Station.all
