@@ -1,3 +1,4 @@
+<%= link_to "Create New Station", new_station_path if current_admin? %>
 <% @stations.each do |station| %>
   Name: <%= station.name %>
   Dock Count: <%= station.dock_count %>
