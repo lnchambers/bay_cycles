@@ -4,7 +4,7 @@
 
 # Benefits (why)
 
-# Possbile Drawbacks (optional)
+# Possible Drawbacks (optional)
 
 # Checklist:
 
