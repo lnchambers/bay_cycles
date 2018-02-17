@@ -29,8 +29,10 @@ class StationsController < ApplicationController
 
   def update
     if @station.update(station_params)
+      flash[:notice] = "Station updated"
       redirect_to station_path(@station)
     else
+      flash[:notice] = "Station not updated. Try again."
       render :edit
     end
   end
