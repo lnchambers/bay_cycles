@@ -11,4 +11,12 @@ describe "As a visitor" do
       expect(page).to have_content("The page you were looking for doesn't exist")
     end
   end
+
+  describe "when I try to visit stations/new" do
+    it "I am redirected to a 404 page" do
+      visit new_station_path
+
+      expect(page).to have_content("The page you were looking for doesn't exist")
+    end
+  end
 end
