@@ -31,7 +31,7 @@ describe "As a registered user or admin" do
     it "I can see the fewest bikes available at a station and the station name" do
       visit stations_dashboard_path
 
-      expect(page).to have_content("Fewest Bikes Avalailable: 1 at #{@station.name}")
+      expect(page).to have_content("Fewest Bikes Available: 1 at #{@station.name}")
     end
 
     it "I can see the oldest station" do
