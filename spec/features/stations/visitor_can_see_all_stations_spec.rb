@@ -33,6 +33,7 @@ describe "As a Visitor" do
       visit stations_path
 
       expect(page).to_not have_content("Edit")
+      expect(page).to_not have_content("Delete")
     end
   end
 end

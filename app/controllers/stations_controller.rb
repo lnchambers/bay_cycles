@@ -39,6 +39,7 @@ class StationsController < ApplicationController
 
   def destroy
     @station.destroy
+    flash[:notice] = "Station deleted =("
     redirect_to stations_path
   end
 
