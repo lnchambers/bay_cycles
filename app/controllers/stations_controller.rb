@@ -50,7 +50,7 @@ class StationsController < ApplicationController
     end
 
     def find_station
-      @station = Station.find(params[:id])
+      @station = Station.friendly.find(params[:id])
     end
 
 end

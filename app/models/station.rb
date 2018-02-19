@@ -1,4 +1,7 @@
 class Station < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
+
   validates_presence_of :name, :dock_count, :city, :installation_date
 
   def self.average_bike_count

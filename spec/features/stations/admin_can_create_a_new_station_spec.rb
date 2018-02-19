@@ -15,7 +15,7 @@ describe "As an Admin" do
       fill_in "station[installation_date]", with: Time.now
       click_on "Create Station"
 
-      expect(current_path).to eq("/stations/1")
+      expect(current_path).to eq("/stations/opakawagalaga")
       expect(page).to have_content("Name: Opakawagalaga")
     end
 
