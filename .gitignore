@@ -19,3 +19,4 @@
 .byebug_history
 
 /db/development_data
+/db/data/*
