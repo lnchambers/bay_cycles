@@ -1,14 +1,14 @@
 FactoryBot.define do
   factory :user do
-    name "User"
-    password "User"
-    email "UserEmail"
+    name "Normal Joe"
+    password "normalestjoe"
+    email "joe@Email.joe"
   end
 
   factory :admin, class: User do
-    name "Admin"
-    password "Admin"
-    email "AdminEmail"
+    name "Super Joe"
+    password "superestjoe"
+    email "superjoe@email.joe"
     role 1
   end
 end
