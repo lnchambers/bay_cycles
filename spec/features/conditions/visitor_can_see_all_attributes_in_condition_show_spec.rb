@@ -41,11 +41,11 @@ describe "As a visitor" do
       expect(page).to have_content("Mean Visibility: #{@condition.mean_visibility} miles")
     end
 
-    # it "I see the conditions mean wind speed (mph)" do
-    #   visit conditions_path
+    it "I see the conditions mean wind speed (mph)" do
+      visit conditions_path
 
-    #   expect(page).to have_content("Mean Wind Speed: #{@condition.mean_wind_speed}mph")
-    # end
+      expect(page).to have_content("Mean Wind Speed: #{@condition.mean_wind_speed}mph")
+    end
 
     # it "I see the conditions precipitation (inches)" do
     #   visit conditions_path
