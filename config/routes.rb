@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :stations
 
-  resources :users, only: [:new]
+  resources :users, except: [:index, :destroy]
 
   get "/stations-dashboard", :to => "stations_dashboard#index"
 
