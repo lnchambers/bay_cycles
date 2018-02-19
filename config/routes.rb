@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   resources :stations
+
   resources :conditions
 
   resources :users, except: [:index, :destroy, :show]
+  
+  resources :trips
 
   get "/stations-dashboard", :to => "stations_dashboard#index"
 
