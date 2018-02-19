@@ -11,11 +11,11 @@ describe "As a visitor" do
       expect(page).to have_content("Date: #{@condition.date}")
     end
 
-    # it "I see the conditions max temperature" do
-    #   visit conditions_path
+    it "I see the conditions max temperature" do
+      visit conditions_path
 
-    #   expect(page).to have_content("Max Temperature: #{@condition.max_temperature}")
-    # end
+      expect(page).to have_content("Max Temperature: #{@condition.max_temperature}")
+    end
 
     # it "I see the conditions mean temperature" do
     #   visit conditions_path
