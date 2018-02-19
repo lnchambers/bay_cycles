@@ -23,11 +23,11 @@ describe "As a visitor" do
       expect(page).to have_content("Mean Temperature: #{@condition.mean_temperature}")
     end
 
-    # it "I see the conditions min temperature" do
-    #   visit conditions_path
+    it "I see the conditions min temperature" do
+      visit conditions_path
 
-    #   expect(page).to have_content("Min Temperature: #{@condition.min_temperature}")
-    # end
+      expect(page).to have_content("Min Temperature: #{@condition.min_temperature}")
+    end
 
     # it "I see the conditions mean humidity" do
     #   visit conditions_path
