@@ -6,5 +6,7 @@ FactoryBot.define do
     bike_id 1
     subscription_type "MyString"
     zip_code 1
+    start_station_id station
+    end_station_id station, name: "Station 2"
   end
 end
