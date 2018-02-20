@@ -23,7 +23,7 @@ describe "As a visitor" do
 
       visit trips_path
       click_on "Next"
-      save_and_open_page
+  
       expect(page).to have_content(@trips[30].id)
       expect(page).to have_content(@trips[30].duration)
       expect(page).to have_content(@trips[59].duration)
