@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "As a visitor" do
+describe "As a Visitor" do
   before :all do
     @station = create(:station)
     @trip = create(:trip)
