@@ -8,7 +8,7 @@ describe "As a visitor" do
   describe "when I visit a trip show page" do
     it "I see all attributes for trip" do
       visit trip_path(@trip)
-
+      save_and_open_page
       expect(page).to have_content(@trip.duration)
       expect(page).to have_content(@trip.start_date)
       expect(page).to have_content(@trip.start_station.name)
