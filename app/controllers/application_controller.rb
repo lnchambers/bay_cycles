@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
     render file: "/public/404" unless current_user
   end
 
+  def require_login
+    flash[:notice] = "Please log in first" unless current_user
+    redirect_to login_path unless current_user
+  end
+
   def current_user
   @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end

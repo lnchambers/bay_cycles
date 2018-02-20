@@ -25,7 +25,7 @@ describe "As a registered User or Admin" do
     it "visitor cannot get to the edit user page" do
       visit edit_user_path(@user)
 
-      expect(page).to have_content("The page you were looking for doesn't exist")
+      expect(page).to have_content("Please log in first")
     end
 
     it "I cannot edit another users path" do
