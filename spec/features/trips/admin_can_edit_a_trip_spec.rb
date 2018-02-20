@@ -19,6 +19,7 @@ describe "As an Admin" do
 
       expect(current_path).to eq(trip_path(@trip))
       expect(page).to have_content("100")
+      expect(page).to have_content("Trip updated")
     end
   end
 end
