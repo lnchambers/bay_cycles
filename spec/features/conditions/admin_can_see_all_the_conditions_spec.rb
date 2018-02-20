@@ -21,9 +21,15 @@ describe 'As an Admin' do
     end
 
     it "I can also see a delete button" do
-      visit stations_path
+      visit conditions_path
 
       expect(page).to have_content("Delete")
+    end
+
+      it "I can also see an edit button" do
+      visit conditions_path
+
+      expect(page).to have_content("Edit")
     end
   end
 end
