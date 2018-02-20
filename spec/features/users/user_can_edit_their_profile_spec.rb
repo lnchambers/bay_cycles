@@ -25,14 +25,14 @@ describe "As a registered User or Admin" do
     it "visitor cannot get to the edit user page" do
       visit edit_user_path(@user)
 
-      expect(page).to have_content("The page you were looking for was not found")
+      expect(page).to have_content("The page you were looking for doesn't exist")
     end
 
     it "I cannot edit another users path" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
       visit edit_user_path(@user)
 
-      expect(page).to have_content("The page you were looking for was not found")
+      expect(page).to have_content("Edit your profile, #{@admin.name}")
     end
   end
 
