@@ -1,0 +1,147 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$off-white: #EBECF0;
+$dark-blue: #021838;
+$blue-grey: #9F9AA4;
+$pastel-orange: #F3A464;
+$sky-blue: #93A8E7;
+$light-transparent: rgba(0,0,0,0.4);
+$dark-transparent: rgba(0,0,0,0.7);
+
+body {
+  margin: 0px;
+  background-color: $off-white;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: $sky-blue;
+}
+
+a:hover {
+  color: $pastel-orange;
+}
+
+a:active {
+  color: $blue-grey;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  background-color: $dark-blue;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: $off-white;
+}
+
+.footer h2 {
+  font-size: 12pt;
+  margin-right: 20px;
+}
+
+.welcome-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-header {
+  background-image: url(welcome-header.jpeg);
+  background-position: center;
+  background-size: cover;
+  height: 110px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+}
+
+.welcome-header-title {
+  width: 100%;
+  height: 65%;
+  font-family: 'Poiret One';
+  color: $pastel-orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-header-title h1 {
+  font-size: 45pt;
+  font-weight: bold;
+  width: 100%;
+  background: linear-gradient($dark-transparent, $light-transparent);
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-header-nav {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-links {
+  width: 25%;
+  height: 100%;
+  font-size: 20pt;
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-links a {
+  background: linear-gradient($light-transparent, $dark-transparent);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-container-main {
+  background: url(welcome-background.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 850px;
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-about {
+  background: $light-transparent;
+  width: 50%;
+  height: 50%;
+  color: $off-white;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

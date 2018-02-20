@@ -1,2 +1,20 @@
-<%= render partial: "form" %>
-<%= link_to "Create Account", new_user_path %>
+<section class="welcome-container">
+  <section class="welcome-header">
+    <section class="welcome-header-title">
+      <h1>Bay Cycles</h1>
+    </section>
+    <section class="welcome-header-nav">
+      <div class="welcome-links"><%= link_to "Stations", stations_path %></div>
+      <div class="welcome-links"><%= link_to "Trips", trips_path %></div>
+      <div class="welcome-links"><%= link_to "Weather", conditions_path %></div>
+      <%= render partial: "login" if !current_user %>
+      <%= render partial: "logout" if current_user %>
+    </section>
+  </section>
+  <section class="welcome-container-main">
+    <section class="welcome-about">
+      <%= render partial: "form" %>
+      <%= link_to "Create Account", new_user_path %>
+    </section>
+  </section>
+</section>
