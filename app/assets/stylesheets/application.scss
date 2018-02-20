@@ -23,7 +23,7 @@ $light-transparent: rgba(0,0,0,0.4);
 $dark-transparent: rgba(0,0,0,0.7);
 
 body {
-  margin: 0px
+  margin: 0px;
   background-color: $off-white;
   font-family: 'Roboto', sans-serif;
 }
@@ -52,9 +52,22 @@ a.active {
   align-items: center;
 }
 
+.footer h2 {
+  font-size: 12pt;
+}
+
+.welcome-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .welcome-header {
   background-image: url(welcome-header.jpeg);
-  height: 10%;
+  background-position: center;
+  background-size: cover;
+  height: 110px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -65,25 +78,41 @@ a.active {
   width: 100%;
   height: 65%;
   font-family: 'Poiret One';
+  color: $pastel-orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-header-title h1 {
+  font-size: 45pt;
+  background: linear-gradient($light-transparent, $dark-transparent);
 }
 
 .welcome-header-nav {
   width: 100%;
-  height: 45%;
-  background: linear-gradient(top, $light-transparent, $dark-transparent);
-  display: flex
-  justify-content: space-around;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .welcome-links {
   width: 25%;
   height: 100%;
+  font-size: 20pt;
+  background: inherit;
+  display: flex;
+  justify-content: center;
 }
 
-.welcome-container {
+.welcome-container-main {
   background: url(welcome-background.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
-  height: 85%;
+  height: 850px;
   display: flex;
   justify-content: center;
   align-items: center;
