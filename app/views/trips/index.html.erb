@@ -8,5 +8,6 @@
   <%= trip.bike_id %> <br>
   <%= trip.subscription_type %> <br>
   <%= trip.zip_code %> <br>
+  <%= link_to "Delete", trip_path(trip), method: "delete" if current_admin? %>
 <% end %>
 <%= paginate @trips %> <br>

@@ -6,3 +6,4 @@
 <%= @trip.bike_id %>
 <%= @trip.subscription_type %>
 <%= @trip.zip_code %>
+<%= link_to "Delete", trip_path(@trip), method: "delete" if current_admin? %>
