@@ -46,10 +46,11 @@ a.active {
   bottom: 0px;
   width: 100%;
   height: 5%;
-  background-color: $pastel-orange;
+  background-color: $dark-blue;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  color: $off-white;
 }
 
 .footer h2 {
@@ -95,15 +96,24 @@ a.active {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: solid $dark-blue;
 }
 
 .welcome-links {
   width: 25%;
   height: 100%;
   font-size: 20pt;
-  background: inherit;
   display: flex;
   justify-content: center;
+}
+
+.welcome-links a {
+  background: linear-gradient($light-transparent, $dark-transparent);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .welcome-container-main {
@@ -115,12 +125,12 @@ a.active {
   height: 850px;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .welcome-about {
-  background: $dark-transparent;
+  background: $light-transparent;
   width: 50%;
   height: 50%;
   color: $off-white;
+  margin-top: 50px;
 }

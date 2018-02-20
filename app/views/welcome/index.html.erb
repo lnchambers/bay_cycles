@@ -7,8 +7,8 @@
       <div class="welcome-links"><%= link_to "Stations", stations_path %></div>
       <div class="welcome-links"><%= link_to "Trips", trips_path %></div>
       <div class="welcome-links"><%= link_to "Weather", conditions_path %></div>
-      <div class="welcome-links"><%= link_to "Login", login_path if !current_user %></div>
-      <div class="welcome-links"><%= link_to "Logout", logout_path, method: "delete" if current_user %></div>
+      <%= render partial: "login" if !current_user %>
+      <%= render partial: "logout" if current_user %>
     </section>
   </section>
   <section class="welcome-container-main">
