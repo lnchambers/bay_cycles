@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   resources :stations
+
+  resources :trips
+
   resources :conditions
 
   resources :users, except: [:index, :destroy, :show]
