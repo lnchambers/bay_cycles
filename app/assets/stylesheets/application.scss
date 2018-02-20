@@ -75,6 +75,8 @@ a:active {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  position: sticky;
+  top: 0px;
 }
 
 .welcome-header-title {
@@ -90,7 +92,10 @@ a:active {
 .welcome-header-title h1 {
   font-size: 45pt;
   font-weight: bold;
+  width: 100%;
   background: linear-gradient($dark-transparent, $light-transparent);
+  display: flex;
+  justify-content: center;
 }
 
 .welcome-header-nav {
