@@ -8,4 +8,5 @@ class ConditionsController < ApplicationController
     @condition = Condition.find(params[:id])
   end
 
+
 end
