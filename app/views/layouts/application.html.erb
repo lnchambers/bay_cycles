@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Roboto" rel="stylesheet">
   </head>
 
   <body>
@@ -13,5 +14,8 @@
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>
     <%= yield %>
+    <footer class="footer">
+      <h2>Made with Love By <%= link_to "Luis Senior", "https://github.com/Heybluguy" %>, <%= link_to "Ellen Cornelius", "https://github.com/corneliusellen" %>, and <%= link_to "Luke Chambers", "https://github.com/lnchambers" %></h2>
+    </footer>
   </body>
 </html>
