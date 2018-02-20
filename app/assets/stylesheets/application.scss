@@ -33,19 +33,19 @@ a {
   color: $sky-blue;
 }
 
-a.hover {
-  color: $blue-grey;
+a:hover {
+  color: $pastel-orange;
 }
 
-a.active {
-  color: $sky-blue;
+a:active {
+  color: $blue-grey;
 }
 
 .footer {
   position: sticky;
   bottom: 0px;
   width: 100%;
-  height: 5%;
+  height: 50px;
   background-color: $dark-blue;
   display: flex;
   justify-content: flex-end;
@@ -55,6 +55,7 @@ a.active {
 
 .footer h2 {
   font-size: 12pt;
+  margin-right: 20px;
 }
 
 .welcome-container {
@@ -72,10 +73,11 @@ a.active {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .welcome-header-title {
-  background: inherit;
   width: 100%;
   height: 65%;
   font-family: 'Poiret One';
@@ -87,7 +89,8 @@ a.active {
 
 .welcome-header-title h1 {
   font-size: 45pt;
-  background: linear-gradient($light-transparent, $dark-transparent);
+  font-weight: bold;
+  background: linear-gradient($dark-transparent, $light-transparent);
 }
 
 .welcome-header-nav {
@@ -96,7 +99,6 @@ a.active {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: solid $dark-blue;
 }
 
 .welcome-links {
@@ -133,4 +135,8 @@ a.active {
   height: 50%;
   color: $off-white;
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
