@@ -6,23 +6,73 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 station_file = "db/development_data/station.csv"
-trip_file = "db/development_data/trip.csv"
+twip_file = "db/development_data/trip.csv"
 weather_file = "db/development_data/weather.csv"
 
-station_file_options = {header_transformations: [ key_mapping: {name: :name, dock_count: :dock_count, city: :city, installation_date: :installation_date} ] }
+puts "Processing Stations"
+stations = SmarterCSV.process(station_file)
+puts "Stations processed"
 
-puts "Processing..."
+puts "Processing Twips"
+twips = SmarterCSV.process(twip_file)
+puts "Twips processed"
+binding.pry
 
-stations = SmarterCSV.process( station_file, station_file_options )
-# trips = SmarterCSV.process( trip_file )
-# conditions = SmarterCSV.process( weather_file )
+puts "Processing Conditions"
+conditions = SmarterCSV.process(weather_file)
+puts "Conditions processed"
 
 puts "Cleaning Data..."
 
-binding.pry
+stations.each do |station|
+  station[:installation_date] = Date.strptime(station[:installation_date], '%m/%d/%y')
+end
+
+conditions.each do |condition|
+  condition[:date] = Date.strptime(condition[:date], '%m/%d/%y')
+end
+
+twips.each do |twip|
+  twip[:start_date] = Date.strptime(twip[:start_date], '%m/%d/%y')
+  twip[:end_date] = Date.strptime(twip[:end_date], '%m/%d/%y')
+end
 
 stations.each do |station|
+  Station.create!(
+                  id: station[:id],
+                  name: station[:name],
+                  dock_count: station[:dock_count],
+                  city: station[:city],
+                  installation_date: station[:installation_date]
+                 )
+  puts "Created #{station[:name]}!"
+end
+
+conditions.each do |condition|
+  condition = Condition.create!(
+                  date: condition[:date],
+                  max_temperature: condition[:max_temperature_f],
+                  mean_temperature: condition[:mean_temperature_f],
+                  min_temperature: condition[:min_temperature_f],
+                  mean_humidity: condition[:mean_humidity],
+                  mean_visibility: condition[:mean_visibility_miles],
+                  mean_wind_speed: condition[:mean_wind_speed_mph],
+                  precipitation: condition[:precipitation_inches]
+                )
+  puts "Condition #{condition[:id]} created!"
+end
+
+twips.each do |twip|
   binding.pry
-  Station.create!(id: station[:id], name: station[:name], dock_count: station[:dock_count], city: station[:city], installation_date: station[:installation_date])
-  puts "Created #{station[:name]}"
+  twip = Trip.create!(
+                  duration: twip[:duration],
+                  start_date: twip[:start_date],
+                  end_date: twip[:end_date],
+                  bike_id: twip[:bike_id],
+                  subscription_type: twip[:subscription_type],
+                  zip_code: twip[:zip_code],
+                  start_station_id: twip[:start_station_id],
+                  end_station_id: twip[:end_station_id]
+  )
+  puts "Twip #{twip[:id]} created!"
 end
