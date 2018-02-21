@@ -19,8 +19,8 @@ describe Trip, type: :model do
       @station_2 = create(:station)
       @station_3 = create(:station)
       @trip_1 = create(:trip, start_station_id: @station_1.id, end_station_id: @station_2.id)
-      @trip_2 = create(:trip, start_station_id: @station_1.id, end_station_id: @station_3.id)
-      @trip_3 = create(:trip, start_station_id: @station_2.id, end_station_id: @station_3.id)
+      @trip_2 = create(:trip, start_date: "2018-06-19 12:27:55", end_date: "2018-06-19 12:27:55", start_station_id: @station_1.id, end_station_id: @station_3.id)
+      @trip_3 = create(:trip, start_date: "2018-06-19 12:27:55", end_date: "2018-06-19 12:27:55", start_station_id: @station_2.id, end_station_id: @station_3.id, bike_id: 2)
     end
 
     describe ".average_duration" do
@@ -55,6 +55,22 @@ describe Trip, type: :model do
       it "returns station with the most rides as an ending place" do
 
         expect(Trip.end_station_ordered_by_rides.first.end_station_id).to eq(@station_3.id)
+      end
+    end
+
+    describe ".monthly_breakdown_of_rides" do
+      it "returns month by month breakdown of number of rides with subtotals for each year" do
+        expect(Trip.monthly_breakdown_of_rides.first.month).to eq(6.0)
+        expect(Trip.monthly_breakdown_of_rides.last.month).to eq(2.0)
+      end
+    end
+
+    describe ".ordered_by_used_bike" do
+      it "returns most ridden bike" do
+        expect(Trip.ordered_by_used_bike.first.bike_id).to eq(1)
+        expect(Trip.ordered_by_used_bike.first.count).to eq(2)
+        expect(Trip.ordered_by_used_bike.last.bike_id).to eq(2)
+        expect(Trip.ordered_by_used_bike.last.count).to eq(1)
       end
     end
   end
