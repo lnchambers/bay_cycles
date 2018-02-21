@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'friendly_id', '~> 5.1.0'
 gem 'kaminari'
 gem 'smarter_csv'
+gem 'fastest-csv'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
