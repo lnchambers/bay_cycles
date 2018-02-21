@@ -16,6 +16,7 @@ class Trip < ApplicationRecord
     maximum(:duration)
   end
 
+<<<<<<< HEAD
   def self.start_station_most_rides
     select("start_station_id, count(start_station_id)")
     .group("start_station_id")
@@ -76,5 +77,17 @@ class Trip < ApplicationRecord
     .group("start_date")
     .order("count(start_date) desc")
     .last
+=======
+  def self.start_station_ordered_by_rides
+    select("start_station_id, count(start_station_id)")
+    .group("start_station_id")
+    .order("count(start_station_id) desc")
+  end
+
+  def self.end_station_ordered_by_rides
+    select("end_station_id, count(end_station_id)")
+    .group("end_station_id")
+    .order("count(end_station_id) desc")
+>>>>>>> Continue working on ActiveRecord methods for trips.
   end
 end
