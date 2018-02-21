@@ -27,4 +27,16 @@ class Trip < ApplicationRecord
     .group("end_station_id")
     .order("count(end_station_id) desc")
   end
+
+  def self.monthly_breakdown_of_rides
+    select("extract(month from start_date) as month, count(start_date)")
+    .group("start_date")
+    .order("count(start_date) desc")
+  end
+
+  def self.ordered_by_used_bike
+    select("bike_id, count(bike_id)")
+    .group("bike_id")
+    .order("count(bike_id) desc")
+  end
 end
