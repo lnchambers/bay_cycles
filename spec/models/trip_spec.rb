@@ -14,12 +14,47 @@ describe Trip, type: :model do
   end
 
   describe "class methods" do
+    before :all do
+      @station_1 = create(:station)
+      @station_2 = create(:station)
+      @station_3 = create(:station)
+      @trip_1 = create(:trip, start_station_id: @station_1.id, end_station_id: @station_2.id)
+      @trip_2 = create(:trip, start_station_id: @station_1.id, end_station_id: @station_3.id)
+      @trip_3 = create(:trip, start_station_id: @station_2.id, end_station_id: @station_3.id)
+    end
+
     describe ".average_duration" do
       it "returns average duration of all trips" do
-        @station = create(:station)
-        @trips = create_list(:trip, 3)
-        
+
         expect(Trip.average_duration).to eq(66)
+      end
+    end
+
+    describe ".shortest_ride" do
+      it "returns average duration of all trips" do
+
+        expect(Trip.shortest_ride).to eq(65)
+      end
+    end
+
+    describe ".longest_ride" do
+      it "returns average duration of all trips" do
+
+        expect(Trip.longest_ride).to eq(67)
+      end
+    end
+
+    describe ".start_station_ordered_by_rides" do
+      it "returns station with the most rides as a starting place" do
+
+        expect(Trip.start_station_ordered_by_rides.first.start_station_id).to eq(@station_1.id)
+      end
+    end
+
+    describe ".end_station_ordered_by_rides" do
+      it "returns station with the most rides as an ending place" do
+
+        expect(Trip.end_station_ordered_by_rides.first.end_station_id).to eq(@station_3.id)
       end
     end
   end
