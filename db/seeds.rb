@@ -5,37 +5,51 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-station_file = "db/development_data/station.csv"
-twip_file = "db/development_data/trip.csv"
-weather_file = "db/development_data/weather.csv"
+station_file = "db/fixture_data/station.csv"
+twip_file = "db/fixture_data/trip.csv"
+weather_file = "db/fixture_data/weather.csv"
 
-puts "Processing Stations"
+puts "Parsing Stations"
 stations = SmarterCSV.process(station_file)
 puts "Stations processed"
 
-puts "Processing Twips"
+puts "Parsing Twips"
 twips = SmarterCSV.process(twip_file)
 puts "Twips processed"
-binding.pry
 
-puts "Processing Conditions"
+puts "Parsing Conditions"
 conditions = SmarterCSV.process(weather_file)
 puts "Conditions processed"
 
 puts "Cleaning Data..."
 
+puts "Cleaning Stations"
 stations.each do |station|
   station[:installation_date] = Date.strptime(station[:installation_date], '%m/%d/%y')
 end
+puts "Stations clean"
 
+puts "Cleaning Conditions"
 conditions.each do |condition|
   condition[:date] = Date.strptime(condition[:date], '%m/%d/%y')
+  condition[:max_temperature_f] = condition[:max_temperature_f] || "0"
+  condition[:min_temperature_f] = condition[:min_temperature_f] || "0"
+  condition[:mean_temperature_f] = condition[:mean_temperature_f] || "0"
+  condition[:mean_humidity] = condition[:mean_humidity] || "0"
+  condition[:mean_visibility_miles] = condition[:mean_visibility_miles] || "0"
+  condition[:mean_wind_speed_mph] = condition[:mean_wind_speed_mph] || "0"
+  condition[:precipitation_inches] = condition[:precipitation_inches] || "0"
 end
+puts "Conditions clean"
 
+puts "Cleaning Twips"
 twips.each do |twip|
   twip[:start_date] = Date.strptime(twip[:start_date], '%m/%d/%y')
   twip[:end_date] = Date.strptime(twip[:end_date], '%m/%d/%y')
+  twip[:zip_code] = twip[:zip_code] || "00000"
+  twip[:zip_code] = twip[:zip_code].to_s[0, 5].to_i
 end
+puts "Twips clean"
 
 stations.each do |station|
   Station.create!(
@@ -63,7 +77,6 @@ conditions.each do |condition|
 end
 
 twips.each do |twip|
-  binding.pry
   twip = Trip.create!(
                   duration: twip[:duration],
                   start_date: twip[:start_date],
@@ -73,6 +86,6 @@ twips.each do |twip|
                   zip_code: twip[:zip_code],
                   start_station_id: twip[:start_station_id],
                   end_station_id: twip[:end_station_id]
-  )
+                )
   puts "Twip #{twip[:id]} created!"
 end
