@@ -12,4 +12,15 @@ describe Trip, type: :model do
     it { is_expected.to belong_to(:start_station) }
     it { is_expected.to belong_to(:end_station) }
   end
+
+  describe "class methods" do
+    describe ".average_duration" do
+      it "returns average duration of all trips" do
+        @station = create(:station)
+        @trips = create_list(:trip, 3)
+        
+        expect(Trip.average_duration).to eq(66)
+      end
+    end
+  end
 end
