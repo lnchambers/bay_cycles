@@ -14,6 +14,7 @@ describe Trip, type: :model do
   end
 
   describe "class methods" do
+<<<<<<< HEAD
     before :all do
       @station_1 = create(:station)
       @station_2 = create(:station)
@@ -117,6 +118,14 @@ describe Trip, type: :model do
       it "returns single date with the lowest number of trips and count of those trips" do
         expect(Trip.least_popular_ride_date.start_date.to_date.to_s).to eq("2018-02-19")
         expect(Trip.least_popular_ride_date.count).to eq(1)
+=======
+    describe ".average_duration" do
+      it "returns average duration of all trips" do
+        @station = create(:station)
+        @trips = create_list(:trip, 3)
+        
+        expect(Trip.average_duration).to eq(66)
+>>>>>>> Create spec for trips class methods. Modify Trip Factory Bot to sequence.
       end
     end
   end
