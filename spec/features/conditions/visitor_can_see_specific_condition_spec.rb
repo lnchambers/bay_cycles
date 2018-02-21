@@ -9,9 +9,9 @@ describe 'As a visitor' do
       visit condition_path(@condition)
 
     expect(page).to have_content("Date: #{@condition.date}")
-  end
+    end
 
-  it "I see the conditions max temperature" do
+    it "I see the conditions max temperature" do
       visit conditions_path
 
       expect(page).to have_content("Max Temperature: #{@condition.max_temperature}")
@@ -52,10 +52,6 @@ describe 'As a visitor' do
 
       expect(page).to have_content("Precipitation: #{@condition.precipitation} inches")
     end
-
-
-
-
 
   end
 end

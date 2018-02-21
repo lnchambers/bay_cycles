@@ -6,9 +6,9 @@ describe 'As an Admin' do
     @condition = create(:condition)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
   end
-  describe 'when I visit the conditions index page' do
-    it 'I can see everything a visitor can see' do
-      visit conditions_path
+  describe 'when I visit the condition show page' do
+    it 'I can see all the attributes' do
+      visit condition_path(@condition)
 
       expect(page).to have_content("Date: #{@condition.date}")
       expect(page).to have_content("Max Temperature: #{@condition.max_temperature}")
@@ -21,13 +21,13 @@ describe 'As an Admin' do
     end
 
     it "I can also see a delete button" do
-      visit conditions_path
+      visit condition_path(@condition)
 
       expect(page).to have_content("Delete")
     end
 
     it "I can also see an edit button" do
-      visit conditions_path
+      visit condition_path(@condition)
 
       expect(page).to have_content("Edit")
     end
