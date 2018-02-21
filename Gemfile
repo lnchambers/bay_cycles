@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'friendly_id', '~> 5.1.0'
 gem 'kaminari'
+gem 'smarter_csv'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -46,7 +47,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'factory_bot_rails', "~> 4.0"
-  gem "nyan-cat-formatter"
+  gem 'nyan-cat-formatter'
 end
 
 group :development do
