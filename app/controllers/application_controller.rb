@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :current_admin?, :made_with
+  helper_method :current_user, :current_admin?, :made_with_adjective, :made_with_nouns
 
   def require_admin
     render file: "/public/404" unless current_admin?
@@ -24,12 +24,21 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin?
   end
 
-  def made_with
+  def made_with_adjective
     [
-    "Malice of Forethought", "Careful Minelaying", "Overflowing Love", "Changing Intentions", "Different Ideas",
-    "Revolving Pinatas", "Generous Crocodiles", "Pure Coffee", "Random Arrays", "Fortunate Cookies",
-    "Goliath Trucks", "Some Code", "5 Year Old's Help", "General Kenobi", "Xenoplastic Morphology", "Ellen's Positivity",
-    "Luis' Artistic Genius", "Luke's Ideaologies"
+      "Malicious", "Careful", "Overflowing", "Changing", "Different",
+      "Revolving", "Generous", "Pure", "Random", "Fortunate",
+      "Goliath", "Some", "5 Year Old's", "General", "Xenoplastic", "Ellen's",
+      "Luis'", "Luke's"
+    ]
+  end
+
+  def made_with_nouns
+    [
+      "Forethought", "Minelaying", "Love", "Intentions", "Ideas",
+      "Pinatas", "Crocodiles", "Coffee", "Arrays", "Cookies",
+      "Trucks", "Code", "Help", "Kenobis", "Morphology", "Positivity",
+      "Artistic Genius", "Ideaologies"
     ]
   end
 end

@@ -24,4 +24,9 @@ Rails.application.routes.draw do
     get "/dashboard", :to => "dashboard#show"
   end
 
+  get "/bike-shop", :to => "accessory#index"
+
+  namespace :bike_shop do
+    resources :accessories, except: [:index]
+  end
 end
