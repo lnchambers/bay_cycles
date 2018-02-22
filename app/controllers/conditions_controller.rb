@@ -36,6 +36,12 @@ class ConditionsController < ApplicationController
     end
   end
 
+  def destroy
+    @condition.destroy
+    flash[:notice] = "Condition deleted"
+    redirect_to conditions_path
+  end
+
     private
       def condition_params
         params.require(:condition).permit(:date, :max_temperature, :mean_temperature, :min_temperature, :mean_humidity, :mean_visibility, :mean_wind_speed, :precipitation)
