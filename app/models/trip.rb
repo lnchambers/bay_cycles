@@ -126,6 +126,14 @@ class Trip < ApplicationRecord
     .order("count(subscription_type) desc")
   end
 
+  def self.subscription_type_percentage_first
+    (subscription_type_breakout.first.count / all.count.to_f * 100).round(1)
+  end
+
+  def self.subscription_type_percentage_last
+    (subscription_type_breakout.last.count / all.count.to_f * 100).round(1)
+  end
+
   def self.most_popular_ride_date
     select("start_date, count(start_date)")
     .group("start_date")
