@@ -29,4 +29,6 @@ Rails.application.routes.draw do
   namespace :bike_shop do
     resources :accessories, except: [:index]
   end
+
+  resources :carts, only: [:create]
 end
