@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_each :set_cart
+  before_action :set_cart
 
   helper_method :current_user, :current_admin?, :made_with_adjective, :made_with_nouns
 
