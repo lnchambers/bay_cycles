@@ -5,9 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-station_file = "db/fixture_data/station.csv"
-twip_file = "db/fixture_data/trip.csv"
-weather_file = "db/fixture_data/weather.csv"
+def zip_code_cleaner(zip)
+  if zip
+    zip.to_s[0, 5]
+  else
+    "00000"
+  end
+end
+
+station_file = "db/development_data/station.csv"
+twip_file = "db/development_data/trip.csv"
+weather_file = "db/development_data/weather.csv"
 
 start_time = Time.now
 FastestCSV.open(station_file) do |csv|
@@ -28,13 +36,12 @@ FastestCSV.open(twip_file) do |csv|
   csv.shift
   while values = csv.shift
     twip = Trip.create!(
-      id: values[0],
       duration: values[1],
       start_date: Date.strptime(values[2], '%m/%d/%y'),
       end_date: Date.strptime(values[5], '%m/%d/%y'),
       bike_id: values[8],
       subscription_type: values[9],
-      zip_code: values[10].to_s[0, 5] || "00000",
+      zip_code: zip_code_cleaner(values[10]),
       start_station_id: values[4],
       end_station_id: values[7]
     )
