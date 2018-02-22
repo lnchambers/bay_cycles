@@ -66,7 +66,7 @@ a:active {
 }
 
 .welcome-header {
-  background-image: url(welcome-header.jpeg);
+  background-image: image-url('welcome-header.jpeg');
   background-position: center;
   background-size: cover;
   height: 110px;
@@ -124,7 +124,7 @@ a:active {
 }
 
 .welcome-container-main {
-  background: url(welcome-background.jpeg);
+  background: image-url('welcome-background.jpeg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

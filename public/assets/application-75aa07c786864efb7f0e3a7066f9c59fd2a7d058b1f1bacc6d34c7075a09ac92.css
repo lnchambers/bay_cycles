@@ -114,7 +114,7 @@ a:active {
 
 /* line 69, /Users/lukechambers/turing/2module/projects/bay_cycle/app/assets/stylesheets/application.scss */
 .welcome-header {
-  background-image: url(welcome-header.jpeg);
+  background-image: url(/assets/welcome-header-3b5cdbb05f4ca8c8427a1169c0c814dbc673c8b6e97b8e9349851a20fb876afa.jpg);
   background-position: center;
   background-size: cover;
   height: 110px;
@@ -178,7 +178,7 @@ a:active {
 
 /* line 127, /Users/lukechambers/turing/2module/projects/bay_cycle/app/assets/stylesheets/application.scss */
 .welcome-container-main {
-  background: url(welcome-background.jpeg);
+  background: url(/assets/welcome-background-a8a14425b75757f89b60e0f53240700338b7931d14cc5a09f02f3e78be33fb97.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
