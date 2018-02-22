@@ -3,5 +3,5 @@
   <%= accessory.name %>
   <%= accessory.description %>
   <%= accessory.price %>
-  <%= button_to "Add to Cart", carts_path %>
+  <%= button_to "Add to Cart", carts_path(accessory: accessory.id) %>
 <% end %>

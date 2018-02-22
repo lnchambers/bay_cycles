@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <%= link_to "Cart(#{@cart.contents.total_count})", carts_path%>
+    <%= link_to "Cart(#{@cart.total_count})", carts_path%>
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>

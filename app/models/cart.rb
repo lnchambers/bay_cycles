@@ -10,7 +10,6 @@ class Cart
   end
 
   def add_accessory(accessory)
-    binding.pry
     @contents[accessory.to_s] += 1
   end
 end
