@@ -19,3 +19,8 @@
 .byebug_history
 
 /db/development_data
+
+# Ignore application configuration
+/config/application.yml
+
+/public/assets
