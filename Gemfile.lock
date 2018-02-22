@@ -74,6 +74,7 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
+    fastest-csv (0.0.4)
     ffi (1.9.21)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
@@ -236,6 +237,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   factory_bot_rails (~> 4.0)
+  fastest-csv
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
   kaminari

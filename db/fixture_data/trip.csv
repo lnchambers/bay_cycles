@@ -1,6 +1,6 @@
 id,duration,start_date,start_station_name,start_station_id,end_date,end_station_name,end_station_id,bike_id,subscription_type,zip_code
 4377,289,2/26/2014 12:27,Market at Sansome,55,2/26/2014 12:32,Temporary Transbay Terminal (Howard at Beale),56,471,Subscriber,94965
-4600,291,2/26/2014 14:33,San Pedro Square,63,2/26/2014 14:38,San Jose City Hall,10,57,Subscriber,95138
+4600,291,2/26/2014 14:33,San Pedro Square,63,2/26/2014 14:38,San Jose City Hall,57,57,Subscriber,95138
 4959,292,2/26/2014 19:18,Townsend at 7th,64,2/26/2014 19:23,San Francisco Caltrain 2 (330 Townsend),61,361,Customer,94109
 4828,293,2/26/2014 17:41,Palo Alto Caltrain Station,58,2/26/2014 17:46,University and Emerson,59,160,Subscriber,94107
 4450,298,2/26/2014 13:01,Embarcadero at Vallejo,59,2/26/2014 13:06,Davis at Jackson,57,598,Subscriber,94109
@@ -44,12 +44,12 @@ id,duration,start_date,start_station_name,start_station_id,end_date,end_station_
 4745,360,1/17/2014 16:52,Embarcadero at Folsom,55,1/17/2014 16:58,Temporary Transbay Terminal (Howard at Beale),55,271,Subscriber,94133
 4955,360,1/17/2014 19:15,Golden Gate at Polk,59,1/17/2014 19:21,Market at 10th,62,498,Subscriber,94608
 4785,361,1/17/2014 17:13,Yerba Buena Center of the Arts (3rd @ Howard),61,1/17/2014 17:19,San Francisco Caltrain (Townsend at 4th),59,562,Subscriber,94401
-4730,362,1/17/2014 16:37,Townsend at 7th,65,1/17/2014 16:43,San Francisco Caltrain (Townsend at 4th),59,615,Subscriber,94112
+4730,362,1/17/2014 16:37,Townsend at 7th,64,1/17/2014 16:43,San Francisco Caltrain (Townsend at 4th),59,615,Subscriber,94112
 4786,362,1/17/2014 17:14,Market at 10th,63,1/17/2014 17:20,Golden Gate at Polk,59,351,Subscriber,94597
 4447,363,1/17/2014 13:00,Steuart at Market,64,1/17/2014 13:06,Spear at Folsom,59,341,Subscriber,94112
 5032,363,2/27/2014 20:33,San Jose Civic Center,62,2/27/2014 20:39,San Pedro Square,61,603,Customer,95123
 4312,369,2/27/2014 12:06,Commercial at Montgomery,55,2/27/2014 12:12,Mechanics Plaza (Market at Battery),60,378,Subscriber,94117
-4695,369,2/27/2014 16:05,Townsend at 7th,65,2/27/2014 16:11,San Francisco Caltrain (Townsend at 4th),59,431,Customer,95118
+4695,369,2/27/2014 16:05,Townsend at 7th,64,2/27/2014 16:11,San Francisco Caltrain (Townsend at 4th),59,431,Customer,95118
 4700,369,2/27/2014 16:12,Davis at Jackson,58,2/27/2014 16:18,Grant Avenue at Columbus Avenue,63,510,Customer,23160
 4875,370,2/27/2014 18:08,Embarcadero at Sansome,60,2/27/2014 18:14,Davis at Jackson,63,421,Subscriber,94110
 4659,371,2/27/2014 15:32,Powell at Post (Union Square),61,2/27/2014 15:38,Post at Kearney,57,538,Customer,94102
@@ -68,7 +68,7 @@ id,duration,start_date,start_station_name,start_station_id,end_date,end_station_
 4408,385,8/31/2013 12:41,5th at Howard,57,8/31/2013 12:48,Powell at Post (Union Square),61,538,Customer,37206
 4961,387,8/31/2013 19:21,Temporary Transbay Terminal (Howard at Beale),55,8/31/2013 19:28,5th at Howard,57,471,Subscriber,94103
 5099,387,8/31/2013 22:35,San Jose Civic Center,63,8/31/2013 22:41,San Jose Diridon Caltrain Station,62,635,Subscriber,95126
-4725,388,8/31/2013 16:34,Embarcadero at Bryant,54,8/31/2013 16:41,Steuart at Market,54,277,Subscriber,94109
+4725,388,8/31/2013 16:34,Embarcadero at Bryant,55,8/31/2013 16:41,Steuart at Market,55,277,Subscriber,94109
 4347,389,8/31/2013 12:15,San Jose City Hall,60,8/31/2013 12:21,San Pedro Square,63,146,Subscriber,95112
 5095,390,8/31/2013 22:15,Market at Sansome,55,8/31/2013 22:21,Steuart at Market,64,501,Subscriber,94115
 5102,392,8/31/2013 22:53,San Francisco Caltrain (Townsend at 4th),59,8/31/2013 23:00,Howard at 2nd,63,348,Customer,37206
