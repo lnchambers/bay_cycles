@@ -3,6 +3,7 @@ require "rails_helper"
 describe "As a Visitor" do
   before :all do
     create(:accessory)
+    Cart.new({"1" => 1})
   end
   describe "when I visit /bike-shop" do
     it "I can click add to cart for an item" do

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_each :set_cart
 
   helper_method :current_user, :current_admin?, :made_with_adjective, :made_with_nouns
 
@@ -22,6 +23,10 @@ class ApplicationController < ActionController::Base
 
   def current_admin?
     current_user && current_user.admin?
+  end
+
+  def set_cart
+    @cart ||= Cart.new(session[:cart])
   end
 
   def made_with_adjective
