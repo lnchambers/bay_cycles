@@ -27,8 +27,9 @@ end
 FastestCSV.open(twip_file) do |csv|
   csv.shift
   while values = csv.shift
-    twip = Trip.create(
-      duration: values[2],
+    twip = Trip.create!(
+      id: values[0],
+      duration: values[1],
       start_date: Date.strptime(values[2], '%m/%d/%y'),
       end_date: Date.strptime(values[5], '%m/%d/%y'),
       bike_id: values[8],
