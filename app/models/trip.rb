@@ -17,6 +17,7 @@ class Trip < ApplicationRecord
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   def self.start_station_most_rides
     select("start_station_id, count(start_station_id)")
     .group("start_station_id")
@@ -79,16 +80,24 @@ class Trip < ApplicationRecord
     .last
 =======
   def self.start_station_ordered_by_rides
+=======
+  def self.start_station_most_rides
+>>>>>>> Refactor trip model tests and methods. Passing tests.
     select("start_station_id, count(start_station_id)")
     .group("start_station_id")
     .order("count(start_station_id) desc")
+    .first
   end
 
-  def self.end_station_ordered_by_rides
+  def self.end_station_most_rides
     select("end_station_id, count(end_station_id)")
     .group("end_station_id")
     .order("count(end_station_id) desc")
+<<<<<<< HEAD
 >>>>>>> Continue working on ActiveRecord methods for trips.
+=======
+    .first
+>>>>>>> Refactor trip model tests and methods. Passing tests.
   end
 
   def self.monthly_breakdown_of_rides
@@ -97,9 +106,37 @@ class Trip < ApplicationRecord
     .order("count(start_date) desc")
   end
 
-  def self.ordered_by_used_bike
+  def self.most_ridden_bike
     select("bike_id, count(bike_id)")
     .group("bike_id")
     .order("count(bike_id) desc")
+    .first
+  end
+
+  def self.least_ridden_bike
+    select("bike_id, count(bike_id)")
+    .group("bike_id")
+    .order("count(bike_id) desc")
+    .last
+  end
+
+  def self.subscription_type_breakout
+    select("subscription_type, count(subscription_type)")
+    .group("subscription_type")
+    .order("count(subscription_type) desc")
+  end
+
+  def self.most_popular_ride_date
+    select("start_date, count(start_date)")
+    .group("start_date")
+    .order("count(start_date) desc")
+    .first
+  end
+
+  def self.least_popular_ride_date
+    select("start_date, count(start_date)")
+    .group("start_date")
+    .order("count(start_date) desc")
+    .last
   end
 end
