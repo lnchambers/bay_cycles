@@ -76,5 +76,5 @@ class Trip < ApplicationRecord
     .group("start_date")
     .order("count(start_date) desc")
     .last
-  end 
+  end
 end

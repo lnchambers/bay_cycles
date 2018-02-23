@@ -92,6 +92,7 @@ describe Trip, type: :model do
       it "returns least ridden bike" do
         expect(Trip.least_ridden_bike.bike_id).to eq(2)
         expect(Trip.least_ridden_bike.count).to eq(1)
+        binding.pry
       end
     end
 
@@ -99,10 +100,8 @@ describe Trip, type: :model do
       it "returns user subscription type breakout with both count and percentage" do
         expect(Trip.subscription_type_breakout.first.subscription_type).to eq("Subscriber")
         expect(Trip.subscription_type_breakout.first.count).to eq(2)
-        expect(Trip.subscription_type_percentage_first).to eq(66.7)
         expect(Trip.subscription_type_breakout.last.subscription_type).to eq("Customer")
         expect(Trip.subscription_type_breakout.last.count).to eq(1)
-        expect(Trip.subscription_type_percentage_last).to eq(33.3)
       end
     end
 
