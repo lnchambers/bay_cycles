@@ -67,3 +67,7 @@ FastestCSV.open(weather_file) do |csv|
 end
 end_time = Time.now
 puts "#{end_time - start_time} seconds to import records. You do the math"
+
+User.create!(name: "Luke", email: "Luke", password: "password", role: 1)
+User.create!(name: "Ellen", email: "Ellen", password: "password", role: 1)
+User.create!(name: "Luis", email: "Luis", password: "password", role: 1)
