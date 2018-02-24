@@ -5,15 +5,15 @@ class Trip < ApplicationRecord
   belongs_to :end_station, class_name: 'Station'
 
   def self.average_duration
-    average(:duration)
+    average(:duration).to_i / 60
   end
 
   def self.shortest_ride
-    minimum(:duration)
+    minimum(:duration) / 60
   end
 
   def self.longest_ride
-    maximum(:duration)
+    maximum(:duration) / 60
   end
 
   def self.start_station_most_rides
