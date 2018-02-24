@@ -92,7 +92,6 @@ describe Trip, type: :model do
       it "returns least ridden bike" do
         expect(Trip.least_ridden_bike.bike_id).to eq(2)
         expect(Trip.least_ridden_bike.count).to eq(1)
-        binding.pry
       end
     end
 

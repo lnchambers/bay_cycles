@@ -29,8 +29,58 @@ describe "As a registered User or Admin" do
   end
 
   describe "when I visit /trips-dashboard" do
-    it "I see ..." do
-      
+    it "I see average duration of a ride" do
+      trips = [@trip_1.duration, @trip_2.duration, @trip_3.duration]
+
+      expect(page).to have_content(trips.sum / trips.size)
+    end
+
+    it "I see the shortest ride" do
+      expect(page).to have_content(@trip_1.duration)
+    end
+
+    it "I see the longest ride" do
+      expect(page).to have_content(@trip_3.duration)
+    end
+
+    it "I see the station with the most rides as a starting place" do
+      expect(page).to have_content(@trip_1.id)
+    end
+
+    it "I see the station with the most rides as an ending place" do
+      expect(page).to have_content(@trip_3.id)
+    end
+
+    it "I see month by month breakdown of number of rides with subtotals for each year" do
+      expect(page).to have_content(6)
+      expect(page).to have_content(2)
+    end
+
+    it "I see most ridden bike with total number of rides for that bike" do
+      expect(page).to have_content(1)
+      expect(page).to have_content(2)
+    end
+
+    it "I see least ridden bike with total number of rides for that bike" do
+      expect(page).to have_content(2)
+      expect(page).to have_content(1)
+    end
+
+    it "I see user subscription type breakout with both count and percentage" do
+      expect(page).to have_content("Subscriber")
+      expect(page).to have_content(2)
+      expect(page).to have_content("Customer")
+      expect(page).to have_content(1)
+    end
+
+    it "I see a single date with the highest number of trips with a count of those trips" do
+      expect(page).to have_content("2018-06-19")
+      expect(page).to have_content(2)
+    end
+
+    it "I see a single date with the lowest number of trips with a count of those trips" do
+      expect(page).to have_content("2018-02-19")
+      expect(page).to have_content(1)
     end
   end
 end
