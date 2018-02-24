@@ -47,8 +47,8 @@ class ConditionsController < ApplicationController
         params.require(:condition).permit(:date, :max_temperature, :mean_temperature, :min_temperature, :mean_humidity, :mean_visibility, :mean_wind_speed, :precipitation)
       end
 
-       def find_condition
-      @condition = Condition.find(params[:id])
-    end
+      def find_condition
+        @condition = Condition.find(params[:id])
+      end
 
 end

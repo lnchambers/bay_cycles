@@ -17,7 +17,7 @@ class Admin::TripsController < Admin::BaseController
   end
 
   def edit
-    binding.pry
+
   end
 
   def update
