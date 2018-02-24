@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get "/stations-dashboard", :to => "stations_dashboard#index"
 
+  get "/trips-dashboard", :to => "trips_dashboard#index"
+
   get "/dashboard", :to => "users#show"
 
   get "/login", to: "sessions#new"

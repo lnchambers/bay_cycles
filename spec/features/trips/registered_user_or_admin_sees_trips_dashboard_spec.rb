@@ -25,7 +25,9 @@ describe "As a registered User or Admin" do
                   )
   end
   before :each do
+    @user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    visit trips_dashboard_path
   end
 
   describe "when I visit /trips-dashboard" do
