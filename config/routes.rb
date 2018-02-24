@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :stations
 
-  resources :trips
+  resources :trips, except: [:new, :edit]
 
   resources :conditions
 
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/dashboard", :to => "dashboard#show"
-    resources :trips, except: [:show, :index]
+    resources :trips, only: [:new, :edit]
   end
 
   get "/bike-shop", :to => "bike_shop/accessories#index"
