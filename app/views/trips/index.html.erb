@@ -9,7 +9,7 @@
   <%= trip.subscription_type %> <br>
   <%= trip.zip_code %> <br>
   <%= link_to "More Info?", trip_path(trip) %>
-  <%= link_to "Edit Trip", edit_trip_path(trip) if current_admin? %>
+  <%= link_to "Edit Trip", edit_admin_trip_path(trip) if current_admin? %>
   <%= link_to "Delete Trip", trip_path(trip), method: "delete" if current_admin? %>
 <% end %>
 <%= paginate @trips %> <br>
