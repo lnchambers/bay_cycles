@@ -1,0 +1,12 @@
+<section class="welcome-header">
+  <section class="welcome-header-title">
+    <h1>Bay Cycles</h1>
+  </section>
+  <section class="welcome-header-nav">
+    <div class="welcome-links"><%= link_to "Stations", stations_path %></div>
+    <div class="welcome-links"><%= link_to "Trips", trips_path %></div>
+    <div class="welcome-links"><%= link_to "Weather", conditions_path %></div>
+    <%= render "../views/login" if !current_user %>
+    <%= render "../views/logout" if current_user %>
+  </section>
+</section>
