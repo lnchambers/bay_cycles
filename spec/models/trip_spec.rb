@@ -42,21 +42,21 @@ describe Trip, type: :model do
       it "returns average duration of all trips" do
         trips = [@trip_1.duration, @trip_2.duration, @trip_3.duration]
 
-        expect(Trip.average_duration).to eq(trips.sum / trips.size)
+        expect(Trip.average_duration).to eq((trips.sum / trips.size)/60)
       end
     end
 
     describe ".shortest_ride" do
       it "returns average duration of all trips" do
 
-        expect(Trip.shortest_ride).to eq(@trip_1.duration)
+        expect(Trip.shortest_ride).to eq(@trip_1.duration/60)
       end
     end
 
     describe ".longest_ride" do
       it "returns average duration of all trips" do
 
-        expect(Trip.longest_ride).to eq(@trip_3.duration)
+        expect(Trip.longest_ride).to eq(@trip_3.duration/60)
       end
     end
 
@@ -71,13 +71,6 @@ describe Trip, type: :model do
       it "returns station with the most rides as an ending place" do
 
         expect(Trip.end_station_most_rides.end_station_id).to eq(@station_3.id)
-      end
-    end
-
-    describe ".monthly_breakdown_of_rides" do
-      it "returns month by month breakdown of number of rides with subtotals for each year" do
-        expect(Trip.monthly_breakdown_of_rides.first.month).to eq(6.0)
-        expect(Trip.monthly_breakdown_of_rides.last.month).to eq(2.0)
       end
     end
 

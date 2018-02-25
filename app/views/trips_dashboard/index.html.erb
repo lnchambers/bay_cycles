@@ -1,14 +1,62 @@
-Average duration of a ride: <%= @trips.average_duration %> <br>
-Shortest ride: <%= @trips.shortest_ride %> <br>
-Longest ride: <%= @trips.longest_ride %> <br>
-Station with most rides as starting place: <%= @trips.start_station_most_rides.start_station_id %> <br>
-Station with most rides as ending place: <%= @trips.end_station_most_rides.end_station_id %> <br>
-Monthly breakdown of rides:<br>
-<%= @trips.monthly_breakdown_of_rides.first.month %>, count: <%= @trips.monthly_breakdown_of_rides.first.count %><br>
-<%= @trips.monthly_breakdown_of_rides.last.month %>, count: <%= @trips.monthly_breakdown_of_rides.last.count %><br>
-Most ridden bike: ID<%= @trips.most_ridden_bike.bike_id %>, Number of rides: <%= @trips.most_ridden_bike.count %><br>
-Least ridden bike: ID<%= @trips.least_ridden_bike.bike_id %>, Number of rides: <%= @trips.least_ridden_bike.count %><br>
-Percentage of Subscribers: <%= @trips.subscription_type_percentage_first %>, Count: <%= @trips.subscription_type_breakout.first.count %><br>
-Percentage of Customers: <%= @trips.subscription_type_percentage_last %>, Count: <%= @trips.subscription_type_breakout.last.count %><br>
-Most popular day to ride: <%= @trips.most_popular_ride_date.start_date.to_date.to_s %>, Number of rides: <%= @trips.most_popular_ride_date.count %><br>
-Least popular day to ride: <%= @trips.least_popular_ride_date.start_date.to_date.to_s %>, Number of rides: <%= @trips.least_popular_ride_date.count %><br>
+<section class="trips-dashboard-header">
+  <h1>Trips Dashboard</h1>
+</section>
+
+<section class="trips-dashboard-analytics">
+  <section class="trips-dashboard-value">
+    <h2>Average Length of Ride:</h2>
+    <h3><%= @trips.average_duration %> minutes</h3>
+  </section>
+  <section class="trips-dashboard-value">
+    <h2>Shortest Ride:</h2>
+    <h3> <%= @trips.shortest_ride %> minutes </h3>
+  </section>
+  <section class="trips-dashboard-value">
+    <h2>Longest Ride:</h2>
+    <h3> <%= @trips.longest_ride %> minutes </h3>
+  </section>
+  <section class="trips-dashboard-value">
+    <h2>Most Popular Start Station:</h2>
+    <h3> <%= Station.find(@trips.start_station_most_rides.start_station_id).name %> </h3>
+  </section>
+  <section class="trips-dashboard-value">
+    <h2>Most Popular End Station:</h2>
+    <h3> <%= Station.find(@trips.end_station_most_rides.end_station_id).name %> </h3>
+  </section>
+  <section class="trips-dashboard-value">
+    <h2>Most ridden bike:</h2>
+    <h3> ID #<%= @trips.most_ridden_bike.bike_id %> </h3>
+    <h2>Number of rides:</h3>
+    <h3> <%= @trips.most_ridden_bike.count %> </h3>
+  </section>
+  <section class="trips-dashboard-value">
+    <h2>Least ridden bike:</h2>
+    <h3> ID #<%= @trips.least_ridden_bike.bike_id %> </h3>
+    <h2>Number of rides:</h3>
+    <h3> <%= @trips.least_ridden_bike.count %> </h3>
+  </section>
+  <section class="trips-dashboard-value">
+    <h2>Total Subscribers:</h3>
+      <h3> <%= @trips.subscription_type_breakout.first.count %> </h3>
+    <h2>Percentage of Subscribers:</h2>
+    <h3> <%= @trips.subscription_type_percentage_first %>% </h3>
+  </section>
+  <section class="trips-dashboard-value">
+    <h2>Total Customers:</h3>
+      <h3> <%= @trips.subscription_type_breakout.last.count %> </h3>
+    <h2>Percentage of Customers:</h2>
+    <h3> <%= @trips.subscription_type_percentage_last %>% </h3>
+  </section>
+  <section class="trips-dashboard-value">
+    <h2>Most Popular Day to Ride:</h3>
+      <h3> <%= @trips.most_popular_ride_date.start_date.to_date.to_s %> </h3>
+    <h2>Number of Rides:</h2>
+    <h3> <%= @trips.most_popular_ride_date.count %> </h3>
+  </section>
+  <section class="trips-dashboard-value">
+    <h2>Least Popular Day to Ride:</h3>
+      <h3> <%= @trips.least_popular_ride_date.start_date.to_date.to_s %> </h3>
+    <h2>Number of Rides:</h2>
+    <h3> <%= @trips.least_popular_ride_date.count %> </h3>
+  </section>
+</section>

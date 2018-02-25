@@ -5,15 +5,15 @@ class Trip < ApplicationRecord
   belongs_to :end_station, class_name: 'Station'
 
   def self.average_duration
-    average(:duration)
+    average(:duration).to_i / 60
   end
 
   def self.shortest_ride
-    minimum(:duration)
+    minimum(:duration) / 60
   end
 
   def self.longest_ride
-    maximum(:duration)
+    maximum(:duration) / 60
   end
 
   def self.start_station_most_rides
@@ -31,9 +31,8 @@ class Trip < ApplicationRecord
   end
 
   def self.monthly_breakdown_of_rides
-    select("extract(month from start_date) as month, count(start_date)")
-    .group("start_date")
-    .order("count(start_date) desc")
+    group("DATE_TRUNC('month', start_date)")
+    .count
   end
 
   def self.most_ridden_bike

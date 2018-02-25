@@ -145,3 +145,29 @@ a:active {
   justify-content: center;
   align-items: center;
 }
+
+.trips-dashboard-header {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.trips-dashboard-analytics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trips-dashboard-value {
+  display: flex;
+  margin: 8px;
+
+    h2, h3 {
+      background-color: $pastel-orange;
+      color: $dark-blue;
+      border: $dark-blue 2px solid;
+      padding: 20px;
+      margin: 2px;
+    }
+}
