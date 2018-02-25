@@ -10,7 +10,7 @@ class Cart
   end
 
   def add_accessory(accessory)
-    @contents[accessory.to_s] += 1
+    @contents[accessory.to_s] = @contents[accessory.to_s].to_i + 1
   end
 
   def total_value
