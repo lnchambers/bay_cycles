@@ -42,21 +42,21 @@ describe Trip, type: :model do
       it "returns average duration of all trips" do
         trips = [@trip_1.duration, @trip_2.duration, @trip_3.duration]
 
-        expect(Trip.average_duration).to eq(trips.sum / trips.size)
+        expect(Trip.average_duration).to eq((trips.sum / trips.size)/60)
       end
     end
 
     describe ".shortest_ride" do
       it "returns average duration of all trips" do
 
-        expect(Trip.shortest_ride).to eq(@trip_1.duration)
+        expect(Trip.shortest_ride).to eq(@trip_1.duration/60)
       end
     end
 
     describe ".longest_ride" do
       it "returns average duration of all trips" do
 
-        expect(Trip.longest_ride).to eq(@trip_3.duration)
+        expect(Trip.longest_ride).to eq(@trip_3.duration/60)
       end
     end
 
