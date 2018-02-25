@@ -8,7 +8,7 @@ describe 'As an Admin' do
 
   describe 'when I visit new conditions path' do
     it 'I can create a new condition' do
-      visit new_condition_path
+      visit new_admin_condition_path
 
       fill_in "condition[date]",	           with:  "2018-02-19 15:47:07"
       fill_in "condition[max_temperature]",	 with:  1
@@ -21,7 +21,7 @@ describe 'As an Admin' do
     end
 
     it "I can see a flash message for success" do
-      visit new_condition_path
+      visit new_admin_condition_path
 
       fill_in "condition[date]",             with: "2018-02-19 15:47:07"
       fill_in "condition[max_temperature]",  with: 1
@@ -37,7 +37,7 @@ describe 'As an Admin' do
     end
 
     it "I can see a flash message for failure" do
-      visit new_condition_path
+      visit new_admin_condition_path
 
       fill_in "condition[max_temperature]",  with: 1
       fill_in "condition[mean_temperature]", with: 1

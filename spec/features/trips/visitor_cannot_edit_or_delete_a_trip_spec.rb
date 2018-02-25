@@ -17,7 +17,7 @@ describe "As a Visitor" do
 
   describe "when I try to visit trip/:id/edit" do
     it "I am redirected to a 404 page" do
-      visit edit_trip_path(@trip)
+      visit edit_admin_trip_path(@trip)
 
       expect(page).to have_content("The page you were looking for doesn't exist")
     end
@@ -25,7 +25,7 @@ describe "As a Visitor" do
 
   describe "when I try to visit trips/new" do
     it "I am redirected to a 404 page" do
-      visit new_trip_path
+      visit new_admin_trip_path
 
       expect(page).to have_content("The page you were looking for doesn't exist")
     end

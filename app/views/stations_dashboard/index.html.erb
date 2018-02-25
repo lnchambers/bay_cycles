@@ -2,17 +2,17 @@ Total Stations: <%= @stations.count %>
 Average Count of Bikes: <%= @stations.average_bike_count %>
 Most Bikes Available: <%= @stations.highest_bike_count %> at
 <% @stations.station_with_highest_bike_count.each do |station| %>
-  <%= station.name %>
+  <%= link_to station.name, station_path(station) %>
 <% end %>
 Fewest Bikes Available: <%= @stations.fewest_bike_count %> at
 <% @stations.station_with_lowest_bike_count.each do |station| %>
-  <%= station.name %>
+  <%= link_to station.name, station_path(station) %>
 <% end %>
 Oldest Station:
 <% @stations.oldest_station.each do |station| %>
-  <%= station.name %>
+  <%= link_to station.name, station_path(station) %>
 <% end %>
 Newest Station:
 <% @stations.newest_station.each do |station| %>
-  <%= station.name %>
+  <%= link_to station.name, station_path(station) %>
 <% end %>

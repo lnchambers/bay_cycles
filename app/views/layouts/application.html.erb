@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BayCycle</title>
+    <title>Bay Cycles</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <section class="welcome-container">
+      <section class="welcome-header">
+        <section class="welcome-header-title">
+          <h1>Bay Cycles</h1>
+        </section>
+        <section class="welcome-header-nav">
+          <div class="welcome-links"><%= link_to "Stations", stations_path %></div>
+          <div class="welcome-links"><%= link_to "Trips", trips_path %></div>
+          <div class="welcome-links"><%= link_to "Weather Conditions", conditions_path %></div>
+          <%= render partial: "login" if !current_user %>
+          <%= render partial: "logout" if current_user %>
+        </section>
+      </section>
+    </section>
     <%= link_to "Cart(#{@cart.total_count})", carts_path%>
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>

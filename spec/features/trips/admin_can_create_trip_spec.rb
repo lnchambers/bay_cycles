@@ -11,7 +11,7 @@ describe "As an Admin" do
 
   describe "when I visit the trips new page and fill in form with all attributes" do
     it "I am redirected to the trip's show page and see trip's updated info" do
-      visit new_trip_path
+      visit new_admin_trip_path
       fill_in "trip[duration]", with: "100"
       fill_in "trip[start_date]", with: Time.now
       fill_in "trip[start_station_id]", with: "1"
@@ -30,7 +30,7 @@ describe "As an Admin" do
 
     describe "when I visit the trips new page and fill in form with all but one attribute" do
       it "I see a flash message for errors" do
-        visit new_trip_path
+        visit new_admin_trip_path
         fill_in "trip[duration]", with: "100"
         fill_in "trip[start_date]", with: Time.now
         fill_in "trip[start_station_id]", with: "1"

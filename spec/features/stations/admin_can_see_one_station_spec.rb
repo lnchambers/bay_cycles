@@ -28,7 +28,7 @@ describe "As an Admin" do
 
       click_on "Edit"
 
-      expect(current_path).to eq(edit_station_path(@station))
+      expect(current_path).to eq(edit_admin_station_path(@station))
     end
 
     it "the delete button is functional" do

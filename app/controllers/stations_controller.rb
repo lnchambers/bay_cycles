@@ -1,16 +1,9 @@
 class StationsController < ApplicationController
-  before_action :find_station, only: [:edit, :show, :update, :destroy]
-  before_action :require_admin, only: [:edit, :update, :destroy, :new]
+  before_action :find_station, only: [:show, :update, :destroy]
+  before_action :require_admin, only: [:create, :update, :destroy]
 
   def index
     @stations = Station.all
-  end
-
-  def new
-    @station = Station.new
-  end
-
-  def edit
   end
 
   def show
@@ -23,7 +16,7 @@ class StationsController < ApplicationController
       redirect_to station_path(@station)
     else
       flash[:notice] = "Station not created. Try again."
-      render :new
+      redirect_to new_admin_station_path
     end
   end
 
@@ -33,7 +26,7 @@ class StationsController < ApplicationController
       redirect_to station_path(@station)
     else
       flash[:notice] = "Station not updated. Try again."
-      render :edit
+      redirect_to edit_admin_station_path(@station)
     end
   end
 

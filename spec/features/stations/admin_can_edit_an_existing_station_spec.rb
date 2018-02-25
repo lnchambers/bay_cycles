@@ -8,7 +8,7 @@ describe "As an Admin" do
   end
   describe "when I visit stations/:id/edit" do
     it "I can update a specific station" do
-      visit edit_station_path(@station)
+      visit edit_admin_station_path(@station)
 
       fill_in "station[name]", with: "Opakawagalaga"
       fill_in "station[dock_count]", with: "1"
@@ -20,7 +20,7 @@ describe "As an Admin" do
     end
 
     it "I can see a flash message for a success" do
-      visit edit_station_path(@station)
+      visit edit_admin_station_path(@station)
 
       fill_in "station[name]", with: "Opakawagalaga"
       fill_in "station[dock_count]", with: "1"
@@ -32,7 +32,7 @@ describe "As an Admin" do
     end
 
     it "I can see a flash message for an error" do
-      visit edit_station_path(@station)
+      visit edit_admin_station_path(@station)
 
       fill_in "station[name]", with: "Opakawagalaga"
       fill_in "station[dock_count]", with: "1"
