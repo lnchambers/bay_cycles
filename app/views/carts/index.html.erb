@@ -3,5 +3,7 @@
   Accessory: <%= accessory.name %><br>
   Description: <%= accessory.description %><br>
   Price: <%= accessory.price %><br>
-  Quantity: <%= quantity %><br>
+  Quantity: <%= quantity %> <%= button_to "Increase Quantity", carts_path(accessory: accessory.id, previous_page: "cart_page") %><br>
 <% end %>
+
+Subtotal: $<%= @cart.total_value %>

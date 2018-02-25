@@ -5,7 +5,11 @@ class CartsController < ApplicationController
     @cart.add_accessory(params[:accessory])
     session[:cart] = @cart.contents
     flash[:notice] = "Successfully added item"
-    redirect_to bike_shop_path
+    if params[:previous_page]
+      redirect_to carts_path
+    else
+      redirect_to bike_shop_path
+    end
   end
 
   def index
