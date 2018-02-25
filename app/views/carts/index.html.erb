@@ -1,9 +1,12 @@
 <% @accessories.each_pair do |accessory, quantity| %>
-  <%= image_tag accessory.image.url %>
-  Accessory: <%= accessory.name %><br>
-  Description: <%= accessory.description %><br>
-  Price: <%= accessory.price %><br>
-  Quantity: <%= quantity %> <%= button_to "Increase Quantity", carts_path(accessory: accessory.id, previous_page: "cart_page") %><br>
+  <div class="accessory<%= accessory.id %>">
+    <%= image_tag accessory.image.url %>
+    Accessory: <%= accessory.name %><br>
+    Description: <%= accessory.description %><br>
+    Price: <%= accessory.price %><br>
+    Quantity: <%= quantity %> <%= button_to "Increase Quantity", carts_path(accessory: accessory.id, previous_page: "cart_page") %><br>
+    <%= link_to "Remove", cart_path(accessory), method: :delete %>
+  </div>
 <% end %>
 
 Subtotal: $<%= @cart.total_value %>

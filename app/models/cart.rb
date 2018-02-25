@@ -13,6 +13,14 @@ class Cart
     @contents[accessory.to_s] = @contents[accessory.to_s].to_i + 1
   end
 
+  def decrease_quantity(accessory)
+    @contents[accessory.to_s] = @contents[accessory.to_s].to_i - 1
+  end
+
+  def remove_accessory(accessory)
+    @contents.delete(accessory.to_s)
+  end
+
   def total_value
     values = []
     @contents.each_pair do |accessory, quantity|
