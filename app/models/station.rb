@@ -54,8 +54,22 @@ class Station < ApplicationRecord
   def most_frequent_start_station
     end_trips.select("trips.*, count(trips.id) AS trip_count")
     .group(:end_station_id, :id)
-    .order('trip_count DESC')
+    .order("trip_count DESC")
     .first
     .start_station
+  end
+
+  def highest_originations_by_date
+    start_trips.group(:start_date)
+    .order("count(*) DESC")
+    .count
+    .first
+  end
+
+  def most_common_zip
+    start_trips.group(:zip_code)
+    .order('count(*) DESC')
+    .count
+    .first
   end
 end

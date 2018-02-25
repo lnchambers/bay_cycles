@@ -6,5 +6,7 @@ Total Rides Started Here: <%= @station.total_rides_started %>
 Total Rides Ended Here: <%= @station.total_rides_ended %>
 Most Frequent Destination: <%= link_to @station.most_frequent_end_station.name, station_path(@station.most_frequent_end_station) %>
 Most Frequent Origination: <%= link_to @station.most_frequent_start_station.name, station_path(@station.most_frequent_start_station) %>
+Date with Highest Number of Trips: <%= @station.highest_originations_by_date[0].strftime("%F") %>
+Most Common User Zip Code: <%= @station.most_common_zip[0] %>
 <%= link_to "Edit", edit_admin_station_path(@station) if current_admin? %>
 <%= link_to "Delete", station_path(@station), method: "delete" if current_admin? %>
