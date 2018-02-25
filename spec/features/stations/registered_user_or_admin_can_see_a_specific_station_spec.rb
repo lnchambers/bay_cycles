@@ -2,6 +2,7 @@ require "rails_helper"
 
 describe "As a registered User or Admin" do
   before :each do
+    @user = create(:user)
     @admin = create(:admin)
     @station = create(:station)
     @station_2 = create(:station)
@@ -83,6 +84,17 @@ describe "As a registered User or Admin" do
       visit station_path(@station)
 
       expect(page).to have_content("Most Popular Bike: 1")
+    end
+
+    it "User can see all of the analytics" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+      visit station_path(@station)
+
+      expect(page).to have_content("Most Popular Bike: 1")
+      expect(page).to have_content("Most Common User Zip Code: 80920")
+      expect(page).to have_content("Date with Highest Number of Trips: 2017-06-19")
+      expect(page).to have_content("Total Rides Started Here: 3")
     end
   end
 end

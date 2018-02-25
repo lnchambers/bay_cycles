@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "As an Admin" do
-  before :all do
+  before :each do
     @admin = create(:admin)
     @station = create(:station)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
