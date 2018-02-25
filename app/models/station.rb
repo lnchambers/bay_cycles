@@ -68,7 +68,14 @@ class Station < ApplicationRecord
 
   def most_common_zip
     start_trips.group(:zip_code)
-    .order('count(*) DESC')
+    .order("count(*) DESC")
+    .count
+    .first
+  end
+
+  def most_common_bike
+    start_trips.group(:bike_id)
+    .order("count(*) DESC")
     .count
     .first
   end

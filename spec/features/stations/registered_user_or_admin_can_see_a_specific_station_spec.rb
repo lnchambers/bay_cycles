@@ -28,14 +28,16 @@ describe "As a registered User or Admin" do
                     end_date: "2018-06-19 12:27:55",
                     start_station_id: @station_2.id,
                     end_station_id: @station.id,
-                    zip_code: 80920
+                    zip_code: 80920,
+                    bike_id: 2
                     )
     @trip_5 = create(:trip,
                     start_date: "2018-06-19 12:27:55",
                     end_date: "2018-06-19 12:27:55",
                     start_station_id: @station_2.id,
                     end_station_id: @station.id,
-                    zip_code: 80920
+                    zip_code: 80920,
+                    bike_id: 2
                     )
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
   end
@@ -75,6 +77,12 @@ describe "As a registered User or Admin" do
       visit station_path(@station)
 
       expect(page).to have_content("Most Common User Zip Code: 80920")
+    end
+
+    it "I can see the most frequent bike for users for trips from this station" do
+      visit station_path(@station)
+
+      expect(page).to have_content("Most Popular Bike: 1")
     end
   end
 end
