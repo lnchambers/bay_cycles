@@ -18,6 +18,12 @@ describe "As a registered User or Admin" do
     @trip_3 = create(:trip,
                     start_date: "2018-06-19 12:27:55",
                     end_date: "2018-06-19 12:27:55",
+                    start_station_id: @station.id,
+                    end_station_id: @station_2.id
+                    )
+    @trip_4 = create(:trip,
+                    start_date: "2018-06-19 12:27:55",
+                    end_date: "2018-06-19 12:27:55",
                     start_station_id: @station_2.id,
                     end_station_id: @station.id
                     )
@@ -28,13 +34,19 @@ describe "As a registered User or Admin" do
     it "I can see the number of rides starting at this station" do
       visit station_path(@station)
 
-      expect(page).to have_content("Total Rides Started Here: 2")
+      expect(page).to have_content("Total Rides Started Here: 3")
     end
 
     it "I can see the number of rides ending at this station" do
       visit station_path(@station)
 
       expect(page).to have_content("Total Rides Ended Here: 2")
+    end
+
+    it "I can see the most frequent destination for rides starting at this station" do
+      visit station_path(@station)
+
+      expect(page).to have_content("Most Frequent Destination: #{@station_2.name}")
     end
   end
 end
