@@ -31,9 +31,8 @@ class Trip < ApplicationRecord
   end
 
   def self.monthly_breakdown_of_rides
-    select("extract(month from start_date) as month, count(start_date)")
-    .group("start_date")
-    .order("count(start_date) desc")
+    group("DATE_TRUNC('month', start_date)")
+    .count
   end
 
   def self.most_ridden_bike
