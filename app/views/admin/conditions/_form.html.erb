@@ -1,4 +1,4 @@
-<%= form_for @condition do |f| %>
+<%= form_for [:admin, @condition] do |f| %>
   <%= f.label :date %>
   <%= f.text_field :date %>
 
@@ -22,6 +22,6 @@
 
   <%= f.label :precipitation %>
   <%= f.text_field :precipitation %>
-  
+
   <%= f.submit %>
 <% end %>
