@@ -1,6 +1,16 @@
 <section class="welcome-container">
-<%= render "../views/navigation"%>
-
+  <section class="welcome-header">
+    <section class="welcome-header-title">
+      <h1>Bay Cycles</h1>
+    </section>
+    <section class="welcome-header-nav">
+      <div class="welcome-links"><%= link_to "Stations", stations_path %></div>
+      <div class="welcome-links"><%= link_to "Trips", trips_path %></div>
+      <div class="welcome-links"><%= link_to "Weather", conditions_path %></div>
+      <%= render "../views/login" if !current_user %>
+      <%= render "../views/logout" if current_user %>
+    </section>
+  </section>
   <section class="welcome-container-main">
     <section class="welcome-about">
       <center><p>Doggo ipsum doge bork yapper heckin good boys and girls smol borking doggo with a long snoot for pats heckin angery woofer, ur givin me a spook pats sub woofer many pats. Long woofer fluffer you are doin me a concern doing me a frighten boof heckin good boys ruff, smol doggorino borking doggo such treat length boy. Big ol lotsa pats clouds corgo very good spot, borkf smol. Much ruin diet snoot wow very biscit lotsa pats blep the neighborhood pupper, shoob such treat very hand that feed shibe doggo.</p>
