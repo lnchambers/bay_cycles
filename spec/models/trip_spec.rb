@@ -74,13 +74,6 @@ describe Trip, type: :model do
       end
     end
 
-    describe ".monthly_breakdown_of_rides" do
-      it "returns month by month breakdown of number of rides with subtotals for each year" do
-        expect(Trip.monthly_breakdown_of_rides.first.month).to eq(6.0)
-        expect(Trip.monthly_breakdown_of_rides.last.month).to eq(2.0)
-      end
-    end
-
     describe ".most_ridden_bike" do
       it "returns most ridden bike" do
         expect(Trip.most_ridden_bike.bike_id).to eq(1)
