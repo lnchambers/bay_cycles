@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def has_trips?
-    !Trip.all.empty?
+    !@station.start_trips.empty? && !@station.end_trips.empty?
   end
 
   def set_cart

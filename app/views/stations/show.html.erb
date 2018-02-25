@@ -2,6 +2,6 @@ Name: <%= @station.name %>
 Dock Count: <%= @station.dock_count %>
 City: <%= @station.city %>
 Installation Date: <%= @station.installation_date %>
-<%= render partial: "analytics" if current_user && has_trips?%>
+<%= render partial: "analytics" if current_user && has_trips? %>
 <%= link_to "Edit", edit_admin_station_path(@station) if current_admin? %>
 <%= link_to "Delete", station_path(@station), method: "delete" if current_admin? %>
