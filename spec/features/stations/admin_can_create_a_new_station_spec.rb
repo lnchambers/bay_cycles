@@ -7,7 +7,7 @@ describe "As an Admin" do
   end
   describe "when I visit stations/new" do
     it "I can create a new station" do
-      visit new_station_path
+      visit new_admin_station_path
 
       fill_in "station[name]", with: "Opakawagalaga"
       fill_in "station[dock_count]", with: "1"
@@ -20,7 +20,7 @@ describe "As an Admin" do
     end
 
     it "I can see a flash message for success" do
-      visit new_station_path
+      visit new_admin_station_path
 
       fill_in "station[name]", with: "Opakawagalaga"
       fill_in "station[dock_count]", with: "1"
@@ -32,7 +32,7 @@ describe "As an Admin" do
     end
 
     it "I can see a flash message for errors" do
-      visit new_station_path
+      visit new_admin_station_path
 
       fill_in "station[name]", with: "Opakawagalaga"
       fill_in "station[dock_count]", with: "1"

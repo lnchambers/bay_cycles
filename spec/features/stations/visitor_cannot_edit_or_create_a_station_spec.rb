@@ -6,7 +6,7 @@ describe "As a visitor" do
   end
   describe "when I try to visit stations/:id/edit" do
     it "I am redirected to a 404 page" do
-      visit edit_station_path(@station)
+      visit edit_admin_station_path(@station)
 
       expect(page).to have_content("The page you were looking for doesn't exist")
     end
@@ -14,7 +14,7 @@ describe "As a visitor" do
 
   describe "when I try to visit stations/new" do
     it "I am redirected to a 404 page" do
-      visit new_station_path
+      visit new_admin_station_path
 
       expect(page).to have_content("The page you were looking for doesn't exist")
     end
