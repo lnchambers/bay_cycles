@@ -43,12 +43,19 @@ class Station < ApplicationRecord
     end_trips.count
   end
 
-  def most_frequent_destination
-    binding.pry
+  def most_frequent_end_station
     start_trips.select("trips.*, count(trips.id) AS trip_count")
     .group(:start_station_id, :id)
     .order('trip_count DESC')
     .first
     .end_station
+  end
+
+  def most_frequent_start_station
+    end_trips.select("trips.*, count(trips.id) AS trip_count")
+    .group(:end_station_id, :id)
+    .order('trip_count DESC')
+    .first
+    .start_station
   end
 end

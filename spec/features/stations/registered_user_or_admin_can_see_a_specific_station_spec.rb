@@ -27,6 +27,12 @@ describe "As a registered User or Admin" do
                     start_station_id: @station_2.id,
                     end_station_id: @station.id
                     )
+    @trip_5 = create(:trip,
+                    start_date: "2018-06-19 12:27:55",
+                    end_date: "2018-06-19 12:27:55",
+                    start_station_id: @station_2.id,
+                    end_station_id: @station.id
+                    )
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
   end
   describe "when I visit the stations/:id page" do
@@ -40,13 +46,19 @@ describe "As a registered User or Admin" do
     it "I can see the number of rides ending at this station" do
       visit station_path(@station)
 
-      expect(page).to have_content("Total Rides Ended Here: 2")
+      expect(page).to have_content("Total Rides Ended Here: 3")
     end
 
     it "I can see the most frequent destination for rides starting at this station" do
       visit station_path(@station)
 
       expect(page).to have_content("Most Frequent Destination: #{@station_2.name}")
+    end
+
+    it "I can see the most frequent origination for rides starting at this station" do
+      visit station_path(@station)
+
+      expect(page).to have_content("Most Frequent Origination: #{@station_2.name}")
     end
   end
 end
