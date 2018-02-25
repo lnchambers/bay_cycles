@@ -34,15 +34,15 @@ describe "As a registered User or Admin" do
     it "I see average duration of a ride" do
       trips = [@trip_1.duration, @trip_2.duration, @trip_3.duration]
 
-      expect(page).to have_content(trips.sum / trips.size)
+      expect(page).to have_content((trips.sum / trips.size)/60)
     end
 
     it "I see the shortest ride" do
-      expect(page).to have_content(@trip_1.duration)
+      expect(page).to have_content(@trip_1.duration/60)
     end
 
     it "I see the longest ride" do
-      expect(page).to have_content(@trip_3.duration)
+      expect(page).to have_content(@trip_3.duration/60)
     end
 
     it "I see the station with the most rides as a starting place" do
