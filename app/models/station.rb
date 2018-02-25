@@ -59,7 +59,6 @@ class Station < ApplicationRecord
     .start_station
   end
 
-
   def highest_originations_by_date
     start_trips.group(:start_date)
     .order("count(*) DESC")
