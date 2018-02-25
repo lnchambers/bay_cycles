@@ -1,5 +1,6 @@
 class ConditionsController < ApplicationController
-  before_action :find_condition, only: [:edit, :show, :update, :destroy]
+  before_action :find_condition, only: [:show, :update, :destroy]
+  before_action :require_admin, only: [:create, :update, :destroy]
 
   def index
     @conditions = Condition.all
@@ -21,9 +22,6 @@ class ConditionsController < ApplicationController
       flash[:notice] = "Condition not created. Try again."
       redirect_to new_admin_condition_path
     end
-  end
-
-  def edit
   end
 
   def update
