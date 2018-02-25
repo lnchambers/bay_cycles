@@ -21,8 +21,8 @@ describe "As an admin" do
     it "I can see a table with all accessories" do
       visit admin_bike_shop_path
 
-      expect(page).to have_content(@accessory_active.name)
-      expect(page).to have_content(@accessory_inactive.name)
+      expect(page).to have_content("Active Accessories: #{@accessory_active.name}")
+      expect(page).to have_content("Inactive Accessories: #{@accessory_inactive.name}")
     end
   end
 end
