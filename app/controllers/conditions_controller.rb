@@ -19,7 +19,7 @@ class ConditionsController < ApplicationController
       redirect_to condition_path(@condition)
     else
       flash[:notice] = "Condition not created. Try again."
-      render :new
+      redirect_to new_admin_condition_path
     end
   end
 
@@ -32,7 +32,7 @@ class ConditionsController < ApplicationController
       redirect_to condition_path(@condition)
     else
       flash[:notice] = "Station not updated. Try again."
-      render :edit
+      redirect_to edit_admin_condition_path(@condition)
     end
   end
 
@@ -43,6 +43,7 @@ class ConditionsController < ApplicationController
   end
 
     private
+
       def condition_params
         params.require(:condition).permit(:date, :max_temperature, :mean_temperature, :min_temperature, :mean_humidity, :mean_visibility, :mean_wind_speed, :precipitation)
       end

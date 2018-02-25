@@ -6,13 +6,6 @@ class StationsController < ApplicationController
     @stations = Station.all
   end
 
-  def new
-    @station = Station.new
-  end
-
-  def edit
-  end
-
   def show
   end
 
@@ -23,7 +16,7 @@ class StationsController < ApplicationController
       redirect_to station_path(@station)
     else
       flash[:notice] = "Station not created. Try again."
-      render :new
+      redirect_to new_admin_station_path
     end
   end
 
@@ -33,7 +26,7 @@ class StationsController < ApplicationController
       redirect_to station_path(@station)
     else
       flash[:notice] = "Station not updated. Try again."
-      render :edit
+      redirect_to edit_admin_station_path(@station)
     end
   end
 

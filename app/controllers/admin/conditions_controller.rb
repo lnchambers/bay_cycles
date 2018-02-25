@@ -1,9 +1,9 @@
 class Admin::ConditionsController < Admin::BaseController
   def new
-    @conditon = Condition.new
+    @condition = Condition.new
   end
 
   def edit
-    @conditon = Condition.find(params[:id])
+    @condition = Condition.find(params[:id])
   end
 end
