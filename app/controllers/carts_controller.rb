@@ -8,4 +8,8 @@ class CartsController < ApplicationController
     redirect_to bike_shop_path
   end
 
+  def index
+    @accessories = Accessory.all
+  end
+
 end
