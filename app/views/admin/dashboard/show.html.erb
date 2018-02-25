@@ -2,3 +2,4 @@ Logged in as <%= @user.name %>
 Current Email: <%= @user.email %>
 <%= link_to "Logout", logout_path, method: "destroy" if current_user %>
 See something that doesn't look right? <%= link_to "Edit Profile", edit_user_path(@user) %>
+<%= link_to "View Accessories", admin_bike_shop_path %>
