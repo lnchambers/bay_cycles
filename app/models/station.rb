@@ -34,4 +34,12 @@ class Station < ApplicationRecord
   def self.oldest_station
     where("installation_date <= ?", minimum(:installation_date))
   end
+
+  def total_rides_started
+    start_trips.count
+  end
+
+  def total_rides_ended
+    end_trips.count
+  end
 end
