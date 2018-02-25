@@ -1,10 +1,11 @@
 require "rails_helper"
 
 describe "As a Visitor" do
-  before :all do
-    accessory = create(:accessory)
+  before :each do
+    @accessory = create(:accessory)
     Cart.new({"1" => 1})
   end
+
   describe "when I visit /bike-shop" do
     it "I can click add to cart for an item" do
       visit bike_shop_path
@@ -31,11 +32,12 @@ describe "As a Visitor" do
       visit bike_shop_path
 
       click_on "Add to Cart"
-      click_on "Cart"
+      click_on "Cart(1)"
 
-      expect(page).to have_content(accessory.name)
-      expect(page).to have_content(accessory.description)
-      expect(page).to have_content(accessory.price)
+      expect(current_path).to eq(carts_path)
+      expect(page).to have_content(@accessory.name)
+      expect(page).to have_content(@accessory.description)
+      expect(page).to have_content(@accessory.price)
     end
   end
 end
