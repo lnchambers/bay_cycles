@@ -1,5 +1,7 @@
-<% @accessories.each do |accessory| %>
-  <%= accessory.name %>
-  <%= accessory.description %>
-  <%= accessory.price %>
+<% @accessories.each_pair do |accessory, quantity| %>
+  <%= image_tag accessory.image.url %>
+  Accessory: <%= accessory.name %><br>
+  Description: <%= accessory.description %><br>
+  Price: <%= accessory.price %><br>
+  Quantity: <%= quantity %><br>
 <% end %>

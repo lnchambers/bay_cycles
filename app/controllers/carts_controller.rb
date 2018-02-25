@@ -9,7 +9,11 @@ class CartsController < ApplicationController
   end
 
   def index
-    @accessories = Accessory.all
+    @accessories = Hash.new
+    @cart.contents.each_pair do |key, value|
+      accessory = Accessory.find(key)
+      @accessories[accessory] = value
+    end
   end
 
 end
