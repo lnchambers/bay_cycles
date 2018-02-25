@@ -22,11 +22,18 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    @accessory = Accessory.find(params[:id])
-    @cart = Cart.new(session[:cart])
-    @cart.remove_accessory(params[:id])
-    session[:cart] = @cart.contents
-    flash[:notice] = %Q(Successfully removed #{@accessory.name} from your cart. #{view_context.button_to("Undo", carts_path(accessory: @accessory.id, previous_page: "cart_page"))}).html_safe
-    redirect_to carts_path
+    if params[:previous_page] == "decrease_quantity"
+      @cart = Cart.new(session[:cart])
+      @cart.decrease_quantity(params[:id])
+      session[:cart] = @cart.contents
+      redirect_to carts_path
+    else
+      @accessory = Accessory.find(params[:id])
+      @cart = Cart.new(session[:cart])
+      @cart.remove_accessory(params[:id])
+      session[:cart] = @cart.contents
+      flash[:notice] = %Q(Successfully removed #{@accessory.name} from your cart. #{view_context.button_to("Undo", carts_path(accessory: @accessory.id, previous_page: "cart_page"))}).html_safe
+      redirect_to carts_path
+    end
   end
 end
