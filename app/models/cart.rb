@@ -12,4 +12,12 @@ class Cart
   def add_accessory(accessory)
     @contents[accessory.to_s] += 1
   end
+
+  def total_value
+    values = []
+    @contents.each_pair do |accessory, quantity|
+      values << Accessory.find(accessory).price * quantity
+    end
+    values.sum
+  end
 end
