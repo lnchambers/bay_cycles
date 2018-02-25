@@ -1,9 +1,9 @@
 <% @accessories.each do |accessory| %>
+<div class= "accessory<%= accessory.id %>">
   <%= image_tag accessory.image.url %>
   <%= accessory.name %>
   <%= accessory.description %>
   <%= accessory.price %>
-  <div class= "accessory<%= accessory.id %>">  
     <%= button_to "Add to Cart", carts_path(accessory: accessory.id) %>
   </div>
 <% end %>

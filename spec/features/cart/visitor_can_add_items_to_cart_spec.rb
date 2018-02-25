@@ -4,7 +4,6 @@ describe "As a Visitor" do
   before :each do
     @accessory_1 = create(:accessory)
     @accessory_2 = create(:accessory, name: "Small Hoops")
-    Cart.new({"1" => 1})
   end
 
   describe "when I visit /bike-shop" do
@@ -16,7 +15,7 @@ describe "As a Visitor" do
       end
 
       expect(current_path).to eq(bike_shop_path)
-      expect(page).to have_content("Successfully added item")
+      expect(page).to have_content("Successfully added Big Hoops")
     end
 
     it "my cart count has increased to 1" do
