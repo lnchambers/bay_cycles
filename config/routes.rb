@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   root "welcome#index"
 
-  resources :stations, except: [:new, :edit]
+  resources :stations, only: [:index, :show]
 
-  resources :trips, except: [:new, :edit]
+  resources :trips, only: [:index, :show]
 
-  resources :conditions, except: [:new, :edit]
+  resources :conditions, only: [:index, :show]
 
   resources :users, except: [:index, :destroy, :show]
 
@@ -24,9 +24,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/dashboard", :to => "dashboard#show"
-    resources :trips, only: [:new, :edit]
-    resources :stations, only: [:new, :edit]
-    resources :conditions, only: [:new, :edit]
+    resources :trips, except: [:index, :show]
+    resources :stations, except: [:index, :show]
+    resources :conditions, except: [:index, :show]
   end
 
   get "/bike-shop", :to => "bike_shop/accessories#index"

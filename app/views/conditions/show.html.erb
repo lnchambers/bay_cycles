@@ -8,4 +8,4 @@
   Mean Wind Speed: <%= @condition.mean_wind_speed %>mph
   Precipitation: <%= @condition.precipitation %> inches
   <%= link_to "Edit", edit_admin_condition_path(@condition) if current_admin? %>
-  <%= link_to "Delete", condition_path(@condition), method: "delete" if current_admin? %>
+  <%= link_to "Delete", admin_condition_path(@condition), method: "delete" if current_admin? %>

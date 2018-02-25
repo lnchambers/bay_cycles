@@ -7,4 +7,4 @@
 <%= @trip.subscription_type %>
 <%= @trip.zip_code %>
 <%= link_to "Edit Trip", edit_admin_trip_path(@trip) if current_admin? %>
-<%= link_to "Delete Trip", trip_path(@trip), method: "delete" if current_admin? %>
+<%= link_to "Delete Trip", admin_trip_path(@trip), method: "delete" if current_admin? %>
