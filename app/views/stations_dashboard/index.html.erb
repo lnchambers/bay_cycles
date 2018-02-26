@@ -1,18 +1,36 @@
-Total Stations: <%= @stations.count %>
-Average Count of Bikes: <%= @stations.average_bike_count %>
-Most Bikes Available: <%= @stations.highest_bike_count %> at
-<% @stations.station_with_highest_bike_count.each do |station| %>
-  <%= link_to station.name, station_path(station) %>
-<% end %>
-Fewest Bikes Available: <%= @stations.fewest_bike_count %> at
-<% @stations.station_with_lowest_bike_count.each do |station| %>
-  <%= link_to station.name, station_path(station) %>
-<% end %>
-Oldest Station:
-<% @stations.oldest_station.each do |station| %>
-  <%= link_to station.name, station_path(station) %>
-<% end %>
-Newest Station:
-<% @stations.newest_station.each do |station| %>
-  <%= link_to station.name, station_path(station) %>
-<% end %>
+<section class="stations-dashboard-header">
+  <h1>Stations Dashboard</h1>
+</section>
+
+<section class="stations-dashboard-analytics">
+  <section class="stations-dashboard-value">
+    <h2>Total Stations:</h2>
+    <h3><%= @stations.count %></h3>
+    <h2>Average Count of Bikes:</h2>
+    <h3><%= @stations.average_bike_count %></h3>
+    <h2>Most Bikes Available:</h2>
+    <h3><%= @stations.highest_bike_count %> at</h3>
+    <% @stations.station_with_highest_bike_count.each do |station| %>
+      <h3><%= link_to station.name, station_path(station) %></h3>
+    <% end %>
+  </section>
+  <section class="stations-dashboard-value">
+    <h2>Fewest Bikes Available:</h2>
+    <h3><%= @stations.fewest_bike_count %> at</h3>
+    <% @stations.station_with_lowest_bike_count.each do |station| %>
+      <h3><%= link_to station.name, station_path(station) %></h3>
+    <% end %>
+  </section>
+  <section class="stations-dashboard-value">
+    <h2>Oldest Station:</h2>
+    <% @stations.oldest_station.each do |station| %>
+      <h3><%= link_to station.name, station_path(station) %></h3>
+    <% end %>
+  </section>
+  <section class="stations-dashboard-value">
+    <h2>Newest Station:</h2>
+    <% @stations.newest_station.each do |station| %>
+      <h3><%= link_to station.name, station_path(station) %></h3>
+    <% end %>
+  </section>
+</section>

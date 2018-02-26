@@ -4,6 +4,7 @@ class Trip < ApplicationRecord
   belongs_to :condition
   belongs_to :start_station, class_name: 'Station'
   belongs_to :end_station, class_name: 'Station'
+  belongs_to :condition
 
   def self.average_duration
     average(:duration).to_i / 60
