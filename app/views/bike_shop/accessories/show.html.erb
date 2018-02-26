@@ -1,0 +1,5 @@
+<%= @accessory.name %>
+<%= @accessory.description %>
+<%= number_to_currency(@accessory.price) %>
+<%= render partial: "active" if @accessory.role == 0 %>
+<%= render partial: "inactive" if @accessory.role == 1 %>
