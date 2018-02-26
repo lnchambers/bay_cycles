@@ -32,6 +32,7 @@ describe "As a registered User" do
       click_on "Checkout"
 
       expect(current_path).to eq(dashboard_path(@user))
+      expect(page).to have_content("You have successfully submitted your order")
     end
   end
 end
