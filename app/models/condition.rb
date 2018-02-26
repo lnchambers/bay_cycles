@@ -14,4 +14,33 @@ class Condition < ApplicationRecord
     breakdown_rides = temp_ranges(range)
     breakdown_rides.sum / breakdown_rides.size.to_f
   end
+
+  def self.most_rides_for_temps(range)
+    temp_ranges(range).max
+  end
+
+  def self.lowest_rides_for_temps(range)
+    temp_ranges(range).min
+  end
+
+  def self.precipitation_ranges(range)
+    joins(:trips)
+    .where("precipitation >= #{range[0]} AND precipitation <= #{range[1]}")
+    .group(:condition_id)
+    .count(:condition_id)
+    .values
+  end
+
+  def self.average_rides_for_precipitation(range)
+    breakdown_rides = precipitation_ranges(range)
+    (breakdown_rides.sum / breakdown_rides.size.to_f).round(1)
+  end
+
+  def self.most_rides_for_precipitation(range)
+    precipitation_ranges(range).max
+  end
+
+  def self.lowest_rides_for_precipitation(range)
+    precipitation_ranges(range).min
+  end
 end
