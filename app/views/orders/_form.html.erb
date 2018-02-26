@@ -1,0 +1,13 @@
+<%= form_for @order do |f| %>
+
+  <%= f.label "Your Name" %>
+  <%= f.text_field :purchaser_name %>
+
+  <%= f.label "Your Address" %>
+  <%= f.text_field :purchaser_address %>
+
+  <%= f.hidden_field user_id: current_user,  %>
+
+  <%= f.submit "Submit Order" %>
+
+<% end %>
