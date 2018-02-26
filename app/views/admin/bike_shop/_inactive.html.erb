@@ -4,5 +4,5 @@
   Price: <%= number_to_currency(inactive.price) %>
   <%= link_to "Edit #{inactive.name}", edit_admin_accessory_path(inactive) %>
   Status: Inactive
-  <%= link_to "Reactivate Accessory", admin_accessory_path(inactive, :role => 0), method: "put" %>
+  <%= link_to "Reactivate Accessory", admin_accessory_path(inactive, :accessory => {:role => 0}), method: "put" %>
 <% end %>

@@ -4,5 +4,5 @@
   Price: <%= number_to_currency(active.price) %>
   <%= link_to "Edit #{active.name}", edit_admin_accessory_path(active) %>
   Status: Active
-  <%= link_to "Retire Accessory", admin_accessory_path(active, :accessory => {:role => "inactive"}), method: "put" %>
+  <%= link_to "Retire Accessory", admin_accessory_path(active, :accessory => {:role => 1}), method: "put" %>
 <% end %>

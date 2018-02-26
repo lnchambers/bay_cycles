@@ -5,7 +5,6 @@ class Admin::AccessoriesController < Admin::BaseController
   end
 
   def update
-    binding.pry
     if @accessory.update(accessory_params)
       flash[:notice] = "Accessory updated"
       redirect_to admin_bike_shop_path

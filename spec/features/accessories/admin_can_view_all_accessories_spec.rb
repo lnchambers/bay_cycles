@@ -53,5 +53,13 @@ describe "As an admin" do
 
       expect(page).to_not have_content("Status: Active")
     end
+
+    it "I can reactive an accessory" do
+      visit admin_bike_shop_path
+
+      click_on "Reactivate Accessory"
+
+      expect(page).to_not have_content("Status: Inactive")
+    end
   end
 end
