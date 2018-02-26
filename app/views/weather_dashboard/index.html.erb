@@ -1,0 +1,45 @@
+<section class="dashboard-header">
+  <h1>Weather Dashboard</h1>
+</section>
+
+<section class="weather-dashboard-analytics">
+  <section class="weather-dashboard-table">
+    <h1>Tempertature Analytics for Rides</h1>
+    <table>
+      <tr>
+        <th>Temperature Range</th>
+        <th>Average Rides</th>
+        <th>Highest Number of Ride</th>
+        <th>Lowest Number of Rides</th>
+      </tr>
+      <% @temp_ranges.each do |range| %>
+        <tr>
+          <td><%= range %></td>
+          <td><%= @conditions.average_rides_for_temps(range) %></td>
+          <td><%= @conditions.most_rides_for_temps(range) %></td>
+          <td><%= @conditions.lowest_rides_for_temps(range) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+
+  <section class="weather-dashboard-table">
+    <h1>Precipitation Analytics for Rides</h1>
+    <table>
+      <tr>
+        <th>Precipitation Range</th>
+        <th>Average Rides</th>
+        <th>Highest Number of Ride</th>
+        <th>Lowest Number of Rides</th>
+      </tr>
+      <% @precipitation_ranges.each do |range| %>
+        <tr>
+          <td><%= range %></td>
+          <td><%= @conditions.average_rides_for_precipitation(range) %></td>
+          <td><%= @conditions.most_rides_for_precipitation(range) %></td>
+          <td><%= @conditions.lowest_rides_for_precipitation(range) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+</section>
