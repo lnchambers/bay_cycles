@@ -28,7 +28,8 @@ Rails.application.routes.draw do
     resources :stations, except: [:index, :show]
     resources :conditions, except: [:index, :show]
     get "bike-shop", :to => "bike_shop#index"
-    resources :accessories, only: [:edit, :update, :new, :create, :show]
+    get "bike-shop/new", :to => "accessories#new"
+    resources :accessories, only: [:edit, :update, :create, :show]
   end
 
   get "/bike-shop", :to => "bike_shop/accessories#index"
