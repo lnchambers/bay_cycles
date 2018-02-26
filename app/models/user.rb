@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates_uniqueness_of :name, :email
 
   enum role: ["default", "admin"]
+
+  has_many :orders
 end
