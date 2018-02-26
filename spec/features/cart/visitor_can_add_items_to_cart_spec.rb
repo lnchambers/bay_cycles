@@ -45,7 +45,7 @@ describe "As a Visitor" do
       expect(current_path).to eq(carts_path)
       expect(page).to have_content(@accessory_1.name)
       expect(page).to have_content(@accessory_1.description)
-      expect(page).to have_content(@accessory_1.price)
+      expect(page).to have_content("Price: $10,000")
       expect(page).to have_content("Quantity: 1")
       expect(page).to_not have_content(@accessory_2.name)
     end
@@ -62,14 +62,14 @@ describe "As a Visitor" do
 
         expect(page).to have_content("Cart(1)")
         expect(page).to have_content("Quantity: 1")
-        expect(page).to have_content("Subtotal: $10000")
+        expect(page).to have_content("Subtotal: $10,000")
 
         click_on "Increase Quantity"
 
         expect(current_path).to eq(carts_path)
         expect(page).to have_content("Cart(2)")
         expect(page).to have_content("Quantity: 2")
-        expect(page).to have_content("Subtotal: $20000")
+        expect(page).to have_content("Subtotal: $20,000")
       end
     end
   end
