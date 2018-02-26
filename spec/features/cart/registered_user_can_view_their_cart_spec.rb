@@ -31,8 +31,7 @@ describe "As a registered User" do
     it "I see a button for checkout" do
       click_on "Checkout"
 
-      expect(current_path).to eq(dashboard_path(@user))
-      expect(page).to have_content("You have successfully submitted your order")
+      expect(current_path).to eq(new_order_path)
     end
   end
 end
