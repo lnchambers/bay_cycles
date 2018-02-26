@@ -82,14 +82,14 @@ describe "As a visitor" do
 
         expect(page).to have_content("Cart(3)")
         expect(page).to have_content("Quantity: 3")
-        expect(page).to have_content("Subtotal: $30000")
+        expect(page).to have_content("Subtotal: $30,000")
 
         click_on "Decrease Quantity"
 
         expect(current_path).to eq(carts_path)
         expect(page).to have_content("Cart(2)")
         expect(page).to have_content("Quantity: 2")
-        expect(page).to have_content("Subtotal: $20000")
+        expect(page).to have_content("Subtotal: $20,000")
       end
     end
 
