@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "As an Admin" do
   before :all do
     @station = create(:station)
+    @condition = create(:condition, date: Date.new(2018,2,26))
   end
   before :each do
     @admin = create(:admin)
@@ -13,9 +14,9 @@ describe "As an Admin" do
     it "I am redirected to the trip's show page and see trip's updated info" do
       visit new_admin_trip_path
       fill_in "trip[duration]", with: "100"
-      fill_in "trip[start_date]", with: Time.now
+      fill_in "trip[start_date]", with: DateTime.new(2018,2,26,1,2)
       fill_in "trip[start_station_id]", with: "1"
-      fill_in "trip[end_date]", with: Time.now
+      fill_in "trip[end_date]", with: DateTime.new(2018,2,26,1,4)
       fill_in "trip[end_station_id]", with: "1"
       fill_in "trip[bike_id]", with: "2"
       fill_in "trip[subscription_type]", with: "rider"
