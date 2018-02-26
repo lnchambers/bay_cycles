@@ -3,15 +3,18 @@
     <%= image_tag accessory.image.url %>
     Accessory: <%= accessory.name %><br>
     Description: <%= accessory.description %><br>
-    Price: <%= accessory.price %><br>
+    Price: <%= number_to_currency(accessory.price) %><br>
     Quantity: <%= quantity %>
+    Subtotal: <%= number_to_currency(accessory.price * quantity) %>
 
     <%= button_to "Increase Quantity", carts_path(accessory: accessory.id, previous_page: "cart_page") %>
-  
+
     <%= button_to "Decrease Quantity", cart_path(accessory, previous_page: "decrease_quantity"), method: :delete if @cart.contents[accessory.id.to_s] > 1%><br>
 
     <%= link_to "Remove", cart_path(accessory), method: :delete %>
   </div>
 <% end %>
 
-Subtotal: $<%= @cart.total_value %>
+Total: <%= number_to_currency(@cart.total_value) %>
+
+<%= button_to "Checkout", admin_orders_path %>
