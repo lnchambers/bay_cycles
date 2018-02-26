@@ -16,6 +16,7 @@ class Admin::TripsController < Admin::BaseController
 
   def create
     @trip = Trip.new(trip_params)
+    @trip.condition_id = find_condition_id(trip_params[:start_date])
     if @trip.save
       flash[:notice] = "Trip created"
       redirect_to trip_path(@trip)
@@ -45,4 +46,8 @@ class Admin::TripsController < Admin::BaseController
       @trip = Trip.find(params[:id])
     end
 
+    def find_condition_id(start_date)
+      date = start_date.to_datetime.strftime("%m-%d-%Y")
+      Condition.find_by(date: date).id
+    end
 end
