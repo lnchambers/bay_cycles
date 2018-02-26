@@ -23,7 +23,6 @@ describe "As a registered User" do
       expect(page).to have_content("You have successfully submitted your order!")
       expect(current_path).to eq(dashboard_path(@user))
       expect(Order.count).to eq(1)
-      expect(OrderedAccessory.count).to eq(1)
     end
   end
 end
