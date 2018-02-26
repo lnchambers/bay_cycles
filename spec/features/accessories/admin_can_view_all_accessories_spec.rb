@@ -45,5 +45,13 @@ describe "As an admin" do
       expect(page).to have_content("Accessory updated")
       expect(page).to have_content("Name: Opakawagalaga fine fabrics")
     end
+
+    it "I can retire an accessory" do
+      visit admin_bike_shop_path
+
+      click_on "Retire Accessory"
+
+      expect(page).to_not have_content("Status: Active")
+    end
   end
 end
