@@ -6,8 +6,7 @@
   <%= f.label "Your Address" %>
   <%= f.text_field :purchaser_address %>
 
-  <%= hidden_field(:user_id, current_user.id) %>
-  <%= hidden_field(:status, "Ordered") %>
+  <%= f.hidden_field user_id: current_user,  %>
 
   <%= f.submit "Submit Order" %>
 
