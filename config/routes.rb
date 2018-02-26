@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     get "bike-shop", :to => "bike_shop#index"
     get "bike-shop/new", :to => "accessories#new"
     resources :accessories, only: [:edit, :update, :create, :show]
-    resources :orders, only: [:update, :edit, :index, :show]
+    resources :orders, only: [:create, :update, :index, :show]
   end
 
   get "/bike-shop", :to => "bike_shop/accessories#index"
