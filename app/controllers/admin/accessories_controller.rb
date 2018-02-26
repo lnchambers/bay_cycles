@@ -1,7 +1,25 @@
 class Admin::AccessoriesController < Admin::BaseController
-  before_action :find_accessory, only: [:edit, :update]
+  before_action :find_accessory, only: [:edit, :update, :show]
 
   def edit
+  end
+
+  def new
+    @accessory = Accessory.new
+  end
+
+  def show
+  end
+
+  def create
+    @accessory = Accessory.new(accessory_params)
+    if @accessory.save
+      flash[:notice] = "Accessory created"
+      redirect_to admin_accessory_path(@accessory)
+    else
+      flash[:notice] = "Accessory not created. Try again."
+      render :new
+    end
   end
 
   def update
