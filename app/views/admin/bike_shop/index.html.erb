@@ -1,8 +1,12 @@
 Active Accessories: <% @active_accessories.each do |active| %>
-  <%= active.name %>
-  <%= active.description %>
+  Name: <%= active.name %>
+  Description: <%= active.description %>
+  Price: <%= number_to_currency(active.price) %>
+  <%= link_to "Edit #{active.name}", edit_admin_accessory_path(active) %>
 <% end %>
 
 Inactive Accessories: <% @inactive_accessories.each do |inactive| %>
-  <%= inactive.name %>
+  Name: <%= inactive.name %>
+  Description: <%= inactive.description %>
+  Price: <%= number_to_currency(inactive.price) %>
 <% end %>
