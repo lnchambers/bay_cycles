@@ -13,9 +13,9 @@ def zip_code_cleaner(zip)
   end
 end
 
-station_file = "db/fixture_data/station.csv"
-twip_file = "db/fixture_data/trip.csv"
-weather_file = "db/fixture_data/weather.csv"
+station_file = "db/development_data/station.csv"
+twip_file = "db/development_data/trip.csv"
+weather_file = "db/development_data/weather.csv"
 
 start_time = Time.now
 FastestCSV.open(station_file) do |csv|
@@ -61,12 +61,10 @@ FastestCSV.open(twip_file) do |csv|
       zip_code: zip_code_cleaner(values[10]),
       start_station_id: values[4],
       end_station_id: values[7],
-      condition: Condition.first
     )
     puts "Twip ##{twip.id} created"
   end
 end
-
 end_time = Time.now
 puts "#{end_time - start_time} seconds to import records. You do the math"
 
