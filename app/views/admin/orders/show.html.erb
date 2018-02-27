@@ -6,3 +6,4 @@
   Quantity: <%= accessory.total_quantity %>
   Line Item Subtotal: <%= number_to_currency(accessory.price * accessory.total_quantity) %>
 <% end %>
+Total Cost: <%= number_to_currency(@order.total_cost) %>
