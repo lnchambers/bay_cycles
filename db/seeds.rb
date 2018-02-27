@@ -13,9 +13,9 @@ def zip_code_cleaner(zip)
   end
 end
 
-station_file = "db/development_data/station.csv"
-twip_file = "db/development_data/trip.csv"
-weather_file = "db/development_data/weather.csv"
+station_file = "db/fixture_data/station.csv"
+twip_file = "db/fixture_data/trip.csv"
+weather_file = "db/fixture_data/weather.csv"
 
 start_time = Time.now
 FastestCSV.open(station_file) do |csv|
