@@ -85,4 +85,28 @@ class Condition < ApplicationRecord
   def self.lowest_rides_for_visibility(range)
     visibility_ranges(range).min
   end
+
+  def self.find_condition_id_most_rides
+    joins(:trips)
+    .group(:condition_id)
+    .count(:condition_id)
+    .max
+    .first
+  end
+
+  def self.weather_on_most_popular_day
+    find(find_condition_id_most_rides)
+  end
+
+  def self.find_condition_id_least_rides
+    joins(:trips)
+    .group(:condition_id)
+    .count(:condition_id)
+    .min
+    .first
+  end
+
+  def self.weather_on_least_popular_day
+    find(find_condition_id_least_rides)
+  end
 end

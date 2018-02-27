@@ -23,14 +23,14 @@ describe Trip, type: :model do
       @trip_1 = create(:trip,
                       start_station_id: @station_1.id,
                       end_station_id: @station_2.id,
-                      condition_id: @condition_2
+                      condition_id: @condition_2.id
                       )
       @trip_2 = create(:trip,
                       start_date: "2018-06-19 12:27:55",
                       end_date: "2018-06-19 12:27:55",
                       start_station_id: @station_1.id,
                       end_station_id: @station_3.id,
-                      condition_id: @condition_1
+                      condition_id: @condition_1.id
                       )
       @trip_3 = create(:trip,
                       start_date: "2018-06-19 12:27:55",
@@ -39,7 +39,7 @@ describe Trip, type: :model do
                       end_station_id: @station_3.id,
                       bike_id: 2,
                       subscription_type: "Customer",
-                      condition_id: @condition_1
+                      condition_id: @condition_1.id
                     )
     end
 
@@ -115,13 +115,6 @@ describe Trip, type: :model do
       it "returns single date with the lowest number of trips and count of those trips" do
         expect(Trip.least_popular_ride_date.start_date.to_date.to_s).to eq("2018-02-19")
         expect(Trip.least_popular_ride_date.count).to eq(1)
-      end
-    end
-
-    describe ".weather_on_most_popular_ride" do
-      it "returns weather on the most popular ride date" do
-
-        expect(Trip.weather_on_most_popular_ride).to eq(@condition_1)
       end
     end
   end

@@ -161,5 +161,19 @@ describe "class methods" do
         expect(Condition.lowest_rides_for_visibility(range_2)).to eq(2)
       end
     end
+
+    describe ".weather_on_most_popular_day" do
+      it "returns weather on the most popular ride date" do
+
+        expect(Condition.weather_on_most_popular_day).to eq(@condition_5)
+      end
+    end
+
+    describe ".weather_on_least_popular_day" do
+      it "returns weather on the least popular ride date" do
+
+        expect(Condition.weather_on_least_popular_day).to eq(@condition_1)
+      end
+    end
   end
 end
