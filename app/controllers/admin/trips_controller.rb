@@ -17,7 +17,6 @@ class Admin::TripsController < Admin::BaseController
   def create
     @trip = Trip.new(trip_params)
     @trip.update(condition: find_condition_id(trip_params[:start_date]))
-    binding.pry
     if @trip.save
       flash[:notice] = "Trip created"
       redirect_to trip_path(@trip)
