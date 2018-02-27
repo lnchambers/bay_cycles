@@ -8,7 +8,9 @@ See something that doesn't look right? <%= link_to "Edit Profile", edit_user_pat
   Order #<%= order.id %>
 <% end %>
 
-<%= link_to "Ordered", admin_dashboard_path %>: <%= @orders.ordered.count %>
-<%= link_to "Cancelled", admin_dashboard_path %>: <%= @orders.cancelled.count %>
-<%= link_to "Paid", admin_dashboard_path %>: <%= @orders.paid.count %>
-<%= link_to "Completed", admin_dashboard_path %>: <%= @orders.completed.count %>
+<%= link_to "Ordered", admin_dashboard_path(:status => "Ordered") %>: <%= @orders.ordered.count %>
+<%= link_to "Cancelled", admin_dashboard_path(:status => "Cancelled") %>: <%= @orders.cancelled.count %>
+<%= link_to "Paid", admin_dashboard_path(:status => "Paid") %>: <%= @orders.paid.count %>
+<%= link_to "Completed", admin_dashboard_path(:status => "Completed") %>: <%= @orders.completed.count %>
+
+<%= render partial: "status" if !@status_orders.empty? %>
