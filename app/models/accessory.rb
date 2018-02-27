@@ -4,5 +4,6 @@ class Accessory < ApplicationRecord
   has_attached_file :image
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
-  has_many :orderedaccessories
+  has_many :ordered_accessories
+  has_many :orders, through: :ordered_accessories
 end
