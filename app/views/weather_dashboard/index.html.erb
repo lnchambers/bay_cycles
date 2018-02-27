@@ -42,4 +42,44 @@
       <% end %>
     </table>
   </section>
+
+  <section class="weather-dashboard-table">
+    <h1>Wind Speed Analytics for Rides</h1>
+    <table>
+      <tr>
+        <th>Mean Wind Speed Range</th>
+        <th>Average Rides</th>
+        <th>Highest Number of Ride</th>
+        <th>Lowest Number of Rides</th>
+      </tr>
+      <% @wind_ranges.each do |range| %>
+        <tr>
+          <td><%= range %></td>
+          <td><%= @conditions.average_rides_for_wind(range) %></td>
+          <td><%= @conditions.most_rides_for_wind(range) %></td>
+          <td><%= @conditions.lowest_rides_for_wind(range) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+
+  <section class="weather-dashboard-table">
+    <h1>Visibility Analytics for Rides</h1>
+    <table>
+      <tr>
+        <th>Mean Visibility Range</th>
+        <th>Average Rides</th>
+        <th>Highest Number of Ride</th>
+        <th>Lowest Number of Rides</th>
+      </tr>
+      <% @visibility_ranges.each do |range| %>
+        <tr>
+          <td><%= range %></td>
+          <td><%= @conditions.average_rides_for_visibility(range) %></td>
+          <td><%= @conditions.most_rides_for_visibility(range) %></td>
+          <td><%= @conditions.lowest_rides_for_visibility(range) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
 </section>
