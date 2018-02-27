@@ -13,9 +13,9 @@ def zip_code_cleaner(zip)
   end
 end
 
-station_file = "db/fixture_data/station.csv"
-twip_file = "db/fixture_data/trip.csv"
-weather_file = "db/fixture_data/weather.csv"
+station_file = "db/development_data/station.csv"
+twip_file = "db/development_data/trip.csv"
+weather_file = "db/development_data/weather.csv"
 
 start_time = Time.now
 FastestCSV.open(station_file) do |csv|
@@ -29,23 +29,6 @@ FastestCSV.open(station_file) do |csv|
       installation_date: Date.strptime(values[6], '%m/%d/%y')
       )
     puts "#{values[1]} created"
-  end
-end
-
-FastestCSV.open(twip_file) do |csv|
-  csv.shift
-  while values = csv.shift
-    twip = Trip.create!(
-      duration: values[1],
-      start_date: Date.strptime(values[2], '%m/%d/%y'),
-      end_date: Date.strptime(values[5], '%m/%d/%y'),
-      bike_id: values[8],
-      subscription_type: values[9],
-      zip_code: zip_code_cleaner(values[10]),
-      start_station_id: values[4],
-      end_station_id: values[7]
-    )
-    puts "Twip ##{twip.id} created"
   end
 end
 
@@ -63,6 +46,23 @@ FastestCSV.open(weather_file) do |csv|
       precipitation: values[19] || 0
     )
     puts "Condition ##{condition.id} created"
+  end
+end
+
+FastestCSV.open(twip_file) do |csv|
+  csv.shift
+  while values = csv.shift
+    twip = Trip.create!(
+      duration: values[1],
+      start_date: Date.strptime(values[2], '%m/%d/%y'),
+      end_date: Date.strptime(values[5], '%m/%d/%y'),
+      bike_id: values[8],
+      subscription_type: values[9],
+      zip_code: zip_code_cleaner(values[10]),
+      start_station_id: values[4],
+      end_station_id: values[7],
+    )
+    puts "Twip ##{twip.id} created"
   end
 end
 end_time = Time.now
