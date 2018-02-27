@@ -1,0 +1,10 @@
+<%= @order.purchaser_name %>
+<%= @order.purchaser_address %>
+<%= @order.updated_at %>
+<% @order.accessories.each do |accessory| %>
+  <%= link_to accessory.name, admin_accessory_path(accessory) %>
+  Quantity: <%= accessory.total_quantity %>
+  Line Item Subtotal: <%= number_to_currency(accessory.price * accessory.total_quantity) %>
+<% end %>
+Total Cost: <%= number_to_currency(@order.total_cost) %>
+Status: <%= @order.status %>

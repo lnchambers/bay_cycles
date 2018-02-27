@@ -3,8 +3,9 @@
     <%= image_tag accessory.image.url %><br>
     Accessory: <%= accessory.name %><br>
     Description: <%= accessory.description %><br>
-    Price: <%= accessory.price %><br>
-    Quantity: <%= quantity %><br>
+    Price: <%= number_to_currency(accessory.price) %><br>
+    Quantity: <%= quantity %>
+    Subtotal: <%= number_to_currency(accessory.price * quantity) %>
 
     <%= button_to "Increase Quantity", carts_path(accessory: accessory.id, previous_page: "cart_page") %>
 
@@ -14,4 +15,6 @@
   </div>
 <% end %>
 
-Subtotal: $<%= @cart.total_value %>
+Total: <%= number_to_currency(@cart.total_value) %>
+
+<%= link_to "Checkout", new_order_path %>

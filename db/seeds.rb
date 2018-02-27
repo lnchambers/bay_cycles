@@ -61,12 +61,10 @@ FastestCSV.open(twip_file) do |csv|
       zip_code: zip_code_cleaner(values[10]),
       start_station_id: values[4],
       end_station_id: values[7],
-      condition: Condition.first
     )
     puts "Twip ##{twip.id} created"
   end
 end
-
 end_time = Time.now
 puts "#{end_time - start_time} seconds to import records. You do the math"
 
