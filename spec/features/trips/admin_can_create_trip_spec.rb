@@ -33,9 +33,9 @@ describe "As an Admin" do
       it "I see a flash message for errors" do
         visit new_admin_trip_path
         fill_in "trip[duration]", with: "100"
-        fill_in "trip[start_date]", with: Time.now
+        fill_in "trip[start_date]", with: Date.new(2018,2,26)
         fill_in "trip[start_station_id]", with: "1"
-        fill_in "trip[end_date]", with: Time.now
+        fill_in "trip[end_date]", with: Date.new(2018,2,26)
         fill_in "trip[bike_id]", with: "2"
         fill_in "trip[subscription_type]", with: "rider"
         fill_in "trip[zip_code]", with: "60608"
