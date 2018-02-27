@@ -1,13 +1,26 @@
-<% @conditions.each do |condition| %>
-  Date: <%= condition.date %>
-  Max Temperature: <%= condition.max_temperature %>
-  Mean Temperature: <%= condition.mean_temperature %>
-  Min Temperature: <%= condition.min_temperature %>
-  Mean Humidity: <%= condition.mean_humidity %>
-  Mean Visibility: <%= condition.mean_visibility %> miles
-  Mean Wind Speed: <%= condition.mean_wind_speed %>mph
-  Precipitation: <%= condition.precipitation %> inches
-  <%= link_to "More Info?", condition_path(condition) %>
-  <%= link_to "Edit", edit_admin_condition_path(condition) if current_admin? %>
-  <%= link_to "Delete", admin_condition_path(condition), method: "delete" if current_admin? %>
-<% end %>
+<section class="trips-dashboard-analytics">
+  <section class="trips-dashboard-value">
+    <% @conditions.each do |condition| %>
+      <h2>Date: </h2>
+      <h3><%= condition.date %></h3></br>
+      <h2>Max Temperature: </h2>
+      <h3><%= condition.max_temperature %></h3></br>
+      <h2>Mean Temperature: </h2>
+      <h3><%= condition.mean_temperature %></h3></br>
+      <h2>Min Temperature: </h2>
+      <h3><%= condition.min_temperature %></h3></br>
+      <h2>Mean Humidity: </h2>
+      <h3><%= condition.mean_humidity %></h3></br>
+      <h2>Mean Visibility: </h2>
+      <h3><%= condition.mean_visibility %> miles </h3></br>
+      <h2>Mean Wind Speed: </h2>
+      <h3><%= condition.mean_wind_speed %>mph </h3></br>
+      <h2>Precipitation: </h2>
+      <h3><%= condition.precipitation %> inches </h3></br>
+      <h3><%= link_to "More Info?", condition_path(condition) %></h3>
+      <h3><%= link_to "Edit", edit_admin_condition_path(condition) if current_admin? %></h3>
+      <h3><%= link_to "Delete", admin_condition_path(condition), method: "delete" if current_admin? %></h3>
+    <% end %>
+  </section>
+</section>
+  

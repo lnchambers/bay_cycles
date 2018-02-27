@@ -164,7 +164,33 @@ a:active {
   margin: 8px;
 
     h2, h3 {
-      background-color: $pastel-orange;
+      background-color: $sky-blue;
+      color: $dark-blue;
+      border: $dark-blue 2px solid;
+      padding: 20px;
+      margin: 2px;
+    }
+}
+
+.stations-dashboard-header {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.stations-dashboard-analytics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stations-dashboard-value {
+  display: flex;
+  margin: 8px;
+
+    h2, h3 {
+      background-color: $sky-blue;
       color: $dark-blue;
       border: $dark-blue 2px solid;
       padding: 20px;
