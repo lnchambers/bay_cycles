@@ -39,5 +39,9 @@ describe "As an Admin" do
     it "I also see the total for the order" do
       expect(page).to have_content("Total Cost: $60,000")
     end
+
+    it "I can see the status for the order" do
+      expect(page).to have_content("Status: #{@order.status}")
+    end
   end
 end
