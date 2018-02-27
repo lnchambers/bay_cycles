@@ -61,6 +61,7 @@ FastestCSV.open(twip_file) do |csv|
       zip_code: zip_code_cleaner(values[10]),
       start_station_id: values[4],
       end_station_id: values[7],
+      condition_id: values[-1]
     )
     puts "Twip ##{twip.id} created"
   end
