@@ -19,6 +19,9 @@ class OrdersController < ApplicationController
       @order.user_id = params[:user_id].keys[0]
       @order.status = params[:status].keys[0]
       if @order.save
+        session[:cart].each do |order|
+          OrderedAccessories.create!(accessory_id: order[0], order_id: @order.id, quantity: order[1])
+        end
         flash[:notice] = "You have successfully submitted your order!"
         redirect_to dashboard_path(current_user)
       else
