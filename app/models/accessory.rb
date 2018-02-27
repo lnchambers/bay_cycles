@@ -6,4 +6,10 @@ class Accessory < ApplicationRecord
 
   has_many :ordered_accessories
   has_many :orders, through: :ordered_accessories
+
+  def total_quantity
+    ordered_accessories.sum do |ordered_accessory|
+      ordered_accessory.quantity
+    end
+  end
 end
