@@ -1,0 +1,6 @@
+<%= @order.purchaser_name %>
+<%= @order.purchaser_address %>
+<%= @order.updated_at %>
+<% @order.accessories.each do |accessory| %>
+  <%= link_to accessory.name, admin_accessory_path(accessory) %>
+<% end %>
