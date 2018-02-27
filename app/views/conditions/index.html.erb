@@ -1,13 +1,19 @@
-<% @conditions.each do |condition| %>
-  Date: <%= condition.date %>
-  Max Temperature: <%= condition.max_temperature %>
-  Mean Temperature: <%= condition.mean_temperature %>
-  Min Temperature: <%= condition.min_temperature %>
-  Mean Humidity: <%= condition.mean_humidity %>
-  Mean Visibility: <%= condition.mean_visibility %> miles
-  Mean Wind Speed: <%= condition.mean_wind_speed %>mph
-  Precipitation: <%= condition.precipitation %> inches
-  <%= link_to "More Info?", condition_path(condition) %>
-  <%= link_to "Edit", edit_admin_condition_path(condition) if current_admin? %>
-  <%= link_to "Delete", admin_condition_path(condition), method: "delete" if current_admin? %>
-<% end %>
+<section class="trips-dashboard-analytics">
+  <% @conditions.each do |condition| %>
+    <section class="trips-dashboard-value">
+      <h2>
+        Date: <%= condition.date %></br>
+        Max Temperature: <%= condition.max_temperature %></br>
+        Mean Temperature: <%= condition.mean_temperature %></br>
+        Min Temperature: <%= condition.min_temperature %></br>
+        Mean Humidity: <%= condition.mean_humidity %></br>
+        Mean Visibility: <%= condition.mean_visibility %> miles </br>
+        Mean Wind Speed: <%= condition.mean_wind_speed %>mph </br>
+        Precipitation: <%= condition.precipitation %> inches </br>
+        <%= link_to "More Info?", condition_path(condition) %><br>
+        <%= link_to "Edit", edit_admin_condition_path(condition) if current_admin? %><br>
+        <%= link_to "Delete", admin_condition_path(condition), method: "delete" if current_admin? %><br>
+      </h2>
+    </section>
+  <% end %>
+</section>

@@ -1,18 +1,30 @@
-Total Stations: <%= @stations.count %>
-Average Count of Bikes: <%= @stations.average_bike_count %>
-Most Bikes Available: <%= @stations.highest_bike_count %> at
-<% @stations.station_with_highest_bike_count.each do |station| %>
-  <%= link_to station.name, station_path(station) %>
-<% end %>
-Fewest Bikes Available: <%= @stations.fewest_bike_count %> at
-<% @stations.station_with_lowest_bike_count.each do |station| %>
-  <%= link_to station.name, station_path(station) %>
-<% end %>
-Oldest Station:
-<% @stations.oldest_station.each do |station| %>
-  <%= link_to station.name, station_path(station) %>
-<% end %>
-Newest Station:
-<% @stations.newest_station.each do |station| %>
-  <%= link_to station.name, station_path(station) %>
-<% end %>
+<section class="stations-dashboard-header">
+  <h1>Stations Dashboard</h1>
+</section>
+
+<section class="stations-dashboard-analytics">
+  <section class="stations-dashboard-value">
+    Total Stations: <%= @stations.count %><br>
+    Average Count of Bikes: <%= @stations.average_bike_count %><br>
+    Most Bikes Available: <%= @stations.highest_bike_count %> at
+    <% @stations.station_with_highest_bike_count.each do |station| %>
+      <%= link_to station.name, station_path(station) %>
+    <% end %>
+  </section>
+  <section class="stations-dashboard-value">
+    Fewest Bikes Available: <%= @stations.fewest_bike_count %> at
+    <% @stations.station_with_lowest_bike_count.each do |station| %>
+      <%= link_to station.name, station_path(station) %>
+    <% end %>
+  </section>
+  <section class="stations-dashboard-value">
+    Oldest Station: <% @stations.oldest_station.each do |station| %>
+      <%= link_to station.name, station_path(station) %>
+    <% end %>
+  </section>
+  <section class="stations-dashboard-value">
+    Newest Station: <% @stations.newest_station.each do |station| %>
+      <%= link_to station.name, station_path(station) %>
+    <% end %>
+  </section>
+</section>
