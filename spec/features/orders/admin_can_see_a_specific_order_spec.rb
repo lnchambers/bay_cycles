@@ -22,5 +22,13 @@ describe "As an Admin" do
     it "I can see the accessories ordered" do
       expect(page).to have_content(@accessory.name)
     end
+
+    it "I can see the total quantity of an accessory ordered" do
+      expect(page).to have_content("Quantity: 4")
+    end
+
+    it "I see the line item subtotal" do
+      expect(page).to have_content("Line Item Subtotal: $10,000")
+    end
   end
 end
