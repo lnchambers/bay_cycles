@@ -1,9 +1,17 @@
-<%= link_to "Create New Station", new_admin_station_path if current_admin? %>
-<% @stations.each do |station| %>
-  Name: <%= link_to station.name, station_path(station) %>
-  Dock Count: <%= station.dock_count %>
-  City: <%= station.city %>
-  Installation Date: <%= station.installation_date %>
-  <%= link_to "Edit", edit_admin_station_path(station) if current_admin? %>
-  <%= link_to "Delete", admin_station_path(station), method: "delete" if current_admin? %>
-<% end %>
+<h3><%= link_to "Create New Station", new_admin_station_path if current_admin? %></h3>
+<section class="trips-dashboard-analytics">
+    <% @stations.each do |station| %>
+      <section class="trips-dashboard-value">
+        <h2>Name: </h2>
+        <h3><%= link_to station.name, station_path(station) %></h3></br>
+        <h2>Dock Count: </h2>
+        <h3><%= station.dock_count %></h3></br>
+        <h2>City: </h2>
+        <h3><%= station.city %></h3></br>
+        <h2>Installation Date: </h2>
+        <h3><%= station.installation_date %></h3></br>
+        <h3><%= link_to "Edit", edit_admin_station_path(station) if current_admin? %></h3>
+        <h3><%= link_to "Delete", admin_station_path(station), method: "delete" if current_admin? %></h3>
+      </section>
+    <% end %>
+</section>
