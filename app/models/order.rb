@@ -9,4 +9,20 @@ class Order < ApplicationRecord
       Accessory.find(ordered_accessory.accessory_id).price * ordered_accessory.quantity
     end
   end
+
+  def self.completed
+    where(status: "Completed")
+  end
+
+  def self.ordered
+    where(status: "Ordered")
+  end
+
+  def self.cancelled
+    where(status: "Cancelled")
+  end
+
+  def self.paid
+    where(status: "Paid")
+  end
 end
