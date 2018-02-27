@@ -4,33 +4,27 @@
 
 <section class="stations-dashboard-analytics">
   <section class="stations-dashboard-value">
-    <h2>Total Stations:</h2>
-    <h3><%= @stations.count %></h3>
-    <h2>Average Count of Bikes:</h2>
-    <h3><%= @stations.average_bike_count %></h3>
-    <h2>Most Bikes Available:</h2>
-    <h3><%= @stations.highest_bike_count %> at</h3>
+    Total Stations: <%= @stations.count %><br>
+    Average Count of Bikes: <%= @stations.average_bike_count %><br>
+    Most Bikes Available: <%= @stations.highest_bike_count %> at
     <% @stations.station_with_highest_bike_count.each do |station| %>
-      <h3><%= link_to station.name, station_path(station) %></h3>
+      <%= link_to station.name, station_path(station) %>
     <% end %>
   </section>
   <section class="stations-dashboard-value">
-    <h2>Fewest Bikes Available:</h2>
-    <h3><%= @stations.fewest_bike_count %> at</h3>
+    Fewest Bikes Available: <%= @stations.fewest_bike_count %> at
     <% @stations.station_with_lowest_bike_count.each do |station| %>
-      <h3><%= link_to station.name, station_path(station) %></h3>
+      <%= link_to station.name, station_path(station) %>
     <% end %>
   </section>
   <section class="stations-dashboard-value">
-    <h2>Oldest Station:</h2>
-    <% @stations.oldest_station.each do |station| %>
-      <h3><%= link_to station.name, station_path(station) %></h3>
+    Oldest Station: <% @stations.oldest_station.each do |station| %>
+      <%= link_to station.name, station_path(station) %>
     <% end %>
   </section>
   <section class="stations-dashboard-value">
-    <h2>Newest Station:</h2>
-    <% @stations.newest_station.each do |station| %>
-      <h3><%= link_to station.name, station_path(station) %></h3>
+    Newest Station: <% @stations.newest_station.each do |station| %>
+      <%= link_to station.name, station_path(station) %>
     <% end %>
   </section>
 </section>

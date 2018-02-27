@@ -1,26 +1,19 @@
 <section class="trips-dashboard-analytics">
-  <section class="trips-dashboard-value">
-    <% @conditions.each do |condition| %>
-      <h2>Date: </h2>
-      <h3><%= condition.date %></h3></br>
-      <h2>Max Temperature: </h2>
-      <h3><%= condition.max_temperature %></h3></br>
-      <h2>Mean Temperature: </h2>
-      <h3><%= condition.mean_temperature %></h3></br>
-      <h2>Min Temperature: </h2>
-      <h3><%= condition.min_temperature %></h3></br>
-      <h2>Mean Humidity: </h2>
-      <h3><%= condition.mean_humidity %></h3></br>
-      <h2>Mean Visibility: </h2>
-      <h3><%= condition.mean_visibility %> miles </h3></br>
-      <h2>Mean Wind Speed: </h2>
-      <h3><%= condition.mean_wind_speed %>mph </h3></br>
-      <h2>Precipitation: </h2>
-      <h3><%= condition.precipitation %> inches </h3></br>
-      <h3><%= link_to "More Info?", condition_path(condition) %></h3>
-      <h3><%= link_to "Edit", edit_admin_condition_path(condition) if current_admin? %></h3>
-      <h3><%= link_to "Delete", admin_condition_path(condition), method: "delete" if current_admin? %></h3>
-    <% end %>
-  </section>
+  <% @conditions.each do |condition| %>
+    <section class="trips-dashboard-value">
+      <h2>
+        Date: <%= condition.date %></br>
+        Max Temperature: <%= condition.max_temperature %></br>
+        Mean Temperature: <%= condition.mean_temperature %></br>
+        Min Temperature: <%= condition.min_temperature %></br>
+        Mean Humidity: <%= condition.mean_humidity %></br>
+        Mean Visibility: <%= condition.mean_visibility %> miles </br>
+        Mean Wind Speed: <%= condition.mean_wind_speed %>mph </br>
+        Precipitation: <%= condition.precipitation %> inches </br>
+        <%= link_to "More Info?", condition_path(condition) %><br>
+        <%= link_to "Edit", edit_admin_condition_path(condition) if current_admin? %><br>
+        <%= link_to "Delete", admin_condition_path(condition), method: "delete" if current_admin? %><br>
+      </h2>
+    </section>
+  <% end %>
 </section>
-  

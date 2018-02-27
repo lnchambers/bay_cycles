@@ -1,13 +1,13 @@
 <% @accessories.each_pair do |accessory, quantity| %>
   <div class="accessory<%= accessory.id %>">
-    <%= image_tag accessory.image.url %>
+    <%= image_tag accessory.image.url %><br>
     Accessory: <%= accessory.name %><br>
     Description: <%= accessory.description %><br>
     Price: <%= accessory.price %><br>
-    Quantity: <%= quantity %>
+    Quantity: <%= quantity %><br>
 
     <%= button_to "Increase Quantity", carts_path(accessory: accessory.id, previous_page: "cart_page") %>
-  
+
     <%= button_to "Decrease Quantity", cart_path(accessory, previous_page: "decrease_quantity"), method: :delete if @cart.contents[accessory.id.to_s] > 1%><br>
 
     <%= link_to "Remove", cart_path(accessory), method: :delete %>
