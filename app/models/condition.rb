@@ -1,5 +1,6 @@
 class Condition < ApplicationRecord
-  has_many :trips
+  has_many :trips, :dependent => :nullify
+
   validates_presence_of :date, :max_temperature, :mean_temperature, :min_temperature, :mean_humidity, :mean_visibility, :mean_wind_speed, :precipitation
 
   def self.temp_ranges(range)

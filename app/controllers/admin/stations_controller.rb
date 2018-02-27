@@ -1,6 +1,6 @@
 class Admin::StationsController < Admin::BaseController
   before_action :find_station, only: [:edit, :update, :destroy]
-  
+
   def new
     @station = Station.new
   end
