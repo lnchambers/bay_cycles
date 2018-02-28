@@ -30,7 +30,7 @@
     <footer class="footer">
       <%= render partial: "login" if !current_user %>
       <%= render partial: "logout" if current_user %>
-      <%= link_to "Cart(#{@cart.total_count})", carts_path%>
+      <%= link_to "Cart(#{@cart.total_count})", cart_index_path%>
       <h2>Made with <%= made_with_adjective.sample %> <%= made_with_nouns.sample %> By <%= link_to "Luis Senior", "https://github.com/Heybluguy" %>, <%= link_to "Ellen Cornelius", "https://github.com/corneliusellen" %>, and <%= link_to "Luke Chambers", "https://github.com/lnchambers" %></h2>
     </footer>
   </body>

@@ -7,7 +7,7 @@
     Quantity: <%= quantity %>
     Subtotal: <%= number_to_currency(accessory.price * quantity) %>
 
-    <%= button_to "Increase Quantity", carts_path(accessory: accessory.id, previous_page: "cart_page") %>
+    <%= button_to "Increase Quantity", cart_index_path(accessory: accessory.id, previous_page: "cart_page") %>
 
     <%= button_to "Decrease Quantity", cart_path(accessory, previous_page: "decrease_quantity"), method: :delete if @cart.contents[accessory.id.to_s] > 1%><br>
 
