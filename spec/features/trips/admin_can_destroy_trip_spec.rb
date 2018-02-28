@@ -16,8 +16,7 @@ describe "As an Admin" do
       click_on "Delete"
 
       expect(current_path).to eq(trips_path)
-      expect(page).to_not have_content(@trip.id)
-      expect(page).to have_content("Trip deleted")
+      expect(page).to have_content("Trip ID#{@trip.id} deleted")
     end
   end
 
@@ -27,8 +26,7 @@ describe "As an Admin" do
       click_on "Delete"
 
       expect(current_path).to eq(trips_path)
-      expect(page).to_not have_content(@trip.id)
-      expect(page).to have_content("Trip deleted")
+      expect(page).to have_content("Trip ID#{@trip.id} deleted")
     end
   end
 end

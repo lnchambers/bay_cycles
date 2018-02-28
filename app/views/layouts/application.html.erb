@@ -13,7 +13,7 @@
     <section class="welcome-container">
       <section class="welcome-header">
         <section class="welcome-header-title">
-          <h1>Bay Cycles</h1>
+          <h1><%= link_to "Bay Cycles", root_path %></h1>
         </section>
         <section class="welcome-header-nav">
           <div class="welcome-links"><%= link_to "Stations", stations_path %></div>
@@ -21,9 +21,9 @@
           <div class="welcome-links"><%= link_to "Weather Conditions", conditions_path %></div>
           <div class="welcome-links"><%= link_to "Give Us Your Money", bike_shop_path %></div>
         </section>
-        <% if @current_user %>
+        <% if current_user %>
           <section class="welcome-header-logged-in">
-            <h3>Logged in as <%= @current_user.name %></h3>
+            <h3>Logged in as <%= current_user.name %></h3>
           </section>
         <% end %>
       </section>

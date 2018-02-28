@@ -56,6 +56,12 @@
   </section>
   <section class="trips-dashboard-value">
     <h2>Monthly Breakdown of Number of Rides:</h2>
+    <% @trips.monthly_breakdown_of_rides.each_pair do |month, count| %>
+    <h2>
+      <%= month.strftime("%B") %>:
+      <%= count %> rides
+    </h2>
+    <% end %>
   </section>
   <section class="trips-dashboard-value">
     <section class="trips-dashboard-weather">

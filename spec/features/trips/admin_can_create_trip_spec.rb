@@ -25,7 +25,7 @@ describe "As an Admin" do
 
       expect(current_path).to eq(trip_path(Trip.last))
       expect(page).to have_content("100")
-      expect(page).to have_content("Trip created")
+      expect(page).to have_content("Trip ID#{Trip.last.id} created")
     end
   end
 
@@ -59,7 +59,7 @@ describe "As an Admin" do
       click_on "Create"
 
       expect(page).to have_content("10000")
-      expect(page).to have_content("Trip created")
+      expect(page).to have_content("Trip ID#{Trip.last.id} created")
     end
   end
 end

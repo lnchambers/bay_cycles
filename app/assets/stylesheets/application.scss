@@ -69,7 +69,7 @@ a:active {
   background-image: image-url('welcome-header.jpeg');
   background-position: center;
   background-size: cover;
-  height: 110px;
+  height: 140px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -87,6 +87,8 @@ a:active {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 10px;
+  padding-top: 5px;
 }
 
 .welcome-header-title h1 {
@@ -121,6 +123,16 @@ a:active {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.welcome-header-logged-in {
+  background: linear-gradient($light-transparent, $dark-transparent);
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $pastel-orange
 }
 
 .welcome-container-main {
@@ -162,6 +174,7 @@ a:active {
 .trips-dashboard-value {
   display: flex;
   margin: 8px;
+  flex-direction: column;
 
     h2, h3 {
       background-color: $sky-blue;
