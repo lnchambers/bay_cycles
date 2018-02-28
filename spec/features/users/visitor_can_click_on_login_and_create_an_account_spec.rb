@@ -14,7 +14,7 @@ describe "As a visitor" do
     it "I can click on create account" do
       visit login_path
 
-      first(".welcome-about").click_on "Create Account"
+      click_on "Create Account"
 
       expect(current_path).to eq(new_user_path)
     end
@@ -25,7 +25,7 @@ describe "As a visitor" do
       fill_in "user[name]", with: "Opakawagalaga"
       fill_in "user[email]", with: "opakawagalaga@eupanifahorious.com"
       fill_in "user[password]", with: "mahstrongpassword"
-      click_on "Create Account"
+      click_on "Create User"
 
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("Welcome, Opakawagalaga!")

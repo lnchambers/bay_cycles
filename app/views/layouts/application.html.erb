@@ -30,7 +30,6 @@
       <%= yield %>
     </section>
     <footer class="footer">
-      <%= render partial: "layouts/current" if current_user %>
       <%= render partial: "layouts/login" if !current_user %>
       <%= render partial: "layouts/logout" if current_user %>
       <%= link_to "Cart(#{@cart.total_count})", cart_index_path%>
