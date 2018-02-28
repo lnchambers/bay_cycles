@@ -1,5 +1,5 @@
-<%= @accessory.name %>
-<%= @accessory.description %>
-<%= number_to_currency(@accessory.price) %>
+<h1><%= @accessory.name %></h1>
+<p><%= @accessory.description %></p>
+<p><%= number_to_currency(@accessory.price) %></p>
 <%= render partial: "active" if @accessory.role == 0 %>
 <%= render partial: "inactive" if @accessory.role == 1 %>

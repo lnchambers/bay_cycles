@@ -15,6 +15,6 @@
   </section>
 <% end %>
 
-Total: <%= number_to_currency(@cart.total_value) %>
+<h1>Total: <%= number_to_currency(@cart.total_value) %></h1>
 
-<%= link_to "Checkout", new_order_path %>
+<p><%= link_to "Checkout", new_order_path %></p>
