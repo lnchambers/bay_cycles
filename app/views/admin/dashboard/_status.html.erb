@@ -1,7 +1,7 @@
-Orders with the status of <%= @status_orders.first.status %>
+<h1>Orders with the status of <%= @status_orders.first.status %></h1>
 <% @status_orders.each do |order| %>
-  <%= order.status %> Order: #<%= order.id %>
-  <%= link_to "Cancel Order", order_path(order, status: "Cancelled"), method: "patch" if !@status_orders.paid.empty? || !@status_orders.ordered.empty? %>
-  <%= link_to "Mark as Paid", order_path(order, status: "Paid"), method: "patch" if !@status_orders.ordered.empty? %>
-  <%= link_to "Mark as Completed", order_path(order, status: "Completed"), method: "patch" if !@status_orders.paid.empty? %>
+  <h1><%= order.status %> Order: #<%= order.id %></h1>
+  <p><%= link_to "Cancel Order", order_path(order, status: "Cancelled"), method: "patch" if !@status_orders.paid.empty? || !@status_orders.ordered.empty? %></p>
+  <p><%= link_to "Mark as Paid", order_path(order, status: "Paid"), method: "patch" if !@status_orders.ordered.empty? %></p>
+  <p><%= link_to "Mark as Completed", order_path(order, status: "Completed"), method: "patch" if !@status_orders.paid.empty? %></p>
 <% end %>
