@@ -13,6 +13,7 @@ class Admin::AccessoriesController < Admin::BaseController
 
   def create
     @accessory = Accessory.new(accessory_params)
+    @accessory.update_attribute(:image, params[:accessory][:image])
     if @accessory.save
       flash[:notice] = "Accessory created"
       redirect_to admin_accessory_path(@accessory)
@@ -24,6 +25,7 @@ class Admin::AccessoriesController < Admin::BaseController
 
   def update
     if @accessory.update(accessory_params)
+      @accessory.update_attribute(:image, params[:accessory][:image])
       flash[:notice] = "Accessory updated"
       redirect_to admin_bike_shop_path
     else
