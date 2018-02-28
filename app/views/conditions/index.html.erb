@@ -1,3 +1,8 @@
+<br>
+<section class="button">
+  <h3><%= link_to "Create New Condition", new_admin_condition_path if current_admin? %></h3>
+</section>
+<br>
 <section class="trips-dashboard-analytics">
   <% @conditions.each do |condition| %>
     <section class="trips-dashboard-value">
