@@ -19,7 +19,7 @@
   <%= f.number_field :bike_id %>
 
   <%= f.label :subscription_type %>
-  <%= f.text_field :subscription_type %>
+  <%= f.select :subscription_type, options_for_select(subscription_types) %>
 
   <%= f.label :zip_code %>
   <%= f.number_field :zip_code %>

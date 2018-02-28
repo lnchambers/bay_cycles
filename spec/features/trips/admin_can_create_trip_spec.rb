@@ -19,13 +19,13 @@ describe "As an Admin" do
       fill_in "trip[end_date]", with: DateTime.new(2018,2,26,1,4)
       fill_in "trip[end_station_id]", with: "1"
       fill_in "trip[bike_id]", with: "2"
-      fill_in "trip[subscription_type]", with: "rider"
+      select "Subscriber", from: "Subscription type"
       fill_in "trip[zip_code]", with: "60608"
       click_on "Create"
 
       expect(current_path).to eq(trip_path(Trip.last))
       expect(page).to have_content("100")
-      expect(page).to have_content("Trip created")
+      expect(page).to have_content("Trip ID#{Trip.last.id} created")
     end
   end
 
@@ -37,7 +37,7 @@ describe "As an Admin" do
       fill_in "trip[start_station_id]", with: "1"
       fill_in "trip[end_date]", with: DateTime.new(2018,2,26,1,4)
       fill_in "trip[bike_id]", with: "2"
-      fill_in "trip[subscription_type]", with: "rider"
+      select "Subscriber", from: "Subscription type"
       fill_in "trip[zip_code]", with: "60608"
       click_on "Create"
 
@@ -54,12 +54,12 @@ describe "As an Admin" do
       fill_in "trip[end_date]", with: DateTime.new(2100,3,26,1,4)
       fill_in "trip[end_station_id]", with: "1"
       fill_in "trip[bike_id]", with: "2"
-      fill_in "trip[subscription_type]", with: "rider"
+      select "Subscriber", from: "Subscription type"
       fill_in "trip[zip_code]", with: "60608"
       click_on "Create"
 
       expect(page).to have_content("10000")
-      expect(page).to have_content("Trip created")
+      expect(page).to have_content("Trip ID#{Trip.last.id} created")
     end
   end
 end

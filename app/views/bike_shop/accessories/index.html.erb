@@ -4,6 +4,6 @@
   <%= link_to accessory.name, bike_shop_accessory_path(accessory) %>
   <%= accessory.description %>
   <%= accessory.price %>
-    <%= button_to "Add to Cart", carts_path(accessory: accessory.id) %>
+    <%= button_to "Add to Cart", cart_index_path(accessory: accessory.id) %>
   </div>
 <% end %>

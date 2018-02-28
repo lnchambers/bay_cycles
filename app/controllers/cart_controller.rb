@@ -1,13 +1,13 @@
-class CartsController < ApplicationController
+class CartController < ApplicationController
 
   def create
     @accessory = Accessory.find(params[:accessory])
     @cart = Cart.new(session[:cart])
     @cart.add_accessory(params[:accessory])
     session[:cart] = @cart.contents
-    flash[:notice] = "Successfully added #{@accessory.name}"
+    flash[:notice] = %Q(Successfully added #{view_context.link_to(@accessory.name, bike_shop_accessory_path(@accessory))} to your #{view_context.link_to("cart", cart_index_path)})
     if params[:previous_page] == "cart_page"
-      redirect_to carts_path
+      redirect_to cart_index_path
     else
       redirect_to bike_shop_path
     end
@@ -26,14 +26,14 @@ class CartsController < ApplicationController
       @cart = Cart.new(session[:cart])
       @cart.decrease_quantity(params[:id])
       session[:cart] = @cart.contents
-      redirect_to carts_path
+      redirect_to cart_index_path
     else
       @accessory = Accessory.find(params[:id])
       @cart = Cart.new(session[:cart])
       @cart.remove_accessory(params[:id])
       session[:cart] = @cart.contents
-      flash[:notice] = %Q(Successfully removed #{@accessory.name} from your cart. #{view_context.button_to("Undo", carts_path(accessory: @accessory.id, previous_page: "cart_page"))}).html_safe
-      redirect_to carts_path
+      flash[:notice] = %Q(Successfully removed #{@accessory.name} from your cart. #{view_context.button_to("Undo", cart_index_path(accessory: @accessory.id, previous_page: "cart_page"))}).html_safe
+      redirect_to cart_index_path
     end
   end
 end
