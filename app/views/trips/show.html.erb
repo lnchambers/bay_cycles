@@ -1,10 +1,15 @@
-<h3><%= @trip.duration %></h3>
-<h3><%= @trip.start_date %></h3>
-<h3><%= @trip.start_station.name %></h3>
-<h3><%= @trip.end_date %></h3>
-<h3><%= @trip.end_station.name %></h3>
-<h3><%= @trip.bike_id %></h3>
-<h3><%= @trip.subscription_type %></h3>
-<h3><%= @trip.zip_code %></h3>
-<h3><%= link_to "Edit Trip", edit_admin_trip_path(@trip) if current_admin? %></h3>
-<h3><%= link_to "Delete Trip", admin_trip_path(@trip), method: "delete" if current_admin? %></h3>
+<section class="stations-dashboard-analytics">
+  <section class="stations-dashboard-value">
+    <h2> Duration: <%= @trip.duration %><br>
+    Start Date: <%= @trip.start_date %><br>
+    End Date: <%= @trip.end_date %><br>
+    Start Station: <%= @trip.start_station.name %><br>
+    End Station: <%= @trip.end_station.name %><br>
+    Bike ID #<%= @trip.bike_id %><br>
+    User Subscription Type: <%= @trip.subscription_type %><br>
+    Zip Code: <%= @trip.zip_code %><br>
+    <%= link_to "Edit Trip", edit_admin_trip_path(@trip) if current_admin? %><br>
+    <%= link_to "Delete Trip", admin_trip_path(@trip), method: "delete" if current_admin? %><br>
+  </h2>
+  </section>
+</section>

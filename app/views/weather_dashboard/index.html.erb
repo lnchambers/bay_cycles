@@ -14,10 +14,10 @@
       </tr>
       <% @temp_ranges.each do |range| %>
         <tr>
-          <td><%= range %></td>
-          <td><%= @conditions.average_rides_for_temps(range) %></td>
-          <td><%= @conditions.most_rides_for_temps(range) %></td>
-          <td><%= @conditions.lowest_rides_for_temps(range) %></td>
+          <td><%= range %>°F</td>
+          <td><%= @conditions.average_rides_for_temps(range) %>°F</td>
+          <td><%= @conditions.most_rides_for_temps(range) %>°F</td>
+          <td><%= @conditions.lowest_rides_for_temps(range) %>°F</td>
         </tr>
       <% end %>
     </table>
@@ -34,10 +34,10 @@
       </tr>
       <% @precipitation_ranges.each do |range| %>
         <tr>
-          <td><%= range %></td>
-          <td><%= @conditions.average_rides_for_precipitation(range) %></td>
-          <td><%= @conditions.most_rides_for_precipitation(range) %></td>
-          <td><%= @conditions.lowest_rides_for_precipitation(range) %></td>
+          <td><%= range %> inches</td>
+          <td><%= @conditions.average_rides_for_precipitation(range) %> inches</td>
+          <td><%= @conditions.most_rides_for_precipitation(range) %> inches</td>
+          <td><%= @conditions.lowest_rides_for_precipitation(range) %> inches</td>
         </tr>
       <% end %>
     </table>
@@ -54,10 +54,10 @@
       </tr>
       <% @wind_ranges.each do |range| %>
         <tr>
-          <td><%= range %></td>
-          <td><%= @conditions.average_rides_for_wind(range) %></td>
-          <td><%= @conditions.most_rides_for_wind(range) %></td>
-          <td><%= @conditions.lowest_rides_for_wind(range) %></td>
+          <td><%= range %> mph</td>
+          <td><%= @conditions.average_rides_for_wind(range) %> mph</td>
+          <td><%= @conditions.most_rides_for_wind(range) %> mph</td>
+          <td><%= @conditions.lowest_rides_for_wind(range) %> mph</td>
         </tr>
       <% end %>
     </table>
@@ -74,10 +74,10 @@
       </tr>
       <% @visibility_ranges.each do |range| %>
         <tr>
-          <td><%= range %></td>
-          <td><%= @conditions.average_rides_for_visibility(range) %></td>
-          <td><%= @conditions.most_rides_for_visibility(range) %></td>
-          <td><%= @conditions.lowest_rides_for_visibility(range) %></td>
+          <td><%= range %> miles</td>
+          <td><%= @conditions.average_rides_for_visibility(range) %> miles</td>
+          <td><%= @conditions.most_rides_for_visibility(range) %> miles</td>
+          <td><%= @conditions.lowest_rides_for_visibility(range) %> miles</td>
         </tr>
       <% end %>
     </table>
