@@ -8,4 +8,4 @@
 Total Cost: <%= number_to_currency(@order.total_cost) %>
 Status: <%= @order.status %>
 Order submitted on <%= @order.created_at %>
-Order updated at <%= @order.updated_at %>
+<%= render partial: "update" if @order.status == "Completed" || @order.status == "Cancelled" %>
