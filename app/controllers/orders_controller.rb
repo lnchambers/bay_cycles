@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :check_users_orders, only: [:show]
 
   def show
-    @order = Order.find(params[:id])
   end
 
   def new
@@ -43,6 +43,14 @@ class OrdersController < ApplicationController
 
     def order_params
       params.require(:order).permit(:purchaser_name, :purchaser_address)
+    end
+
+    def check_users_orders
+      if current_user.id == Order.find(params[:id]).user_id
+        @order = Order.find(params[:id])
+      else
+        render file: "/public/404"
+      end
     end
 
 end

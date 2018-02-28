@@ -38,5 +38,20 @@ describe "As a registered User" do
     it "I can see the time the order was submitted" do
       expect(page).to have_content("Order submitted on #{@order.created_at}")
     end
+
+    it "I can't see another user's order" do
+      user = create(:user, name: "Opakawagalaga", email: "eupanifahorious@trundawundalunda.org")
+      order = create(:order, user: user)
+      visit order_path(order)
+
+      expect(page).to have_content("The page you were looking for doesn't exist")
+    end
+
+    it "I can see the time that an order was updated if the status is Cancelled or Completed" do
+      @order.update(status: "Completed")
+      visit order_path(@order)
+
+      expect(page).to have_content("Order was Completed on #{@order.updated_at}")
+    end
   end
 end
