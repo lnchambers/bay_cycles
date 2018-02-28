@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180227210956) do
 
   create_table "conditions", force: :cascade do |t|
     t.datetime "date"
-    t.integer "max_temperature"
+    t.decimal "max_temperature"
     t.integer "mean_temperature"
     t.integer "min_temperature"
     t.integer "mean_humidity"
