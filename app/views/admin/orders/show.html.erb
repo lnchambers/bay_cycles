@@ -1,10 +1,12 @@
-<h1>Name: <%= @order.purchaser_name %></h1>
-<p>Address: <%= @order.purchaser_address %></p>
-<p>Order Updated At: <%= @order.updated_at %></p>
-<% @order.accessories.each do |accessory| %>
-  <h1><%= link_to accessory.name, admin_accessory_path(accessory) %></h1>
-  <p>Quantity: <%= accessory.total_quantity %></p>
-  <p>Line Item Subtotal: <%= number_to_currency(accessory.price * accessory.total_quantity) %></p>
-<% end %>
-<p>Total Cost: <%= number_to_currency(@order.total_cost) %></p>
-<p>Status: <%= @order.status %></p>
+<section class="welcome-about">
+  <h1>Name: <%= @order.purchaser_name %></h1>
+  <p>Address: <%= @order.purchaser_address %></p>
+  <p>Order Updated At: <%= @order.updated_at %></p>
+  <% @order.accessories.each do |accessory| %>
+    <h1><%= link_to accessory.name, admin_accessory_path(accessory) %></h1>
+    <p>Quantity: <%= accessory.total_quantity %></p>
+    <p>Line Item Subtotal: <%= number_to_currency(accessory.price * accessory.total_quantity) %></p>
+  <% end %>
+  <p>Total Cost: <%= number_to_currency(@order.total_cost) %></p>
+  <p>Status: <%= @order.status %></p>
+</section>
