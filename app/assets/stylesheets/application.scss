@@ -247,3 +247,16 @@ a:active {
   background-color: $dark-transparent;
   color: $sky-blue;
 }
+
+.accessory-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px solid $pastel-orange;
+  height: 300px;
+  width: 200px;
+  font-style: oblique;
+  margin: 20px;
+  background-color: $dark-transparent;
+  color: $sky-blue;
+}
