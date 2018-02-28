@@ -1,5 +1,7 @@
-Name: <%= @accessory.name %>
-Description: <%= @accessory.description %>
-Price: <%= number_to_currency(@accessory.price) %>
-<%= link_to "Edit #{@accessory.name}", edit_admin_accessory_path %>
-<%= link_to "Retire Accessory", admin_accessory_path(@accessory, :accessory => {:role => 1}), method: "put" %>
+<section class="welcome-about">
+  <p>Name: <%= @accessory.name %></p>
+  Description: <%= @accessory.description %>
+  <p>Price: <%= number_to_currency(@accessory.price) %></p>
+  <%= link_to "Edit #{@accessory.name}", edit_admin_accessory_path %>
+  <%= link_to "Retire Accessory", admin_accessory_path(@accessory, :accessory => {:role => 1}), method: "put" %>
+</section>

@@ -17,9 +17,7 @@ describe "As a visitor" do
         expect(page).to have_content("Accessory: Big Hoops")
         expect(page).to have_content("Accessory: Small Hoops")
 
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Remove"
-        end
+        first(".accessory-card").click_on "Remove"
 
         expect(current_path).to eq(cart_index_path)
         expect(page).to_not have_content("Accessory: Big Hoops")
@@ -31,9 +29,7 @@ describe "As a visitor" do
         first(".accessory-card").click_on "Add to Cart"
         all(".accessory-card").last.click_on "Add to Cart"
         visit cart_index_path
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Remove"
-        end
+        first(".accessory-card").click_on "Remove"
 
         expect(page).to have_content("Successfully removed Big Hoops from your cart.")
       end
@@ -43,9 +39,7 @@ describe "As a visitor" do
         first(".accessory-card").click_on "Add to Cart"
         all(".accessory-card").last.click_on "Add to Cart"
         visit cart_index_path
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Remove"
-        end
+        first(".accessory-card").click_on "Remove"
         click_on "Undo"
 
         expect(page).to have_content("Successfully added Big Hoops")

@@ -1,8 +1,8 @@
 <% @inactive_accessories.each do |inactive| %>
-  Name: <%= inactive.name %>
-  Description: <%= inactive.description %>
-  Price: <%= number_to_currency(inactive.price) %>
-  <%= link_to "Edit #{inactive.name}", edit_admin_accessory_path(inactive) %>
-  Status: Inactive
-  <%= link_to "Reactivate Accessory", admin_accessory_path(inactive, :accessory => {:role => 0}), method: "put" %>
+  <h1>Name: <%= inactive.name %></h1>
+  <p>Description: <%= inactive.description %></p>
+  <p>Price: <%= number_to_currency(inactive.price) %></p>
+  <p><%= link_to "Edit #{inactive.name}", edit_admin_accessory_path(inactive) %></p>
+  <p>Status: Inactive</p>
+  <p><%= link_to "Reactivate Accessory", admin_accessory_path(inactive, :accessory => {:role => 0}), method: "put" %></p>
 <% end %>

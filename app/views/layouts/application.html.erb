@@ -27,10 +27,11 @@
         </section>
       <% end %>
       </section>
+    </section>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice].html_safe %></div>
+    <% end %>
     <section class="main-container">
-      <% if flash[:notice] %>
-        <div class="notice"><%= flash[:notice].html_safe %></div>
-      <% end %>
       <%= yield %>
     </section>
     <footer class="footer">

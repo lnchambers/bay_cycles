@@ -26,9 +26,12 @@ class UsersController < ApplicationController
 
   def update
     user = current_user
-    user.update(user_params)
-    if user.save
-      redirect_to user_path(user)
+    if user.update(user_params)
+      if current_admin?
+        redirect_to admin_dashboard_path
+      else
+        redirect_to dashboard_path
+      end
     else
       render :edit
     end

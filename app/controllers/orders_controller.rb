@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
           OrderedAccessory.create!(accessory_id: order[0], order_id: @order.id, quantity: order[1])
         end
         flash[:notice] = "You have successfully submitted your order!"
+        session[:cart] = nil
         redirect_to dashboard_path(current_user)
       else
 

@@ -1,5 +1,4 @@
 class Admin::DashboardController < Admin::BaseController
-
   def show
     @orders = Order.all
     @status_orders = find_by_status

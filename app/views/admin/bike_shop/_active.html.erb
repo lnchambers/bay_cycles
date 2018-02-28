@@ -1,8 +1,8 @@
 <% @active_accessories.each do |active| %>
-  Name: <%= active.name %>
-  Description: <%= active.description %>
-  Price: <%= number_to_currency(active.price) %>
-  <%= link_to "Edit #{active.name}", edit_admin_accessory_path(active) %>
-  Status: Active
-  <%= link_to "Retire Accessory", admin_accessory_path(active, :accessory => {:role => 1}), method: "put" %>
+  <h1>Name: <%= active.name %></h1>
+  <p>Description: <%= active.description %></p>
+  <p>Price: <%= number_to_currency(active.price) %></p>
+  <p><%= link_to "Edit #{active.name}", edit_admin_accessory_path(active) %></p>
+  <p>Status: Active</p>
+  <p><%= link_to "Retire Accessory", admin_accessory_path(active, :accessory => {:role => 1}), method: "put" %></p>
 <% end %>

@@ -1,3 +1,5 @@
-Active Accessories: <%= render partial: "active" if !@active_accessories.empty? %>
+<section class="welcome-about">
+  <h1>Active Accessories:</h1> <%= render partial: "active" if !@active_accessories.empty? %>
 
-Inactive Accessories: <%= render partial: "inactive" if !@inactive_accessories.empty? %>
+  <h1>Inactive Accessories:</h1> <%= render partial: "inactive" if !@inactive_accessories.empty? %>
+</section>
