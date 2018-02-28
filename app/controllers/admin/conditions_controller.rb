@@ -19,7 +19,7 @@ class Admin::ConditionsController < Admin::BaseController
   end
 
   def update
-    if @condition = Condition.update(condition_params)
+    if @condition.update(condition_params)
       flash[:notice] = "Condition updated"
       redirect_to condition_path(@condition)
     else
