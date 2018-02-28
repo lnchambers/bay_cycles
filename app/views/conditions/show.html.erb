@@ -1,5 +1,6 @@
 <section class="trips-dashboard-analytics">
   <section class="trips-dashboard-value">
+    <h2>
     Date: <%= @condition.date %><br>
     Max Temperature: <%= @condition.max_temperature %><br>
     Mean Temperature: <%= @condition.mean_temperature %><br>
@@ -10,5 +11,6 @@
     Precipitation: <%= @condition.precipitation %> inches <br>
     <%= link_to "Edit", edit_admin_condition_path(@condition) if current_admin? %> <br>
     <%= link_to "Delete", admin_condition_path(@condition), method: "delete" if current_admin? %> <br>
+    </h2>
   </section>
 </section>

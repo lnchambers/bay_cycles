@@ -135,6 +135,27 @@ a:active {
   align-items: center;
 }
 
+.admin-links {
+  width: 30%;
+  height: 100%;
+  font-size: 15pt;
+  display: flex;
+  justify-content: center;
+  background: $dark-transparent;
+}
+
+.admin-links a {
+  color: $sky-blue
+}
+
+.admin-links a:hover {
+  color: $off-white
+}
+
+.admin-links a:active {
+  color: $blue-grey
+}
+
 .welcome-header-logged-in {
   background: linear-gradient($light-transparent, $dark-transparent);
   width: 100%;
@@ -186,6 +207,7 @@ a:active {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  width: 400px;
 }
 
 .trips-dashboard-value {

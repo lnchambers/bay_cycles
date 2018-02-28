@@ -54,18 +54,17 @@
       Number of Rides: <%= @trips.least_popular_ride_date.count %>
     </h2>
   </section>
-  <section class="trips-dashboard-value">
-    <h2>Monthly Breakdown of Number of Rides:</h2>
+  <section class="trips-dashboard-weather">
+    <h2>Monthly Breakdown of Number of Rides: <br>
     <% @trips.monthly_breakdown_of_rides.each_pair do |month, count| %>
-    <h2>
       <%= month.strftime("%B") %>:
       <%= count %> rides
-    </h2>
+      <br>
     <% end %>
+    </h2>
   </section>
   <section class="trips-dashboard-value">
     <section class="trips-dashboard-weather">
-      <section class="trips-dashboard-weather-most-popular">
         <h2>Weather on Most Popular Ride Day:</h2>
         <section class="trips-dashboard-weather-most-popular-states">
           <h3>Mean Temperature: <%= @conditions.weather_on_most_popular_day.mean_temperature %>°F</h3>

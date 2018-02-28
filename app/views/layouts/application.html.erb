@@ -21,6 +21,9 @@
           <div class="welcome-links"><%= link_to "Weather Conditions", conditions_path %></div>
           <div class="welcome-links"><%= link_to "Give Us Your Money", bike_shop_path %></div>
         </section>
+        <section class="welcome-header-nav">
+          <%= render partial: "layouts/admin_nav" if current_admin? %>
+        </section>
       <% if current_user %>
         <section class="welcome-header-logged-in">
           <h3>Logged in as <%= current_user.name %></h3>

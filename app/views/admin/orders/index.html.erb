@@ -1,0 +1,7 @@
+<% @orders.each do |order| %>
+  <%= order.purchaser_name %>
+  <%= order.purchaser_address %>
+  <%= order.status %>
+  <%= order.user_id %>
+  <%= order.created_at %>
+<% end %>
