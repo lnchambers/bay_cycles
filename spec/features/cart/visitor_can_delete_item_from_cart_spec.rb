@@ -10,12 +10,8 @@ describe "As a visitor" do
     describe "I click link Remove next to an accessory" do
       it "I do not see my accessory listed in my cart." do
         visit bike_shop_path
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Add to Cart"
-        end
-        within ".accessory#{@accessory_2.id}" do
-          click_on "Add to Cart"
-        end
+        first(".accessory-card").click_on "Add to Cart"
+        all(".accessory-card").last.click_on "Add to Cart"
         visit carts_path
 
         expect(page).to have_content("Accessory: Big Hoops")
@@ -32,12 +28,8 @@ describe "As a visitor" do
 
       it "I see a flash message telling me I have successfully removed item." do
         visit bike_shop_path
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Add to Cart"
-        end
-        within ".accessory#{@accessory_2.id}" do
-          click_on "Add to Cart"
-        end
+        first(".accessory-card").click_on "Add to Cart"
+        all(".accessory-card").last.click_on "Add to Cart"
         visit carts_path
         within ".accessory#{@accessory_1.id}" do
           click_on "Remove"
@@ -48,12 +40,8 @@ describe "As a visitor" do
 
       it "I can click undo on the flash message and item will be added back into my cart" do
         visit bike_shop_path
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Add to Cart"
-        end
-        within ".accessory#{@accessory_2.id}" do
-          click_on "Add to Cart"
-        end
+        first(".accessory-card").click_on "Add to Cart"
+        all(".accessory-card").last.click_on "Add to Cart"
         visit carts_path
         within ".accessory#{@accessory_1.id}" do
           click_on "Remove"
@@ -69,15 +57,9 @@ describe "As a visitor" do
     describe "I decrease the quanity of an item" do
       it "I see the item's quantity go down" do
         visit bike_shop_path
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Add to Cart"
-        end
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Add to Cart"
-        end
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Add to Cart"
-        end
+        first(".accessory-card").click_on "Add to Cart"
+        first(".accessory-card").click_on "Add to Cart"
+        first(".accessory-card").click_on "Add to Cart"
         visit carts_path
 
         expect(page).to have_content("Cart(3)")
@@ -96,15 +78,9 @@ describe "As a visitor" do
     describe "I decrease the quanity of an item to 1" do
       it "I don't see the decrease button anymore" do
         visit bike_shop_path
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Add to Cart"
-        end
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Add to Cart"
-        end
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Add to Cart"
-        end
+        first(".accessory-card").click_on "Add to Cart"
+        first(".accessory-card").click_on "Add to Cart"
+        first(".accessory-card").click_on "Add to Cart"
         visit carts_path
         click_on "Decrease Quantity"
 
