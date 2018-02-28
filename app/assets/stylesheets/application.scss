@@ -141,6 +141,19 @@ a:active {
   font-size: 15pt;
   display: flex;
   justify-content: center;
+  background: $dark-transparent;
+}
+
+.admin-links a {
+  color: $sky-blue
+}
+
+.admin-links a:hover {
+  color: $off-white
+}
+
+.admin-links a:active {
+  color: $blue-grey
 }
 
 .welcome-header-logged-in {
