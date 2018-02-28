@@ -5,14 +5,12 @@
 <section class="trips-dashboard-analytics">
     <% @stations.each do |station| %>
       <section class="trips-dashboard-value">
-        <h2>
-          Name: <%= link_to station.name, station_path(station) %><br>
-          Dock Count: <%= station.dock_count %><br>
-          City: <%= station.city %><br>
-          Installation Date: <%= station.installation_date %>
-          <%= link_to "Edit", edit_admin_station_path(station) if current_admin? %>
-          <%= link_to "Delete", admin_station_path(station), method: "delete" if current_admin? %>
-        </h2>
+        <h3><%= link_to station.name, station_path(station) %></h3>
+        Dock Count: <%= station.dock_count %><br>
+        City: <%= station.city %><br>
+        Installation Date: <%= station.installation_date %>
+        <%= link_to "Edit", edit_admin_station_path(station) if current_admin? %>
+        <%= link_to "Delete", admin_station_path(station), method: "delete" if current_admin? %>
       </section>
     <% end %>
 </section>
