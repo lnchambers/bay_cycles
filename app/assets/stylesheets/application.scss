@@ -177,16 +177,17 @@ a:active {
 
 .trips-dashboard-analytics {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 }
 
 .trips-dashboard-value {
   display: flex;
   margin: 8px;
-  flex-direction: column;
 
-    h2, h3 {
+    h2 {
       background-color: $sky-blue;
       color: $dark-blue;
       border: $dark-blue 2px solid;
@@ -279,4 +280,42 @@ a:active {
   width: 200px;
   height: 200px;
   top: 0px;
+}
+
+.paginate {
+  text-align: center;
+}
+
+.button {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 20px;
+
+  a {
+  background-color: $pastel-orange;
+  color: $dark-blue;
+  border: 3px solid $dark-blue;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  }
+
+  a:hover {
+    background-color: $dark-blue;
+    color: $off-white;
+  }
+
+  a:active {
+    background-color: $dark-blue;
+    color: $pastel-orange;
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+
+  .form-input {
+    padding: 5px;
+  }
 }

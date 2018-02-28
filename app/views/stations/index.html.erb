@@ -1,4 +1,7 @@
-<h3><%= link_to "Create New Station", new_admin_station_path if current_admin? %></h3>
+<br>
+<section class="button">
+  <h3><%= link_to "Create New Station", new_admin_station_path if current_admin? %></h3>
+</section>
 <section class="trips-dashboard-analytics">
     <% @stations.each do |station| %>
       <section class="trips-dashboard-value">
