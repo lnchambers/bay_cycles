@@ -8,7 +8,7 @@ describe "As a Visitor" do
     it "I see all station's names" do
       visit stations_path
 
-      expect(page).to have_content("Name: #{@station.name}")
+      expect(page).to have_content("#{@station.name}")
     end
 
     it "I see all station's dock counts" do

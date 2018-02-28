@@ -10,7 +10,7 @@ describe "As an Admin" do
     it "I can see everything a visitor can see" do
       visit stations_path
 
-      expect(page).to have_content("Name: #{@station.name}")
+      expect(page).to have_content("#{@station.name}")
       expect(page).to have_content("Dock Count: #{@station.dock_count}")
       expect(page).to have_content("City: #{@station.city}")
       expect(page).to have_content("Installation Date: #{@station.installation_date}")

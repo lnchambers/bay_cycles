@@ -299,7 +299,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 3px solid $pastel-orange;
+  border: 3px solid $lowpulp-orange;
   height: 300px;
   width: 200px;
   font-style: oblique;
@@ -324,7 +324,7 @@ a:hover {
   margin-top: 20px;
 
   a {
-  background-color: $pastel-orange;
+  background-color: $lowpulp-orange;
   color: $dark-blue;
   border: 3px solid $dark-blue;
   padding: 10px;
@@ -339,7 +339,7 @@ a:hover {
 
   a:active {
     background-color: $dark-blue;
-    color: $pastel-orange;
+    color: $lowpulp-orange;
   }
 }
 
