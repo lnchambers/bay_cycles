@@ -1,0 +1,11 @@
+<%= @order.purchaser_name %>
+<%= @order.purchaser_address %>
+<% @order.accessories.each do |accessory| %>
+  <%= link_to accessory.name, admin_accessory_path(accessory) %>
+  Quantity: <%= accessory.total_quantity %>
+  Subtotal: <%= number_to_currency(accessory.price * accessory.total_quantity) %>
+<% end %>
+Total Cost: <%= number_to_currency(@order.total_cost) %>
+Status: <%= @order.status %>
+Order submitted on <%= @order.created_at %>
+<%= render partial: "update" if @order.status == "Completed" || @order.status == "Cancelled" %>
