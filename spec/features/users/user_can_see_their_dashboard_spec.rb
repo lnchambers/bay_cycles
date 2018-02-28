@@ -34,5 +34,9 @@ describe "As a registered User" do
     it "I can see the order status" do
       expect(page).to have_content("Status: Ordered")
     end
+
+    it "I can see the time the order was submitted" do
+      expect(page).to have_content("Order submitted on #{@order.created_at}")
+    end
   end
 end
