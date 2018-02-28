@@ -3,7 +3,7 @@
   <%= image_tag accessory.image.url %>
   <center><p><%= link_to accessory.name, bike_shop_accessory_path(accessory) %></p>
   <%= accessory.description %>
-  <%= accessory.price %>
+  <%= number_to_currency(accessory.price) %>
     <%= button_to "Add to Cart", cart_index_path(accessory: accessory.id) %></center>
   </div>
 <% end %>
