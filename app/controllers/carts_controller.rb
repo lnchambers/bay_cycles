@@ -5,7 +5,7 @@ class CartsController < ApplicationController
     @cart = Cart.new(session[:cart])
     @cart.add_accessory(params[:accessory])
     session[:cart] = @cart.contents
-    flash[:notice] = "Successfully added #{@accessory.name}"
+    flash[:notice] = %Q(Successfully added #{view_context.link_to(@accessory.name, bike_shop_accessory_path(@accessory))} to your #{view_context.link_to("cart", carts_path)})
     if params[:previous_page] == "cart_page"
       redirect_to carts_path
     else

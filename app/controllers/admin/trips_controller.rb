@@ -49,10 +49,5 @@ class Admin::TripsController < Admin::BaseController
     def find_condition_id(start_date)
       date = start_date.to_datetime.strftime("%m-%d-%Y")
       Condition.find_by(date: date)
-      # if condition == nil
-      #   nil
-      # else
-      #   condition.id
-      # end
     end
 end
