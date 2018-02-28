@@ -1,4 +1,16 @@
-Logged in as <%= @user.name %>
-Current Email: <%= @user.email %>
+Logged in as <%= current_user.name %>
+Current Email: <%= current_user.email %>
 <%= link_to "Logout", logout_path, method: "destroy" if current_user %>
-See something that doesn't look right? <%= link_to "Edit Profile", edit_user_path(@user) %>
+See something that doesn't look right? <%= link_to "Edit Profile", edit_user_path(current_user) %>
+<%= link_to "View Accessories", admin_bike_shop_path %>
+
+<% @orders.each do |order| %>
+  Order #<%= order.id %>
+<% end %>
+
+<%= link_to "Ordered", admin_dashboard_path(:status => "Ordered") %>: <%= @orders.ordered.count %>
+<%= link_to "Cancelled", admin_dashboard_path(:status => "Cancelled") %>: <%= @orders.cancelled.count %>
+<%= link_to "Paid", admin_dashboard_path(:status => "Paid") %>: <%= @orders.paid.count %>
+<%= link_to "Completed", admin_dashboard_path(:status => "Completed") %>: <%= @orders.completed.count %>
+
+<%= render partial: "status" if !@status_orders.empty? %>

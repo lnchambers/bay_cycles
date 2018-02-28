@@ -1,62 +1,80 @@
-<section class="trips-dashboard-header">
+<section class="dashboard-header">
   <h1>Trips Dashboard</h1>
 </section>
 
 <section class="trips-dashboard-analytics">
   <section class="trips-dashboard-value">
-    <h2>Average Length of Ride:</h2>
-    <h3><%= @trips.average_duration %> minutes</h3>
+    <h2>Average Length of Ride: <%= @trips.average_duration %> minutes</h2>
   </section>
   <section class="trips-dashboard-value">
-    <h2>Shortest Ride:</h2>
-    <h3> <%= @trips.shortest_ride %> minutes </h3>
+    <h2>Shortest Ride: <%= @trips.shortest_ride %> minutes</h2>
   </section>
   <section class="trips-dashboard-value">
-    <h2>Longest Ride:</h2>
-    <h3> <%= @trips.longest_ride %> minutes </h3>
+    <h2>Longest Ride: <%= @trips.longest_ride %> minutes</h2>
   </section>
   <section class="trips-dashboard-value">
-    <h2>Most Popular Start Station:</h2>
-    <h3> <%= Station.find(@trips.start_station_most_rides.start_station_id).name %> </h3>
+    <h2>Most Popular Start Station: <%= Station.find(@trips.start_station_most_rides.start_station_id).name %></h2>
   </section>
   <section class="trips-dashboard-value">
-    <h2>Most Popular End Station:</h2>
-    <h3> <%= Station.find(@trips.end_station_most_rides.end_station_id).name %> </h3>
+    <h2>Most Popular End Station: <%= Station.find(@trips.end_station_most_rides.end_station_id).name %></h2>
   </section>
   <section class="trips-dashboard-value">
-    <h2>Most ridden bike:</h2>
-    <h3> ID #<%= @trips.most_ridden_bike.bike_id %> </h3>
-    <h2>Number of rides:</h3>
-    <h3> <%= @trips.most_ridden_bike.count %> </h3>
+    <h2>
+      Most ridden bike:  ID # <%= @trips.most_ridden_bike.bike_id %><br>
+      Number of rides: <%= @trips.most_ridden_bike.count %>
+    </h2>
   </section>
   <section class="trips-dashboard-value">
-    <h2>Least ridden bike:</h2>
-    <h3> ID #<%= @trips.least_ridden_bike.bike_id %> </h3>
-    <h2>Number of rides:</h3>
-    <h3> <%= @trips.least_ridden_bike.count %> </h3>
+    <h2>
+      Least ridden bike:  ID # <%= @trips.least_ridden_bike.bike_id %><br>
+      Number of rides: <%= @trips.least_ridden_bike.count %>
+    </h2>
   </section>
   <section class="trips-dashboard-value">
-    <h2>Total Subscribers:</h3>
-      <h3> <%= @trips.subscription_type_breakout.first.count %> </h3>
-    <h2>Percentage of Subscribers:</h2>
-    <h3> <%= @trips.subscription_type_percentage_first %>% </h3>
+    <h2>
+      Total Subscribers: <%= @trips.subscription_type_breakout.first.count %><br>
+      Percentage of Subscribers: <%= @trips.subscription_type_percentage_first %>
+    </h2>
   </section>
   <section class="trips-dashboard-value">
-    <h2>Total Customers:</h3>
-      <h3> <%= @trips.subscription_type_breakout.last.count %> </h3>
-    <h2>Percentage of Customers:</h2>
-    <h3> <%= @trips.subscription_type_percentage_last %>% </h3>
+    <h2>
+      Total Customers: <%= @trips.subscription_type_breakout.last.count %><br>
+      Percentage of Customers: <%= @trips.subscription_type_percentage_last %>
+    </h2>
   </section>
   <section class="trips-dashboard-value">
-    <h2>Most Popular Day to Ride:</h3>
-      <h3> <%= @trips.most_popular_ride_date.start_date.to_date.to_s %> </h3>
-    <h2>Number of Rides:</h2>
-    <h3> <%= @trips.most_popular_ride_date.count %> </h3>
+    <h2>
+      Most Popular Day to Ride: <%= @trips.most_popular_ride_date.start_date.to_date.to_s %><br>
+      Number of Rides: <%= @trips.most_popular_ride_date.count %>
+    </h2>
   </section>
   <section class="trips-dashboard-value">
-    <h2>Least Popular Day to Ride:</h3>
-      <h3> <%= @trips.least_popular_ride_date.start_date.to_date.to_s %> </h3>
-    <h2>Number of Rides:</h2>
-    <h3> <%= @trips.least_popular_ride_date.count %> </h3>
+    <h2>
+      Least Popular Day to Ride: <%= @trips.least_popular_ride_date.start_date.to_date.to_s %><br>
+      Number of Rides: <%= @trips.least_popular_ride_date.count %>
+    </h2>
+  </section>
+  <section class="trips-dashboard-value">
+    <h2>Monthly Breakdown of Number of Rides:</h2>
+    <% @trips.monthly_breakdown_of_rides.each_pair do |month, count| %>
+    <h2>
+      <%= month.strftime("%B") %>:
+      <%= count %> rides
+    </h2>
+    <% end %>
+  </section>
+  <section class="trips-dashboard-value">
+    <section class="trips-dashboard-weather">
+      <section class="trips-dashboard-weather-most-popular">
+        <h2>Weather on Most Popular Ride Day:</h2>
+        <section class="trips-dashboard-weather-most-popular-states">
+          <h3>Mean Temperature: <%= @conditions.weather_on_most_popular_day.mean_temperature %>°F</h3>
+          <h3>Mean Humidity: <%= @conditions.weather_on_most_popular_day.mean_humidity %>%</h3>
+          <h3>Mean Visibility: <%= @conditions.weather_on_most_popular_day.mean_visibility %> miles</h3>
+          <h3>Mean Wind Speed: <%= @conditions.weather_on_most_popular_day.mean_wind_speed %> mph</h3>
+          <h3>Precipitation: <%= @conditions.weather_on_most_popular_day.precipitation %> inches</h3>
+        </section>
+      </section>
+    </section>
   </section>
 </section>

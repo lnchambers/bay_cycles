@@ -13,23 +13,29 @@
     <section class="welcome-container">
       <section class="welcome-header">
         <section class="welcome-header-title">
-          <h1>Bay Cycles</h1>
+          <h1><%= link_to "Bay Cycles", root_path %></h1>
         </section>
         <section class="welcome-header-nav">
           <div class="welcome-links"><%= link_to "Stations", stations_path %></div>
           <div class="welcome-links"><%= link_to "Trips", trips_path %></div>
           <div class="welcome-links"><%= link_to "Weather Conditions", conditions_path %></div>
-          <%= render partial: "login" if !current_user %>
-          <%= render partial: "logout" if current_user %>
+          <div class="welcome-links"><%= link_to "Give Us Your Money", bike_shop_path %></div>
         </section>
+        <% if current_user %>
+          <section class="welcome-header-logged-in">
+            <h3>Logged in as <%= current_user.name %></h3>
+          </section>
+        <% end %>
       </section>
     </section>
-    <%= link_to "Cart(#{@cart.total_count})", carts_path%>
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice].html_safe %></div>
     <% end %>
     <%= yield %>
     <footer class="footer">
+      <%= render partial: "login" if !current_user %>
+      <%= render partial: "logout" if current_user %>
+      <%= link_to "Cart(#{@cart.total_count})", cart_index_path%>
       <h2>Made with <%= made_with_adjective.sample %> <%= made_with_nouns.sample %> By <%= link_to "Luis Senior", "https://github.com/Heybluguy" %>, <%= link_to "Ellen Cornelius", "https://github.com/corneliusellen" %>, and <%= link_to "Luke Chambers", "https://github.com/lnchambers" %></h2>
     </footer>
   </body>

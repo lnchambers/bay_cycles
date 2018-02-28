@@ -32,23 +32,6 @@ FastestCSV.open(station_file) do |csv|
   end
 end
 
-FastestCSV.open(twip_file) do |csv|
-  csv.shift
-  while values = csv.shift
-    twip = Trip.create!(
-      duration: values[1],
-      start_date: Date.strptime(values[2], '%m/%d/%y'),
-      end_date: Date.strptime(values[5], '%m/%d/%y'),
-      bike_id: values[8],
-      subscription_type: values[9],
-      zip_code: zip_code_cleaner(values[10]),
-      start_station_id: values[4],
-      end_station_id: values[7]
-    )
-    puts "Twip ##{twip.id} created"
-  end
-end
-
 FastestCSV.open(weather_file) do |csv|
   csv.shift
   while values = csv.shift
@@ -63,6 +46,24 @@ FastestCSV.open(weather_file) do |csv|
       precipitation: values[19] || 0
     )
     puts "Condition ##{condition.id} created"
+  end
+end
+
+FastestCSV.open(twip_file) do |csv|
+  csv.shift
+  while values = csv.shift
+    twip = Trip.create!(
+      duration: values[1],
+      start_date: Date.strptime(values[2], '%m/%d/%y'),
+      end_date: Date.strptime(values[5], '%m/%d/%y'),
+      bike_id: values[8],
+      subscription_type: values[9],
+      zip_code: zip_code_cleaner(values[10]),
+      start_station_id: values[4],
+      end_station_id: values[7],
+      condition_id: values[-1]
+    )
+    puts "Twip ##{twip.id} created"
   end
 end
 end_time = Time.now

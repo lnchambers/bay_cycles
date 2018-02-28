@@ -1,7 +1,13 @@
-Name: <%= @station.name %>
-Dock Count: <%= @station.dock_count %>
-City: <%= @station.city %>
-Installation Date: <%= @station.installation_date %>
-<%= render partial: "analytics" if current_user && has_trips? %>
-<%= link_to "Edit", edit_admin_station_path(@station) if current_admin? %>
-<%= link_to "Delete", admin_station_path(@station), method: "delete" if current_admin? %>
+<section class="stations-dashboard-analytics">
+  <section class="stations-dashboard-value">
+    <h2>
+      Name: <%= @station.name %><br>
+      Dock Count: <%= @station.dock_count %><br>
+      City: <%= @station.city %><br>
+      Installation Date: <%= @station.installation_date %><br>
+      <%= render partial: "analytics" if current_user && has_trips? %><br>
+      <%= link_to "Edit", edit_admin_station_path(@station) if current_admin? %><br>
+      <%= link_to "Delete", admin_station_path(@station), method: "delete" if current_admin? %><br>
+    </h2>
+  </section>
+</section>

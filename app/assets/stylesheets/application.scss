@@ -30,11 +30,11 @@ body {
 
 a {
   text-decoration: none;
-  color: $sky-blue;
+  color: $pastel-orange;
 }
 
 a:hover {
-  color: $pastel-orange;
+  color: $dark-blue;
 }
 
 a:active {
@@ -69,7 +69,7 @@ a:active {
   background-image: image-url('welcome-header.jpeg');
   background-position: center;
   background-size: cover;
-  height: 110px;
+  height: 140px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -87,6 +87,8 @@ a:active {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 10px;
+  padding-top: 5px;
 }
 
 .welcome-header-title h1 {
@@ -123,6 +125,16 @@ a:active {
   align-items: center;
 }
 
+.welcome-header-logged-in {
+  background: linear-gradient($light-transparent, $dark-transparent);
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $pastel-orange
+}
+
 .welcome-container-main {
   background: image-url('welcome-background.jpeg');
   background-position: center;
@@ -146,7 +158,7 @@ a:active {
   align-items: center;
 }
 
-.trips-dashboard-header {
+.dashboard-header {
   font-size: 30px;
   display: flex;
   justify-content: center;
@@ -162,12 +174,67 @@ a:active {
 .trips-dashboard-value {
   display: flex;
   margin: 8px;
+  flex-direction: column;
 
     h2, h3 {
+      background-color: $sky-blue;
+      color: $dark-blue;
+      border: $dark-blue 2px solid;
+      padding: 20px;
+      margin: 2px;
+      text-align: center;
+    }
+}
+
+.stations-dashboard-header {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.stations-dashboard-analytics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stations-dashboard-value {
+  display: flex;
+  margin: 8px;
+
+    h2, h3 {
+      background-color: $sky-blue;
+      color: $dark-blue;
+      border: $dark-blue 2px solid;
+      padding: 20px;
+      margin: 2px;
+    }
+}
+
+.weather-dashboard-analytics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-dashboard-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px;
+
+    th, tr {
       background-color: $pastel-orange;
       color: $dark-blue;
       border: $dark-blue 2px solid;
       padding: 20px;
       margin: 2px;
     }
+}
+
+.weather-dashboard-analytics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

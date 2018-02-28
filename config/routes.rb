@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get "/trips-dashboard", :to => "trips_dashboard#index"
 
+  get "/weather-dashboard", :to => "weather_dashboard#index"
+
   get "/dashboard", :to => "users#show"
 
   get "/login", to: "sessions#new"
@@ -27,6 +29,10 @@ Rails.application.routes.draw do
     resources :trips, except: [:index, :show]
     resources :stations, except: [:index, :show]
     resources :conditions, except: [:index, :show]
+    get "bike-shop", :to => "bike_shop#index"
+    get "bike-shop/new", :to => "accessories#new"
+    resources :accessories, only: [:edit, :update, :create, :show]
+    resources :orders, only: [:update, :edit, :index, :show]
   end
 
   get "/bike-shop", :to => "bike_shop/accessories#index"
@@ -35,5 +41,7 @@ Rails.application.routes.draw do
     resources :accessories, except: [:index]
   end
 
-  resources :carts, only: [:create, :index, :destroy]
+  resources :cart, only: [:create, :index, :destroy]
+
+  resources :orders, only: [:create, :new, :show, :update]
 end

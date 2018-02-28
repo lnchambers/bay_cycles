@@ -4,4 +4,8 @@ class BikeShop::AccessoriesController < BikeShop::BaseController
     @accessories = Accessory.all
   end
 
+  def show
+    @accessory = Accessory.find(params[:id])
+  end
+
 end

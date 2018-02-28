@@ -3,8 +3,6 @@ require 'rails_helper'
 describe 'As an admin' do
   describe 'when I visit the edit condition path' do
     it 'I see a form to update a condition' do
-      @station = create(:station)
-      @trip = create(:trip)
       @condition = create(:condition)
       @admin = create(:admin)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)

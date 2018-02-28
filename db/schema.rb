@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222001946) do
+ActiveRecord::Schema.define(version: 20180227210956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20180222001946) do
     t.integer "mean_humidity"
     t.integer "mean_visibility"
     t.integer "mean_wind_speed"
-    t.integer "precipitation"
+    t.decimal "precipitation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,6 +51,24 @@ ActiveRecord::Schema.define(version: 20180222001946) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "ordered_accessories", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "accessory_id"
+    t.integer "quantity"
+    t.index ["accessory_id"], name: "index_ordered_accessories_on_accessory_id"
+    t.index ["order_id"], name: "index_ordered_accessories_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.text "purchaser_name"
+    t.text "purchaser_address"
+    t.text "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "stations", force: :cascade do |t|
@@ -72,6 +90,8 @@ ActiveRecord::Schema.define(version: 20180222001946) do
     t.datetime "updated_at", null: false
     t.integer "start_station_id"
     t.integer "end_station_id"
+    t.bigint "condition_id"
+    t.index ["condition_id"], name: "index_trips_on_condition_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -84,4 +104,7 @@ ActiveRecord::Schema.define(version: 20180222001946) do
     t.string "slug"
   end
 
+  add_foreign_key "ordered_accessories", "accessories"
+  add_foreign_key "ordered_accessories", "orders"
+  add_foreign_key "orders", "users"
 end

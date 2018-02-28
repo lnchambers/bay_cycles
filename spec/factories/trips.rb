@@ -8,6 +8,7 @@ FactoryBot.define do
     zip_code 1
     start_station_id 1
     end_station_id 1
+    condition
 
     sequence(:duration) {|n| n }
   end
