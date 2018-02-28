@@ -1,9 +1,9 @@
 <% @accessories.each do |accessory| %>
-<div class= "accessory<%= accessory.id %>">
+<div class="accessory-card">
   <%= image_tag accessory.image.url %>
-  <%= link_to accessory.name, bike_shop_accessory_path(accessory) %>
+  <center><p><%= link_to accessory.name, bike_shop_accessory_path(accessory) %></p>
   <%= accessory.description %>
   <%= accessory.price %>
-    <%= button_to "Add to Cart", cart_index_path(accessory: accessory.id) %>
+    <%= button_to "Add to Cart", carts_path(accessory: accessory.id) %></center>
   </div>
 <% end %>

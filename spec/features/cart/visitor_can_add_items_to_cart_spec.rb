@@ -10,9 +10,7 @@ describe "As a Visitor" do
     it "I can click add to cart for an item" do
       visit bike_shop_path
 
-      within ".accessory#{@accessory_1.id}" do
-        click_on "Add to Cart"
-      end
+      first(".accessory-card").click_on "Add to Cart"
 
       expect(current_path).to eq(bike_shop_path)
       expect(page).to have_content("Successfully added Big Hoops")
@@ -21,15 +19,11 @@ describe "As a Visitor" do
     it "my cart count has increased to 1" do
       visit bike_shop_path
 
-      within ".accessory#{@accessory_1.id}" do
-        click_on "Add to Cart"
-      end
+      first(".accessory-card").click_on "Add to Cart"
 
       expect(page).to have_content("Cart(1)")
 
-      within ".accessory#{@accessory_1.id}" do
-        click_on "Add to Cart"
-      end
+      first(".accessory-card").click_on "Add to Cart"
 
       expect(page).to have_content("Cart(2)")
     end
@@ -37,12 +31,10 @@ describe "As a Visitor" do
     it "my cart count has increased to 1" do
       visit bike_shop_path
 
-      within ".accessory#{@accessory_1.id}" do
-        click_on "Add to Cart"
-      end
+      first(".accessory-card").click_on "Add to Cart"
       click_on "Cart(1)"
 
-      expect(current_path).to eq(cart_index_path)
+      expect(current_path).to eq(carts_path)
       expect(page).to have_content(@accessory_1.name)
       expect(page).to have_content(@accessory_1.description)
       expect(page).to have_content("Price: $10,000")
@@ -55,10 +47,8 @@ describe "As a Visitor" do
     describe "I increase the quantity of an item" do
       it "I see item's quantity go up" do
         visit bike_shop_path
-        within ".accessory#{@accessory_1.id}" do
-          click_on "Add to Cart"
-        end
-        visit cart_index_path
+        first(".accessory-card").click_on "Add to Cart"
+        visit carts_path
 
         expect(page).to have_content("Cart(1)")
         expect(page).to have_content("Quantity: 1")
@@ -66,7 +56,7 @@ describe "As a Visitor" do
 
         click_on "Increase Quantity"
 
-        expect(current_path).to eq(cart_index_path)
+        expect(current_path).to eq(carts_path)
         expect(page).to have_content("Cart(2)")
         expect(page).to have_content("Quantity: 2")
         expect(page).to have_content("Subtotal: $20,000")
