@@ -26,5 +26,13 @@ describe "As a registered User" do
       expect(page).to have_content("Subtotal: $40,000")
       expect(page).to have_content("Subtotal: $20,000")
     end
+
+    it "I see the total for this order" do
+      expect(page).to have_content("Total Cost: $60,000")
+    end
+
+    it "I can see the order status" do
+      expect(page).to have_content("Status: Ordered")
+    end
   end
 end
