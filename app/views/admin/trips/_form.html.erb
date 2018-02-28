@@ -1,29 +1,39 @@
-<%= form_for [:admin, @trip] do |f|  %>
-
-  <%= f.label :duration %>
-  <%= f.number_field :duration %>
-
-  <%= f.label :start_date %>
-  <%= f.date_field :start_date %>
-
-  <%= f.label :start_station_id %>
-  <%= f.number_field :start_station_id %>
-
-  <%= f.label :end_date %>
-  <%= f.date_field :end_date %>
-
-  <%= f.label :end_station_id %>
-  <%= f.number_field :end_station_id %>
-
-  <%= f.label :bike_id %>
-  <%= f.number_field :bike_id %>
-
-  <%= f.label :subscription_type %>
-  <%= f.select :subscription_type, options_for_select(subscription_types) %>
-
-  <%= f.label :zip_code %>
-  <%= f.number_field :zip_code %>
-
-  <%= f.submit %>
-
-<% end %>
+<section class="form">
+  <%= form_for [:admin, @trip] do |f|  %>
+    <section class="form-input">
+      <%= f.label :duration %>
+      <%= f.number_field :duration %>
+      </section>
+      <section class="form-input">
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date %>
+    </section>
+    <section class="form-input">
+      <%= f.label :start_station_id %>
+      <%= f.number_field :start_station_id %>
+    </section>
+    <section class="form-input">
+      <%= f.label :end_date %>
+      <%= f.date_field :end_date %>
+    </section>
+    <section class="form-input">
+      <%= f.label :end_station_id %>
+      <%= f.number_field :end_station_id %>
+    </section>
+    <section class="form-input">
+      <%= f.label :bike_id %>
+      <%= f.number_field :bike_id %>
+    </section>
+    <section class="form-input">
+      <%= f.label :subscription_type %>
+      <%= f.select :subscription_type, options_for_select(subscription_types) %>
+    </section>
+    <section class="form-input">
+      <%= f.label :zip_code %>
+      <%= f.number_field :zip_code %>
+    </section>
+    <section class="form-input">
+      <%= f.submit %>
+  </section>
+  <% end %>
+</section>

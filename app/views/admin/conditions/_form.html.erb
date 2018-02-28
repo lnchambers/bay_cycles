@@ -1,27 +1,39 @@
-<%= form_for [:admin, @condition] do |f| %>
-  <%= f.label :date %>
-  <%= f.date_field :date %>
-
-  <%= f.label :max_temperature %>
-  <%= f.text_field :max_temperature %>
-
-  <%= f.label :mean_temperature %>
-  <%= f.text_field :mean_temperature %>
-
-  <%= f.label :min_temperature %>
-  <%= f.text_field :min_temperature %>
-
-  <%= f.label :mean_humidity %>
-  <%= f.text_field :mean_humidity %>
-
-  <%= f.label :mean_visibility %>
-  <%= f.text_field :mean_visibility %>
-
-  <%= f.label :mean_wind_speed %>
-  <%= f.text_field :mean_wind_speed %>
-
-  <%= f.label :precipitation %>
-  <%= f.text_field :precipitation %>
-
-  <%= f.submit %>
-<% end %>
+<section class="form">
+  <%= form_for [:admin, @condition] do |f| %>
+    <section class="form-input">
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+    </section>
+    <section class="form-input">
+      <%= f.label :max_temperature %>
+      <%= f.text_field :max_temperature %>
+    </section>
+    <section class="form-input">
+      <%= f.label :mean_temperature %>
+      <%= f.text_field :mean_temperature %>
+    </section>
+    <section class="form-input">
+      <%= f.label :min_temperature %>
+      <%= f.text_field :min_temperature %>
+    </section>
+    <section class="form-input">
+      <%= f.label :mean_humidity %>
+      <%= f.text_field :mean_humidity %>
+    </section>
+    <section class="form-input">
+      <%= f.label :mean_visibility %>
+      <%= f.text_field :mean_visibility %>
+    </section>
+    <section class="form-input">
+      <%= f.label :mean_wind_speed %>
+      <%= f.text_field :mean_wind_speed %>
+    </section>
+    <section class="form-input">
+      <%= f.label :precipitation %>
+      <%= f.text_field :precipitation %>
+    </section>
+    <section class="form-input">
+      <%= f.submit %>
+    </section>
+  <% end %>
+</section>

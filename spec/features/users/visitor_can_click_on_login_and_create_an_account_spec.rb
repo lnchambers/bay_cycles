@@ -14,7 +14,7 @@ describe "As a visitor" do
     it "I can click on create account" do
       visit login_path
 
-      click_on "Create Account"
+      first(".welcome-about").click_on "Create Account"
 
       expect(current_path).to eq(new_user_path)
     end
