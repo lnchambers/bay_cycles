@@ -309,3 +309,13 @@ a:active {
     background-color: $dark-blue;
     color: $pastel-orange;
   }
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+
+  .form-input {
+    padding: 5px;
+  }
+}
