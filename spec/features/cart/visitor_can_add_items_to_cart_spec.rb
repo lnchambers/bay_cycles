@@ -34,7 +34,7 @@ describe "As a Visitor" do
       first(".accessory-card").click_on "Add to Cart"
       click_on "Cart(1)"
 
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_index_path)
       expect(page).to have_content(@accessory_1.name)
       expect(page).to have_content(@accessory_1.description)
       expect(page).to have_content("Price: $10,000")
@@ -48,7 +48,7 @@ describe "As a Visitor" do
       it "I see item's quantity go up" do
         visit bike_shop_path
         first(".accessory-card").click_on "Add to Cart"
-        visit carts_path
+        visit cart_index_path
 
         expect(page).to have_content("Cart(1)")
         expect(page).to have_content("Quantity: 1")
@@ -56,7 +56,7 @@ describe "As a Visitor" do
 
         click_on "Increase Quantity"
 
-        expect(current_path).to eq(carts_path)
+        expect(current_path).to eq(cart_index_path)
         expect(page).to have_content("Cart(2)")
         expect(page).to have_content("Quantity: 2")
         expect(page).to have_content("Subtotal: $20,000")

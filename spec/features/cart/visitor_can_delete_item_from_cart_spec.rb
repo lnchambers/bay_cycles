@@ -12,7 +12,7 @@ describe "As a visitor" do
         visit bike_shop_path
         first(".accessory-card").click_on "Add to Cart"
         all(".accessory-card").last.click_on "Add to Cart"
-        visit carts_path
+        visit cart_index_path
 
         expect(page).to have_content("Accessory: Big Hoops")
         expect(page).to have_content("Accessory: Small Hoops")
@@ -21,7 +21,7 @@ describe "As a visitor" do
           click_on "Remove"
         end
 
-        expect(current_path).to eq(carts_path)
+        expect(current_path).to eq(cart_index_path)
         expect(page).to_not have_content("Accessory: Big Hoops")
         expect(page).to have_content("Accessory: Small Hoops")
       end
@@ -30,7 +30,7 @@ describe "As a visitor" do
         visit bike_shop_path
         first(".accessory-card").click_on "Add to Cart"
         all(".accessory-card").last.click_on "Add to Cart"
-        visit carts_path
+        visit cart_index_path
         within ".accessory#{@accessory_1.id}" do
           click_on "Remove"
         end
@@ -42,7 +42,7 @@ describe "As a visitor" do
         visit bike_shop_path
         first(".accessory-card").click_on "Add to Cart"
         all(".accessory-card").last.click_on "Add to Cart"
-        visit carts_path
+        visit cart_index_path
         within ".accessory#{@accessory_1.id}" do
           click_on "Remove"
         end
@@ -60,7 +60,7 @@ describe "As a visitor" do
         first(".accessory-card").click_on "Add to Cart"
         first(".accessory-card").click_on "Add to Cart"
         first(".accessory-card").click_on "Add to Cart"
-        visit carts_path
+        visit cart_index_path
 
         expect(page).to have_content("Cart(3)")
         expect(page).to have_content("Quantity: 3")
@@ -68,7 +68,7 @@ describe "As a visitor" do
 
         click_on "Decrease Quantity"
 
-        expect(current_path).to eq(carts_path)
+        expect(current_path).to eq(cart_index_path)
         expect(page).to have_content("Cart(2)")
         expect(page).to have_content("Quantity: 2")
         expect(page).to have_content("Subtotal: $20,000")
@@ -81,7 +81,7 @@ describe "As a visitor" do
         first(".accessory-card").click_on "Add to Cart"
         first(".accessory-card").click_on "Add to Cart"
         first(".accessory-card").click_on "Add to Cart"
-        visit carts_path
+        visit cart_index_path
         click_on "Decrease Quantity"
 
         expect(page).to have_button("Decrease Quantity")
