@@ -3,6 +3,9 @@
   <p>Current Email: <%= current_user.email %></p>
   See something that doesn't look right? <%= link_to "Edit Profile", edit_user_path(current_user) %>
   <%= link_to "View Accessories", admin_bike_shop_path %>
+  <%= link_to "Station Dashboard", stations_dashboard_path %>
+  <%= link_to "Trips Dashboard", trips_dashboard_path %>
+  <%= link_to "Weather Conditions Dashboard", weather_dashboard_path %>
 
   <% @orders.each do |order| %>
     Order #<%= link_to order.id, admin_order_path(order) %>
