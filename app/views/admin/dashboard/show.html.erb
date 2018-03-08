@@ -5,7 +5,7 @@
   <%= link_to "View Accessories", admin_bike_shop_path %>
 
   <% @orders.each do |order| %>
-    Order #<%= order.id %>
+    Order #<%= link_to order.id, admin_order_path(order) %>
   <% end %>
 
   <%= link_to "Ordered", admin_dashboard_path(:status => "Ordered") %>: <%= @orders.ordered.count %>
