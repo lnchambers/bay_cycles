@@ -9,6 +9,7 @@
   <%= f.label :price %>
   <%= f.number_field :price, min: 0 %>
 
+  <%= image_tag @accessory.image.url %>
   <%= f.file_field :image %>
 
   <%= f.submit %>
